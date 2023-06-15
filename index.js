@@ -144,7 +144,7 @@ function print(path, options, print) {
 
       console.log(node.children.map((x) => getKind(x)));
 
-      return print("children");
+      return indent(print("children"));
     }
     case "Divert": {
       return group(["-> ", print("target")]);
@@ -172,7 +172,7 @@ function print(path, options, print) {
     }
 
     case "Gather": {
-      return [new Array(node.indentationDepth).fill("- ").join(""), line];
+      return [line, new Array(node.indentationDepth).fill("- ").join("")];
     }
 
     case "Choice": {
@@ -188,7 +188,7 @@ function print(path, options, print) {
           print("innerContent"),
         ]),
 
-        indent(path.map(print, "children")),
+        path.map(print, "children"),
       ];
     }
 

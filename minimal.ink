@@ -26,12 +26,16 @@ hello world
 * out
 * one
 * * one point one
+*** one point one point one
+*** one point one point two
+--- gather alpha
 * * one point two
---
+-- gather beta
 * two
 * three
 * four
 * five
+- gather sigma
 /*
 this is your choice:
 * choice one [ if you ] dare
@@ -53,4 +57,4 @@ I will ask another question
 * yes, I say
 * no, I say
 */
-- -> DONE
+ -> DONE
