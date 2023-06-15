@@ -50,6 +50,11 @@ const parsers = {
 
     preprocess: (source) => {
       const annotated = source
+        .replace(/\/\*[^(\/\*]*\*\//m, (multiLineComment) => {
+          return `~ __littleBonsaiInternal_CommentMany = "${btoa(
+            multiLineComment
+          )}"`;
+        })
         .split("\n")
         .map((line) => {
           if (line.trim() === "") {
@@ -110,8 +115,13 @@ function print(path, options, print) {
     if (node.____ROOT) {
       return markAsRoot(print("____ROOT"));
     }
+
     if (Array.isArray(node)) {
-      return path.map(print);
+      if (node.length === 0) {
+        return [];
+      } else {
+        return path.map(print);
+      }
     }
 
     switch (getKind(node)) {
@@ -119,8 +129,7 @@ function print(path, options, print) {
         return [hardline, group(["TODO: ", node.warningMessage])];
       }
       case "ContentList": {
-        return node.content.map(print);
-        return path.map(print, "content");
+        return print("content");
       }
       case "Number": {
         return node.value + "";
@@ -194,7 +203,7 @@ function print(path, options, print) {
         return dedentToRoot([
           line,
           group([
-            "=== ",
+            "=== function ",
             print("identifier"),
             node.args ? ["(", join(", ", print("args")), ")"] : [],
           ]),
@@ -218,7 +227,7 @@ function print(path, options, print) {
       }
 
       case "UnaryExpression": {
-        return [node.opName, " ", print("innerExpression")];
+        return [node.opName || node.op, " ", print("innerExpression")];
       }
 
       case "BinaryExpression": {
@@ -323,9 +332,15 @@ function print(path, options, print) {
 
       case "variable assignment": {
         if (node.variableIdentifier.name === "__littleBonsaiInternal_Comment") {
+          return [hardline, group(["// ", atob(node.expression.toString())])];
+        }
+
+        if (
+          node.variableIdentifier.name === "__littleBonsaiInternal_CommentMany"
+        ) {
           return [
-            group([softline, group(["// ", atob(node.expression.toString())])]),
             hardline,
+            group([softline, atob(node.expression.toString())]),
           ];
         }
 
