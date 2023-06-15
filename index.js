@@ -165,17 +165,17 @@ function print(path, options, print) {
       }
 
       case "Conditional": {
-        return group([
+        return [
           softline,
-          "{",
-          line,
-          indent([
-            group([print("initialCondition"), ":", line]),
-            path.map(print, "branches"),
-          ]),
-          line,
-          "}",
-        ]);
+          indent(
+            group([
+              group(["{ ", print("initialCondition"), ":"]),
+              path.map(print, "branches"),
+              line,
+              "}",
+            ])
+          ),
+        ];
       }
 
       case "ConditionalSingleBranch": {
@@ -183,7 +183,7 @@ function print(path, options, print) {
           if (node.isInline) {
             return print("content");
           } else {
-            return [line, group([line, print("content")])];
+            return [line, print("content")];
           }
         }
 
@@ -191,10 +191,7 @@ function print(path, options, print) {
           if (node.isInline) {
             return ["|", print("content")];
           } else {
-            return dedent([
-              line,
-              group([softline, " - else: ", print("content")]),
-            ]);
+            return dedent(group([softline, " - else: ", print("content")]));
           }
         }
       }
@@ -300,7 +297,7 @@ function print(path, options, print) {
             new Array(node.indentationDepth).fill("  "),
             new Array(node.indentationDepth).fill("- ").join(""),
             node.identifier ? group(["(", print("identifier"), ") "]) : [],
-            path.map(print, "children"),
+            indent(path.map(print, "children")),
           ]),
         ]);
       }

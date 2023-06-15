@@ -44,6 +44,7 @@ VAR longgrasshooperframe = false
 
 // DEBUG mode adds a few shortcuts - remember to set to false in release!
 VAR DEBUG = false
+{DEBUG: hello freddie | hello world}
 {DEBUG:
 	IN DEBUG MODE!
 	*	[Beginning...]	-> start
