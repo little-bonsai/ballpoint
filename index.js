@@ -99,8 +99,7 @@ function print(path, options, print) {
   if (Array.isArray(node)) {
     return path.map(print);
   }
-
-  if (node === null) {
+  if (!node) {
     return [];
   }
 
@@ -143,7 +142,11 @@ function print(path, options, print) {
           }
         }
 
-        if (getKind(collector.children.at(-1)) === "Gather") {
+        if (
+          collector.children.at(-1) &&
+          getKind(collector.children.at(-1)) === "Gather" &&
+          collector.children.at(-1).children.length === 0
+        ) {
           collector.children.at(-1).children.push(child);
         } else {
           collector.children.push(child);
@@ -153,7 +156,7 @@ function print(path, options, print) {
       return indent(path.map(print, "children"));
     }
     case "Divert": {
-      return group(["-> ", print("target")]);
+      return group([line, "-> ", print("target")]);
     }
     case "Path": {
       return join(".", path.map(print, "components"));
@@ -183,8 +186,8 @@ function print(path, options, print) {
         line,
         group([
           new Array(node.indentationDepth).fill("  "),
-          new Array(node.indentationDepth).fill("-").join(" "),
-          node.identifier ? group([" (", print("identifier"), ")"]) : [],
+          new Array(node.indentationDepth).fill("- ").join(""),
+          node.identifier ? group(["(", print("identifier"), ") "]) : [],
           path.map(print, "children"),
         ]),
       ]);
@@ -197,8 +200,8 @@ function print(path, options, print) {
           group([
             new Array(node.indentationDepth).fill("  "),
             new Array(node.indentationDepth)
-              .fill(node.onceOnly ? "*" : "+")
-              .join(" "),
+              .fill(node.onceOnly ? "* " : "+ ")
+              .join(""),
 
             node.identifier ? group([" (", print("identifier"), ") "]) : [],
 
@@ -237,7 +240,7 @@ function print(path, options, print) {
       if (node.text === "\n") {
         return [];
       } else {
-        return [line, node.text];
+        return [softline, node.text];
       }
     }
 
