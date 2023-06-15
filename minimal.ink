@@ -1,13 +1,56 @@
+// Character variables. We track just two, using a +/- scale
+VAR forceful = 0
+CONST awesome = true
+TODO: some thing must be done
+
+/*
+{ DEBUG_INLINE : you are tester | hello production }
+{DEBUG_MULTI:
+	you are tester
+	- else :hello production
+}
+
+{DEBUG:
+	IN DEBUG MODE!
+	*	[Beginning...]	-> start
+	*	[Framing Hooper...] -> claim_hooper_took_component
+	*	[In with Hooper...] -> inside_hoopers_hut
+- else:
+	// First diversion: where do we begin?
+ -> start
+}
+*/
+
 === testStitch ===
 hello world
-* choice one [ if you ] dare
-	but will you?
-** yes
-** no
+* out
+* one
+* * one point one
+* * one point two
 --
+* two
+* three
+* four
+* five
+/*
+this is your choice:
+* choice one [ if you ] dare
+but will you?
+but will you?
+TODO: flesh out this choice
+* * yes
+wow, look at mr cool guy
++ + (dangerousChoice) no
+piss off ->          fightScene.rumble
+- - wow, alright, I'm super impressed
 * choice two
-	wow, bold move
+wow, bold move
 * choice three
-	what else?
+what else?
+- gather
+but now
+I will ask another question
+* yes, I say
+* no, I say
+*/
 - -> DONE
-

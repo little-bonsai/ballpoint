@@ -1,5 +1,26 @@
+const util = require("util");
+const {
+  builders: {
+    dedent,
+    dedentToRoot,
+    literalline,
+
+    group,
+    hardline,
+    indent,
+    join,
+    line,
+    markAsRoot,
+    softline,
+  },
+} = require("prettier").doc;
+
 const { InkParser } = require("inkjs/compiler/Parser/InkParser");
 const { StatementLevel } = require("inkjs/compiler/parser/StatementLevel");
+const {
+  Identifier,
+} = require("inkjs/compiler/Parser/ParsedHierarchy/Identifier");
+const { Path } = require("inkjs/compiler/Parser/ParsedHierarchy/Path");
 
 const languages = [
   {
@@ -25,176 +46,222 @@ const parsers = {
     parse,
     astFormat: "ink-ast",
     locStart,
+
+    preprocess: (source) => {
+      const annotated = source
+        .split("\n")
+        .map((line) => {
+          if (line.trim() === "") {
+            return "~ __littleBonsaiInternal_BlankLine = true";
+          }
+
+          if (line.trim().startsWith("//")) {
+            return `~ __littleBonsaiInternal_Comment = "${btoa(
+              line.trim().replace(/^\/\//, "").trim()
+            )}"`;
+          }
+
+          return line;
+        })
+        .join("\n");
+
+      return annotated;
+    },
   },
 };
 
-function preprocess(node, children) {
-  if (Array.isArray(node)) {
-    return node.map((x) => preprocess(x));
-  }
-
+function getKind(node) {
   try {
-    if (node.GetType() === "Knot") {
-      return {
-        kind: "Knot",
-        identifier: node.identifier.toString(),
-        content: node.content.map(preprocess),
-      };
+    return node.GetType();
+  } catch (_) {
+    if (node instanceof Identifier) {
+      return "Identifier";
     }
-
-    if (node.GetType() === "Weave") {
-      //console.log(node.content);
-
-      const content = node.content
-        .reduce(
-          ({ acc, isCollecting }, node) => {
-            if (node.GetType() === "Choice") {
-              return {
-                acc: [[node, []], ...acc],
-                isCollecting: true,
-              };
-            }
-
-            if (node.GetType() === "Gather") {
-              return {
-                acc: [[node], ...acc],
-                isCollecting: false,
-              };
-            }
-
-            if (isCollecting) {
-              const [[head, children], ...tail] = acc;
-              return {
-                acc: [[head, [...children, node]], ...tail],
-                isCollecting,
-              };
-            }
-
-            return {
-              acc: [[node], ...acc],
-              isCollecting,
-            };
-          },
-          { acc: [], isCollecting: false }
-        )
-        .acc.reverse();
-
-      return {
-        kind: "Weave",
-        content: content.map(([node, children]) => preprocess(node, children)),
-      };
+    if (node instanceof Path) {
+      return "Path";
     }
-
-    if (node.GetType() === "Text") {
-      return {
-        kind: "Text",
-        text: node.text,
-      };
-    }
-
-    if (node.GetType() === "Gather") {
-      return {
-        kind: "Gather",
-        depth: node.indentationDepth,
-      };
-    }
-
-    if (node.GetType() === "Divert") {
-      return {
-        kind: "Divert",
-        to: node.target.toString(),
-      };
-    }
-
-    if (node.GetType() === "Choice") {
-      //console.log(node);
-      return {
-        kind: "Choice",
-        depth: node.indentationDepth,
-        onceOnly: node.onceOnly,
-        children: (children || []).map(preprocess),
-        startContent: node.startContent.content.map(preprocess),
-        choiceOnlyContent: node.choiceOnlyContent
-          ? node.choiceOnlyContent.content.map(preprocess)
-          : null,
-        innerContent: node.innerContent.content.map(preprocess),
-      };
-    }
-  } catch (e) {
-    console.error(e);
+    console.log("unkind:", node);
+    return null;
   }
-
-  //console.log("preprocess", node);
-
-  return node;
 }
 
-function print(path, options, print) {
-  const {
-    builders: {
-      dedentToRoot,
-      dedent,
-      markAsRoot,
-      group,
-      indent,
-      join,
-      line,
-      softline,
-      hardline,
-    },
-  } = require("prettier").doc;
+function logNode(node, depth = 1) {
+  console.log(util.inspect(node, { showHidden: false, depth, colors: true }));
+}
 
+let errored = false;
+function print(path, options, print) {
   const node = path.getValue();
 
   if (Array.isArray(node)) {
-    return join(hardline, path.map(print));
+    return path.map(print);
   }
 
-  switch (node.kind) {
-    case "Knot": {
-      return markAsRoot([
-        `=== ${node.identifier} ===`,
-        hardline,
-        ...path.map(print, "content"),
-        hardline,
-      ]);
+  if (node === null) {
+    return [];
+  }
+
+  switch (getKind(node)) {
+    case "AuthorWarning": {
+      return [group(["TODO: ", node.warningMessage]), hardline];
+    }
+    case "ContentList": {
+      return path.map(print, "content");
+    }
+    case "Number": {
+      return node.value + "";
+    }
+    case "ref": {
+      return print("pathIdentifiers");
+    }
+    case "Identifier": {
+      return node.name;
+    }
+    case "Weave": {
+      let collector = node;
+      collector.children = [];
+
+      for (const child of node.content) {
+        if (getKind(child) === "Choice") {
+          collector = node;
+        }
+
+        if (getKind(child) === "Choice") {
+          collector.children.push(child);
+          collector = child;
+          collector.children = [];
+          continue;
+        }
+
+        if (getKind(child) === "Gather") {
+          if (collector !== node) {
+            collector = collector.parent;
+          }
+        }
+
+        collector.children.push(child);
+      }
+
+      console.log(node.children.map((x) => getKind(x)));
+
+      return print("children");
+    }
+    case "Divert": {
+      return group(["-> ", print("target")]);
+    }
+    case "Path": {
+      return path.map(print, "components");
     }
 
-    case "Weave": {
-      console.log(JSON.stringify(node, null, 2));
-      return path.map(print, "content");
+    case "Knot": {
+      return [
+        group(["=== ", print("identifier"), " ==="]),
+        [hardline, print("content")],
+      ];
+    }
+
+    case "Conditional": {
+      return [
+        "{",
+        indent([
+          group([print("initialCondition"), ":"]),
+          path.map(print, "branches"),
+        ]),
+        "}",
+      ];
+    }
+
+    case "Gather": {
+      return [new Array(node.indentationDepth).fill("- ").join(""), line];
+    }
+
+    case "Choice": {
+      return [
+        line,
+        group([
+          new Array(node.indentationDepth).fill("* ").join(""),
+
+          print("startContent"),
+          node.choiceOnlyContent
+            ? group(["[", print("choiceOnlyContent"), "]"])
+            : [],
+          print("innerContent"),
+        ]),
+
+        indent(path.map(print, "children")),
+      ];
+    }
+
+    case "ConditionalSingleBranch": {
+      if (node.isTrueBranch) {
+        if (node.isInline) {
+          return print("content");
+        } else {
+          return [line, print("content"), line];
+        }
+      }
+
+      if (node.isElse) {
+        if (node.isInline) {
+          return ["|", print("content")];
+        } else {
+          return ["- else: ", print("content"), hardline];
+        }
+      }
     }
 
     case "Text": {
-      if (node.text === "/n") {
-        return hardline;
+      if (node.text === "\n") {
+        return line;
       } else {
         return node.text;
       }
     }
 
-    case "Gather": {
-      return [new Array(node.depth).fill("- "), hardline];
+    case "variable assignment": {
+      if (node.variableIdentifier.name === "__littleBonsaiInternal_Comment") {
+        return [group(["// ", atob(node.expression.toString())]), hardline];
+      }
+
+      if (node.variableIdentifier.name === "__littleBonsaiInternal_BlankLine") {
+        return hardline;
+      }
     }
 
-    case "Divert": {
-      return node.to;
-    }
-
-    case "Choice": {
-      //console.log(node);
-
-      //group([new Array(node.depth).fill(node.onceOnly ? "* " : "+ ")]),
-      return indent([
-        group([dedentToRoot(path.call(print, "startContent"))]),
+    case "CONST": {
+      return [
+        group([
+          "CONST ",
+          node.constantIdentifier.name,
+          " = ",
+          print("expression"),
+        ]),
         hardline,
-        ...path.map(print, "children"),
-      ]);
+      ];
+    }
+
+    case "VAR": {
+      return [
+        group([
+          "VAR ",
+          node.variableIdentifier.name,
+          " = ",
+          print("expression"),
+        ]),
+        hardline,
+      ];
     }
 
     default:
-      console.log("unprinted", node.kind, node);
-      return "/* ... */";
+      if (errored) {
+        return "";
+      } else {
+        errored = true;
+
+        logNode(node);
+        console.log("stopped", JSON.stringify(getKind(node)));
+        return "/* ... */";
+      }
   }
 }
 
@@ -202,7 +269,7 @@ const printers = {
   "ink-ast": {
     print,
     //embed,
-    preprocess,
+    //preprocess,
     //insertPragma,
     //canAttachComment,
     //isBlockComment,

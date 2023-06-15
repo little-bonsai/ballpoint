@@ -41,7 +41,13 @@ VAR throwncomponentaway = false
 VAR piecereturned = false
 VAR longgrasshooperframe = false
 
+{DEBUG_INLINE:you are tester|hello production}
+{DEBUG_MULTI:
+	you are tester
+	- else :hello production
+}
 
+=== function stopHere
 // DEBUG mode adds a few shortcuts - remember to set to false in release!
 VAR DEBUG = false
 {DEBUG:
