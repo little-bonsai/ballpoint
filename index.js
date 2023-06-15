@@ -4,7 +4,7 @@ const {
     dedent,
     dedentToRoot,
     literalline,
-
+    align,
     group,
     hardline,
     indent,
@@ -103,7 +103,7 @@ function print(path, options, print) {
 
   switch (getKind(node)) {
     case "AuthorWarning": {
-      return [group(["TODO: ", node.warningMessage]), hardline];
+      return [hardline, group(["TODO: ", node.warningMessage])];
     }
     case "ContentList": {
       return path.map(print, "content");
@@ -152,10 +152,10 @@ function print(path, options, print) {
     }
 
     case "Knot": {
-      return [
+      return markAsRoot([
         group(["=== ", print("identifier"), " ==="]),
         [hardline, print("content")],
-      ];
+      ]);
     }
 
     case "Conditional": {
@@ -175,23 +175,25 @@ function print(path, options, print) {
 
     case "Choice": {
       return [
-        line,
-        group([
-          new Array(node.indentationDepth)
-            .fill(node.onceOnly ? "* " : "+ ")
-            .join(""),
+        dedentToRoot([
+          line,
+          group([
+            new Array(node.indentationDepth).fill("  "),
+            new Array(node.indentationDepth)
+              .fill(node.onceOnly ? "*" : "+")
+              .join(" "),
+            node.identifier ? group([" (", print("identifier"), ") "]) : [],
 
-          node.identifier ? group(["(", print("identifier"), ") "]) : [],
+            print("startContent"),
+            node.choiceOnlyContent
+              ? group(["[", print("choiceOnlyContent"), "]"])
+              : [],
 
-          print("startContent"),
-          node.choiceOnlyContent
-            ? group(["[", print("choiceOnlyContent"), "]"])
-            : [],
-
-          print("innerContent"),
+            print("innerContent"),
+          ]),
         ]),
 
-        path.map(print, "children"),
+        indent(path.map(print, "children")),
       ];
     }
 

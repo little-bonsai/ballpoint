@@ -21,13 +21,24 @@ TODO: some thing must be done
 }
 */
 
+=== indentTest1 ===
+* one
+one child
+** two 
+two child
+*** three
+three child
+- -> DONE
+
 === testStitch ===
 hello world
 * out
 * one
 * * one point one
 *** one point one point one
+sub ooo
 *** one point one point two
+sub oot
 --- gather alpha
 * * one point two
 -- gather beta
