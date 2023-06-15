@@ -33,7 +33,7 @@ const languages = [
 function parse(text, parsers, options) {
   const parser = new InkParser(text);
   const ast = parser.StatementsAtLevel(StatementLevel.Top);
-  return ast;
+  return { ____ROOT: ast };
 }
 
 function locStart(node) {
@@ -93,6 +93,9 @@ let errored = false;
 function print(path, options, print) {
   const node = path.getValue();
 
+  if (node.____ROOT) {
+    return markAsRoot(print("____ROOT"));
+  }
   if (Array.isArray(node)) {
     return path.map(print);
   }
@@ -152,9 +155,10 @@ function print(path, options, print) {
     }
 
     case "Knot": {
-      return markAsRoot([
-        group(["=== ", print("identifier"), " ==="]),
-        [hardline, print("content")],
+      return dedentToRoot([
+        line,
+        group(["=== ", print("identifier"), " ===", line]),
+        print("content"),
       ]);
     }
 
@@ -182,6 +186,7 @@ function print(path, options, print) {
             new Array(node.indentationDepth)
               .fill(node.onceOnly ? "*" : "+")
               .join(" "),
+
             node.identifier ? group([" (", print("identifier"), ") "]) : [],
 
             print("startContent"),
