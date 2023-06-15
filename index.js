@@ -112,7 +112,7 @@ function print(path, options, print) {
       return node.value + "";
     }
     case "ref": {
-      return print("pathIdentifiers");
+      return join(".", print("pathIdentifiers"));
     }
     case "Identifier": {
       return node.name;
@@ -141,8 +141,6 @@ function print(path, options, print) {
 
         collector.children.push(child);
       }
-
-      console.log(node.children.map((x) => getKind(x)));
 
       return indent(print("children"));
     }
@@ -188,7 +186,7 @@ function print(path, options, print) {
           print("innerContent"),
         ]),
 
-        path.map(print, "children"),
+        group([softline, path.map(print, "children")]),
       ];
     }
 

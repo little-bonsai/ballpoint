@@ -36,7 +36,6 @@ hello world
 * four
 * five
 - gather sigma
-/*
 this is your choice:
 * choice one [ if you ] dare
 but will you?
@@ -56,5 +55,4 @@ but now
 I will ask another question
 * yes, I say
 * no, I say
-*/
  -> DONE
