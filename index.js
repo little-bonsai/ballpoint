@@ -142,13 +142,13 @@ function print(path, options, print) {
         collector.children.push(child);
       }
 
-      return indent(print("children"));
+      return indent(path.map(print, "children"));
     }
     case "Divert": {
       return group(["-> ", print("target")]);
     }
     case "Path": {
-      return path.map(print, "components");
+      return join(".", path.map(print, "components"));
     }
 
     case "Knot": {
@@ -177,16 +177,21 @@ function print(path, options, print) {
       return [
         line,
         group([
-          new Array(node.indentationDepth).fill("* ").join(""),
+          new Array(node.indentationDepth)
+            .fill(node.onceOnly ? "* " : "+ ")
+            .join(""),
+
+          node.identifier ? group(["(", print("identifier"), ") "]) : [],
 
           print("startContent"),
           node.choiceOnlyContent
             ? group(["[", print("choiceOnlyContent"), "]"])
             : [],
+
           print("innerContent"),
         ]),
 
-        group([softline, path.map(print, "children")]),
+        group([line, [...path.map(print, "children")]]),
       ];
     }
 
@@ -210,7 +215,7 @@ function print(path, options, print) {
 
     case "Text": {
       if (node.text === "\n") {
-        return line;
+        return [];
       } else {
         return node.text;
       }
