@@ -191,7 +191,7 @@ function print(path, options, print) {
           print("innerContent"),
         ]),
 
-        group([[...path.map(print, "children")]]),
+        path.map(print, "children"),
       ];
     }
 
@@ -217,7 +217,7 @@ function print(path, options, print) {
       if (node.text === "\n") {
         return [];
       } else {
-        return node.text;
+        return [line, node.text];
       }
     }
 
