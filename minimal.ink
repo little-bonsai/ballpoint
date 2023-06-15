@@ -3,7 +3,6 @@ VAR forceful = 0
 CONST awesome = true
 TODO: some thing must be done
 
-/*
 { DEBUG_INLINE : you are tester | hello production }
 {DEBUG_MULTI:
 	you are tester
@@ -19,7 +18,6 @@ TODO: some thing must be done
 	// First diversion: where do we begin?
  -> start
 }
-*/
 
 === indentTest1 ===
 * one

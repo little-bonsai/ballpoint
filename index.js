@@ -1,8 +1,8 @@
 const util = require("util");
 const {
   builders: {
-    dedent,
     dedentToRoot,
+    dedent,
     literalline,
     align,
     group,
@@ -93,14 +93,15 @@ let errored = false;
 function print(path, options, print) {
   const node = path.getValue();
 
+  if (!node) {
+    return [];
+  }
+
   if (node.____ROOT) {
     return markAsRoot(print("____ROOT"));
   }
   if (Array.isArray(node)) {
     return path.map(print);
-  }
-  if (!node) {
-    return [];
   }
 
   switch (getKind(node)) {
@@ -119,6 +120,55 @@ function print(path, options, print) {
     case "Identifier": {
       return node.name;
     }
+    case "Divert": {
+      return group([line, "-> ", print("target")]);
+    }
+    case "Path": {
+      return join(".", path.map(print, "components"));
+    }
+
+    case "Conditional": {
+      return group([
+        softline,
+        "{",
+        indent([
+          group([line, print("initialCondition"), ":"]),
+          path.map(print, "branches"),
+        ]),
+        softline,
+        "}",
+      ]);
+    }
+
+    case "ConditionalSingleBranch": {
+      if (node.isTrueBranch) {
+        if (node.isInline) {
+          return print("content");
+        } else {
+          return [line, group([line, print("content")])];
+        }
+      }
+
+      if (node.isElse) {
+        if (node.isInline) {
+          return ["|", print("content")];
+        } else {
+          return dedent([
+            line,
+            group([softline, " - else: ", print("content")]),
+          ]);
+        }
+      }
+    }
+
+    case "Knot": {
+      return dedentToRoot([
+        line,
+        group(["=== ", print("identifier"), " ===", line]),
+        print("content"),
+      ]);
+    }
+
     case "Weave": {
       let collector = node;
       collector.children = [];
@@ -155,31 +205,6 @@ function print(path, options, print) {
 
       return indent(path.map(print, "children"));
     }
-    case "Divert": {
-      return group([line, "-> ", print("target")]);
-    }
-    case "Path": {
-      return join(".", path.map(print, "components"));
-    }
-
-    case "Knot": {
-      return dedentToRoot([
-        line,
-        group(["=== ", print("identifier"), " ===", line]),
-        print("content"),
-      ]);
-    }
-
-    case "Conditional": {
-      return [
-        "{",
-        indent([
-          group([print("initialCondition"), ":"]),
-          path.map(print, "branches"),
-        ]),
-        "}",
-      ];
-    }
 
     case "Gather": {
       return dedentToRoot([
@@ -203,7 +228,7 @@ function print(path, options, print) {
               .fill(node.onceOnly ? "* " : "+ ")
               .join(""),
 
-            node.identifier ? group([" (", print("identifier"), ") "]) : [],
+            node.identifier ? group(["(", print("identifier"), ") "]) : [],
 
             print("startContent"),
             node.choiceOnlyContent
@@ -216,24 +241,6 @@ function print(path, options, print) {
 
         indent(path.map(print, "children")),
       ];
-    }
-
-    case "ConditionalSingleBranch": {
-      if (node.isTrueBranch) {
-        if (node.isInline) {
-          return print("content");
-        } else {
-          return [line, print("content"), line];
-        }
-      }
-
-      if (node.isElse) {
-        if (node.isInline) {
-          return ["|", print("content")];
-        } else {
-          return ["- else: ", print("content"), hardline];
-        }
-      }
     }
 
     case "Text": {
