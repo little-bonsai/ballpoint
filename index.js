@@ -3,6 +3,7 @@ const {
   builders: {
     dedentToRoot,
     dedent,
+    lineSuffix,
     literalline,
     align,
     group,
@@ -140,8 +141,8 @@ function print(path, options, print) {
       case "Identifier": {
         return node.name;
       }
-      case "Divert": {
-        return group([line, "-> ", print("target")]);
+      case "FunctionCall": {
+        return print("content", 0, "target");
       }
       case "TunnelOnwards": {
         return group([line, "->->"]);
@@ -154,6 +155,20 @@ function print(path, options, print) {
       }
       case "Sequence": {
         return group(["{|", print("content"), "|}"]);
+      }
+      case "Divert": {
+        if (node.isFunctionCall) {
+          return group([
+            hardline,
+            "~ ",
+            print("target"),
+            "(",
+            join(", ", print("args")),
+            ")",
+          ]);
+        } else {
+          return group([line, "-> ", print("target")]);
+        }
       }
 
       case "Text": {
@@ -210,17 +225,6 @@ function print(path, options, print) {
 
       case "Argument": {
         return [node.isByReference ? "ref " : [], print("identifier")];
-      }
-
-      case "FunctionCall": {
-        return group([
-          "~ ",
-          print("node", "content", 0, "target"),
-          "(",
-          print("node", "content", 0, "args"),
-
-          ")",
-        ]);
       }
 
       case "UnaryExpression": {
@@ -329,7 +333,10 @@ function print(path, options, print) {
 
       case "variable assignment": {
         if (node.variableIdentifier.name === "__littleBonsaiInternal_Comment") {
-          return [hardline, group(["// ", atob(node.expression.toString())])];
+          return [
+            hardline,
+            lineSuffix(group([line, `//${atob(node.expression.toString())}`])),
+          ];
         }
 
         if (
@@ -355,6 +362,7 @@ function print(path, options, print) {
             " = ",
             print("expression"),
           ]),
+          softline,
         ];
       }
 
@@ -385,6 +393,7 @@ function print(path, options, print) {
           node.variableIdentifier.name,
           " = ",
           print("expression"),
+          softline,
         ]);
       }
 

@@ -44,14 +44,13 @@ VAR longgrasshooperframe = false
 
 // DEBUG mode adds a few shortcuts - remember to set to false in release!
 VAR DEBUG = false
-{DEBUG: hello freddie | hello world}
 {DEBUG:
 	IN DEBUG MODE!
 	*	[Beginning...]	-> start
 	*	[Framing Hooper...] -> claim_hooper_took_component
 	*	[In with Hooper...] -> inside_hoopers_hut
 - else:
-	/* First diversion: where do we begin?*/
+	// First diversion: where do we begin?
  -> start
 }
 
