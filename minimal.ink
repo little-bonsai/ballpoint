@@ -39,10 +39,13 @@ hello world
 this is your choice:
 * choice one [ if you ] dare
 but will you?
-but will you?
 TODO: flesh out this choice
 * * yes
 wow, look at mr cool guy
+many 
+lines 
+go 
+here
 + + (dangerousChoice) no
 piss off ->          fightScene.rumble
 - - wow, alright, I'm super impressed

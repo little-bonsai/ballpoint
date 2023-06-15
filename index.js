@@ -191,7 +191,7 @@ function print(path, options, print) {
           print("innerContent"),
         ]),
 
-        group([line, [...path.map(print, "children")]]),
+        group([[...path.map(print, "children")]]),
       ];
     }
 
