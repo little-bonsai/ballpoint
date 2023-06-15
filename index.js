@@ -180,17 +180,20 @@ function print(path, options, print) {
       }
 
       case "Conditional": {
-        return [
-          softline,
-          indent(
-            group([
-              group(["{ ", print("initialCondition"), ":"]),
-              path.map(print, "branches"),
-              line,
-              "}",
-            ])
-          ),
-        ];
+        if (node.branches[0].isInline) {
+        } else {
+          return [
+            softline,
+            indent(
+              group([
+                group(["{ ", print("initialCondition"), ":"]),
+                path.map(print, "branches"),
+                line,
+                "}",
+              ])
+            ),
+          ];
+        }
       }
 
       case "ConditionalSingleBranch": {
