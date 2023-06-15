@@ -35,7 +35,9 @@ const languages = [
 function parse(text, parsers, options) {
   const parser = new InkParser(text);
   const ast = parser.StatementsAtLevel(StatementLevel.Top);
-  return { ____ROOT: ast };
+  const out = { ____ROOT: ast };
+
+  return out;
 }
 
 function locStart(node) {
@@ -142,7 +144,7 @@ function print(path, options, print) {
         return node.name;
       }
       case "FunctionCall": {
-        return print("content", 0, "target");
+        return [print("content", 0, "target"), hardline];
       }
       case "TunnelOnwards": {
         return group([line, "->->"]);
@@ -180,20 +182,17 @@ function print(path, options, print) {
       }
 
       case "Conditional": {
-        if (node.branches[0].isInline) {
-        } else {
-          return [
-            softline,
-            indent(
-              group([
-                group(["{ ", print("initialCondition"), ":"]),
-                path.map(print, "branches"),
-                line,
-                "}",
-              ])
-            ),
-          ];
-        }
+        return [
+          softline,
+          indent(
+            group([
+              group(["{ ", print("initialCondition"), ":"]),
+              path.map(print, "branches"),
+              line,
+              "}",
+            ])
+          ),
+        ];
       }
 
       case "ConditionalSingleBranch": {
@@ -201,7 +200,7 @@ function print(path, options, print) {
           if (node.isInline) {
             return print("content");
           } else {
-            return [line, print("content")];
+            return [hardline, print("content")];
           }
         }
 
@@ -247,7 +246,7 @@ function print(path, options, print) {
       case "Knot": {
         return dedentToRoot([
           line,
-          group(["=== ", print("identifier"), " ===", line]),
+          group(["=== ", print("identifier"), " ===", hardline]),
           print("content"),
         ]);
       }
@@ -255,7 +254,7 @@ function print(path, options, print) {
       case "Stitch": {
         return dedentToRoot([
           line,
-          group(["= ", print("identifier"), line]),
+          group(["= ", print("identifier"), hardline]),
           print("content"),
         ]);
       }
@@ -392,7 +391,7 @@ function print(path, options, print) {
       case "temp": {
         return group([
           line,
-          "~ ",
+          "~ temp ",
           node.variableIdentifier.name,
           " = ",
           print("expression"),
@@ -446,5 +445,6 @@ module.exports = {
   defaultOptions: {
     tabWidth: 2,
     useTabs: false,
+    printWidth: 999,
   },
 };

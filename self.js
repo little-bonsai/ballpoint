@@ -233,23 +233,6 @@ async function main(inputFileName) {
   console.log(inputFileName);
   const source = await readFile(inputFileName, "utf8");
 
-  const annotated = source
-    .split("\n")
-    .map((line) => {
-      if (line.trim() === "") {
-        return "~ __littleBonsaiInternal_BlankLine = true";
-      }
-
-      if (line.trim().startsWith("//")) {
-        return `~ __littleBonsaiInternal_Comment = "${btoa(
-          line.trim().replace(/^\/\//, "").trim()
-        )}"`;
-      }
-
-      return line;
-    })
-    .join("\n");
-
   const ast = parse(annotated);
 
   const acc = [];
