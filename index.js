@@ -137,12 +137,17 @@ function print(path, options, print) {
         }
 
         if (getKind(child) === "Gather") {
+          child.children = [];
           if (collector !== node) {
             collector = collector.parent;
           }
         }
 
-        collector.children.push(child);
+        if (getKind(collector.children.at(-1)) === "Gather") {
+          collector.children.at(-1).children.push(child);
+        } else {
+          collector.children.push(child);
+        }
       }
 
       return indent(path.map(print, "children"));
@@ -174,7 +179,15 @@ function print(path, options, print) {
     }
 
     case "Gather": {
-      return [line, new Array(node.indentationDepth).fill("- ").join("")];
+      return dedentToRoot([
+        line,
+        group([
+          new Array(node.indentationDepth).fill("  "),
+          new Array(node.indentationDepth).fill("-").join(" "),
+          node.identifier ? group([" (", print("identifier"), ")"]) : [],
+          path.map(print, "children"),
+        ]),
+      ]);
     }
 
     case "Choice": {

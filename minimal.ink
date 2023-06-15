@@ -39,7 +39,7 @@ hello world
 sub ooo
 *** one point one point two
 sub oot
---- gather alpha
+--- (alpha) gather alpha
 * * one point two
 -- gather beta
 * two
