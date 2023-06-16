@@ -1,15 +1,35 @@
 {
   "name": "prettier-plugin-ink",
   "version": "1.0.0",
-  "description": "",
+  "description": "prettier plugin for inkle's ink",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "test": "prettier --plugin . intercept.ink > rendered.ink"
+    "test-1": "prettier --plugin . intercept.ink > intercept.prettier.1.ink",
+    "test-2": "prettier --plugin . intercept.prettier.1.ink > intercept.prettier.2.ink",
+    "test-check": "diff --color intercept.prettier.1.ink intercept.prettier.2.ink",
+    "test": "npm run test-1 && npm run test-2 && npm run test-check",
+    "test-init": "curl https://raw.githubusercontent.com/inkle/the-intercept/master/Assets/Ink/TheIntercept.ink > intercept.ink",
+    "test-watch": "watchexec --exts js --watch intercept.ink --clear -- npm run test"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "inkjs": "^2.2.1",
     "prettier": "^2.8.8"
+  },
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/little-bonsai/prettier-plugin-ink.git"
+  },
+  "keywords": [
+    "prettier",
+    "ink"
+  ],
+  "author": {
+    "name": "Freddie Gilbraith",
+    "email": "freddie.gilbraith@littlebonsai.co.uk",
+    "url": "https://littlebonsai.co.uk/"
   }
 }
