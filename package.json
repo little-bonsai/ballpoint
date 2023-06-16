@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "inkjs": "^2.2.1",
-    "prettier": "^2.8.8"
+    "line-column": "^1.0.2"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "print.js","util.js"
   ],
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "url": "https://littlebonsai.co.uk/"
   },
   "devDependencies": {
+    "prettier": "^2.8.8",
     "tap": "^16.3.6"
   },
   "tap": {

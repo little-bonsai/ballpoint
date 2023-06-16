@@ -18,7 +18,15 @@ function test(name, src, { once = false, filepath } = {}) {
 }
 
 test("basic", "hello world", "basic");
-test("comment", `// Character variables. We track just two, using a +/- scale`);
+test(
+  "comment",
+  `
+   and some value
+   // Character variables. We track just two, using a +/- scale
+   and some value
+   
+   `
+);
 
 test("todo", ` TODO: some thing must be done `);
 test("function call", `~ callFn(1, "a") `);

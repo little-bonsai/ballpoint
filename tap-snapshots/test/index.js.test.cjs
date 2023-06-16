@@ -12,7 +12,9 @@ hello world
 
 exports[`test/index.js TAP > comment 1`] = `
 
+and some value
  //Character variables. We track just two, using a +/- scale
+and some value
 `
 
 exports[`test/index.js TAP > conditional choice 1`] = `
