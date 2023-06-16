@@ -18,12 +18,17 @@ function test(name, src, { once = false, filepath } = {}) {
 }
 
 test("basic", "hello world", "basic");
-test("tagged", "#foo bar");
 test("comment", `// Character variables. We track just two, using a +/- scale`);
+
+test("todo", ` TODO: some thing must be done `);
+test("function call", `~ callFn(1, "a") `);
+test("tagged", "hello #foo bar");
+
 test(
   "declarations",
   `VAR forceful = 0
-CONST awesome = true`
+CONST awesome = true
+LIST colors = red, (green), blue`
 );
 
 test(
@@ -39,8 +44,6 @@ test(
 ~ str = "world"
 `
 );
-
-test("todo", ` TODO: some thing must be done `);
 
 test("inline conditional", "{COND:yes please|no thank you}");
 test(
@@ -107,5 +110,14 @@ but now
 I will ask another question
 * yes, I say
 * no, I say -> DONE
+`
+);
+
+test(
+  "conditional choice",
+  `
+=== knot ===
+* { isCool } I ride motorbikes
+* { not isCool } I hate motorbikes
 `
 );

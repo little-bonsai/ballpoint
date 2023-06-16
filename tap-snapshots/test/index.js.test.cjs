@@ -15,10 +15,24 @@ exports[`test/index.js TAP > comment 1`] = `
  //Character variables. We track just two, using a +/- scale
 `
 
+exports[`test/index.js TAP > conditional choice 1`] = `
+
+=== knot ===
+  * { isCool } I ride motorbikes
+  * { not isCool } I hate motorbikes
+`
+
 exports[`test/index.js TAP > declarations 1`] = `
 
 VAR forceful = 0
 CONST awesome = true
+LIST colors = red, (green), blue
+`
+
+exports[`test/index.js TAP > function call 1`] = `
+
+~ callFn(1, "a")
+
 `
 
 exports[`test/index.js TAP > inline conditional 1`] = `
@@ -90,7 +104,8 @@ exports[`test/index.js TAP > simple knot 1`] = `
 `
 
 exports[`test/index.js TAP > tagged 1`] = `
-#foo bar 
+
+hello #foo bar 
 `
 
 exports[`test/index.js TAP > todo 1`] = `

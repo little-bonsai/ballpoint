@@ -389,6 +389,8 @@ function print(path, options, print) {
                 .fill(node.onceOnly ? "* " : "+ ")
                 .join(""),
 
+              node._condition ? group(["{ ", print("_condition"), " } "]) : [],
+
               node.identifier ? group(["(", print("identifier"), ") "]) : [],
 
               print("startContent"),
@@ -446,23 +448,50 @@ function print(path, options, print) {
       }
 
       case "CONST": {
-        return group([
+        return [
           hardline,
-          "CONST ",
-          node.constantIdentifier.name,
-          " = ",
-          print("expression"),
-        ]);
+          group([
+            "CONST ",
+            node.constantIdentifier.name,
+            " = ",
+            print("expression"),
+          ]),
+        ];
       }
 
       case "VAR": {
-        return group([
+        return [
           hardline,
-          "VAR ",
-          node.variableIdentifier.name,
-          " = ",
-          print("expression"),
-        ]);
+          group([
+            "VAR ",
+            node.variableIdentifier.name,
+            " = ",
+            print("expression"),
+          ]),
+        ];
+      }
+
+      case "LIST": {
+        return [
+          hardline,
+          group([
+            "LIST ",
+            print("variableIdentifier"),
+            " = ",
+            print("listDefinition"),
+          ]),
+        ];
+      }
+
+      case "ListDefinition": {
+        return join(", ", print("itemDefinitions"));
+      }
+      case "ListElement": {
+        if (node.inInitialList) {
+          return group(["(", print("indentifier"), ")"]);
+        } else {
+          return print("indentifier");
+        }
       }
 
       case "temp": {

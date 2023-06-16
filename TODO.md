@@ -2,12 +2,14 @@
 
 - [x] npm publish
 - [x] INCLUDE handling
-- [ ] tags... where are they?
-- [ ] README.md
-- [ ] repeated application test
-- [ ] web hosted
-- [ ] anounce
+- [x] repeated application test
+- [x] tags... where are they?
 - [ ] proper comment handling
 - [ ] prettier-ignore pragma
+- [ ] README.md
+- [ ] dynamic tags
+- [ ] multiple tags
+- [ ] web hosted
+- [ ] anounce
 - [ ] sort INCLUDEs
 - [ ] api?
