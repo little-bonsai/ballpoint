@@ -221,7 +221,7 @@ function print(path, options, print) {
             ")",
           ]);
         } else {
-          return group([line, "-> ", print("target")]);
+          return group([softline, "-> ", print("target")]);
         }
       }
 
@@ -298,7 +298,7 @@ function print(path, options, print) {
       case "Knot": {
         return dedentToRoot([
           line,
-          group(["=== ", print("identifier"), " ===", hardline]),
+          group(["=== ", print("identifier"), " ==="]),
           print("content"),
         ]);
       }
@@ -373,7 +373,7 @@ function print(path, options, print) {
               node.identifier ? group(["(", print("identifier"), ") "]) : [],
 
               print("startContent"),
-              node.choiceOnlyContent || node.innerContent
+              node.choiceOnlyContent
                 ? group(["[", print("choiceOnlyContent"), "]"])
                 : [],
 
