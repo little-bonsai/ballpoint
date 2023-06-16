@@ -5,12 +5,11 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/index.js TAP > basic 1`] = `
+exports[`test/index.js TAP > multiline conditiona 1`] = `
 
-hello world
-`
+{DEBUG_MULTI:
 
-exports[`test/index.js TAP > inline conditional 1`] = `
-
-{ COND:yes please|no thank you }
+    you are tester
+ - else: hello production
+  }
 `

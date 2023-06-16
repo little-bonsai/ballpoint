@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "test": "tap",
+    "test": "tap --no-coverage",
     "test-watch": "TAP_SNAPSHOT=1 tap -w",
     "test-init": "curl https://raw.githubusercontent.com/inkle/the-intercept/master/Assets/Ink/TheIntercept.ink > intercept.ink"
   },
@@ -31,5 +31,8 @@
   },
   "devDependencies": {
     "tap": "^16.3.6"
+  },
+  "tap": {
+    "check-coverage": false
   }
 }

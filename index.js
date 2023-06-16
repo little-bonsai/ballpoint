@@ -111,6 +111,15 @@ function logNode(node, depth = 1) {
   console.error(util.inspect(node, { showHidden: false, depth, colors: true }));
 }
 
+function tap(x) {
+  console.error(x);
+  return x;
+}
+function tapJSON(x) {
+  console.error(JSON.stringify(x, null, 2));
+  return x;
+}
+
 let errored = false;
 function print(path, options, print) {
   try {
@@ -125,13 +134,32 @@ function print(path, options, print) {
     }
 
     if (node.____ROOT) {
-      return markAsRoot(print("____ROOT"));
+      return markAsRoot(tapJSON(print("____ROOT")));
     }
 
     if (Array.isArray(node)) {
       if (node.length === 0) {
         return [];
       } else {
+        let children = [...node];
+        while (node.length > 0) {
+          node.pop();
+        }
+
+        let inTag = false;
+        for (child of children) {
+          if (inTag) {
+            node.at(-1).children.push(child);
+          } else {
+            node.push(child);
+          }
+
+          if (getKind(child) === "Tag") {
+            inTag = child.isStart;
+            child.children ||= [];
+          }
+        }
+
         return path.map(print);
       }
     }
@@ -174,8 +202,11 @@ function print(path, options, print) {
         return print("content");
       }
       case "Tag": {
-        console.error(node);
-        return "#";
+        if (node.isStart) {
+          return group(["#", path.map(print, "children"), line]);
+        } else {
+          return "";
+        }
       }
 
       case "Divert": {
@@ -195,7 +226,7 @@ function print(path, options, print) {
 
       case "Text": {
         if (node.text === "\n") {
-          return [];
+          return "";
         } else {
           return [softline, node.text];
         }
@@ -206,9 +237,9 @@ function print(path, options, print) {
           softline,
           indent(
             group([
-              group(["{ ", print("initialCondition"), ":"]),
+              group(["{", print("initialCondition"), ":"]),
               path.map(print, "branches"),
-              line,
+              softline,
               "}",
             ])
           ),
@@ -220,7 +251,7 @@ function print(path, options, print) {
           if (node.isInline) {
             return print("content");
           } else {
-            return [hardline, print("content")];
+            return group([hardline, print("content")]);
           }
         }
 
@@ -228,7 +259,7 @@ function print(path, options, print) {
           if (node.isInline) {
             return ["|", print("content")];
           } else {
-            return dedent(group([softline, " - else: ", print("content")]));
+            return dedent([hardline, group([" - else: ", print("content")])]);
           }
         }
       }
