@@ -1,4 +1,5 @@
 const util = require("util");
+const path = require("path");
 const {
   builders: {
     dedentToRoot,
@@ -33,7 +34,13 @@ const languages = [
 ];
 
 function parse(text, parsers, options) {
-  const parser = new InkParser(text);
+  const fileHandler = {
+    ResolveInkFilename: (filename) => filename,
+    LoadInkFileContents: (filename) =>
+      `~ __littleBonsaiInternal_INCLUDE = "${btoa(filename)}"`,
+  };
+
+  const parser = new InkParser(text, options.filepath, null, null, fileHandler);
   const ast = parser.StatementsAtLevel(StatementLevel.Top);
   const out = { ____ROOT: ast };
 
@@ -41,7 +48,7 @@ function parse(text, parsers, options) {
 }
 
 function locStart(node) {
-  console.log("locStart");
+  console.error("locStart");
   0;
 }
 
@@ -53,6 +60,8 @@ const parsers = {
 
     preprocess: (source) => {
       const annotated = source
+        .trim()
+        .replace(/\n\n+/m, "\n\n")
         .replace(/\/\*[^(\/\*]*\*\//m, (multiLineComment) => {
           return `~ __littleBonsaiInternal_CommentMany = "${btoa(
             multiLineComment
@@ -93,13 +102,13 @@ function getKind(node) {
       return "Argument";
     }
 
-    console.log("unkind:", node);
+    console.error("unkind:", node);
     return null;
   }
 }
 
 function logNode(node, depth = 1) {
-  console.log(util.inspect(node, { showHidden: false, depth, colors: true }));
+  console.error(util.inspect(node, { showHidden: false, depth, colors: true }));
 }
 
 let errored = false;
@@ -158,6 +167,13 @@ function print(path, options, print) {
       case "Sequence": {
         return group(["{|", print("content"), "|}"]);
       }
+      case "ParsedObject": {
+        return print("includedStory");
+      }
+      case "Story": {
+        return print("content");
+      }
+
       case "Divert": {
         if (node.isFunctionCall) {
           return group([
@@ -334,6 +350,13 @@ function print(path, options, print) {
       }
 
       case "variable assignment": {
+        if (node.variableIdentifier.name === "__littleBonsaiInternal_INCLUDE") {
+          return dedentToRoot([
+            hardline,
+            `INCLUDE ${atob(node.expression.toString())}`,
+          ]);
+        }
+
         if (node.variableIdentifier.name === "__littleBonsaiInternal_Comment") {
           return [
             hardline,
@@ -406,7 +429,7 @@ function print(path, options, print) {
           errored = true;
 
           logNode(node);
-          console.log("stopped", JSON.stringify(getKind(node)));
+          console.error("stopped", JSON.stringify(getKind(node)));
           return "/* ... */";
         }
     }
@@ -415,7 +438,7 @@ function print(path, options, print) {
     errored = true;
 
     logNode(node);
-    console.log("stopped", JSON.stringify(getKind(node)));
+    console.error("stopped", JSON.stringify(getKind(node)));
     return "/* ... */";
   }
 }

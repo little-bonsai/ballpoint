@@ -1,6 +1,7 @@
 # TODO
 
-- [ ] npm publish
+- [x] npm publish
+- [x] INCLUDE handling
 - [ ] tags... where are they?
 - [ ] README.md
 - [ ] repeated application test

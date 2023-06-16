@@ -10,7 +10,7 @@
     "test-check": "diff --color intercept.prettier.1.ink intercept.prettier.2.ink",
     "test": "npm run test-1 && npm run test-2 && npm run test-check",
     "test-init": "curl https://raw.githubusercontent.com/inkle/the-intercept/master/Assets/Ink/TheIntercept.ink > intercept.ink",
-    "test-watch": "watchexec --exts js --watch intercept.ink --clear -- npm run test"
+    "test-watch": "watchexec --clear -- npm run test"
   },
   "dependencies": {
     "inkjs": "^2.2.1",
