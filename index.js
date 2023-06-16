@@ -2,6 +2,7 @@ const util = require("util");
 const path = require("path");
 const {
   builders: {
+    breakParent,
     dedentToRoot,
     dedent,
     lineSuffix,
@@ -134,7 +135,7 @@ function print(path, options, print) {
     }
 
     if (node.____ROOT) {
-      return markAsRoot(tapJSON(print("____ROOT")));
+      return markAsRoot(print("____ROOT"));
     }
 
     if (Array.isArray(node)) {
@@ -251,7 +252,7 @@ function print(path, options, print) {
           if (node.isInline) {
             return print("content");
           } else {
-            return group([hardline, print("content")]);
+            return group([breakParent, print("content")]);
           }
         }
 

@@ -17,24 +17,23 @@ function test(name, src, { once = false, filepath } = {}) {
   }
 }
 
-//test("basic", "hello world", "basic");
-//test("tagged", "#foo bar");
-//test("comment", `// Character variables. We track just two, using a +/- scale`);
-//test(
-//"declarations",
-//`VAR forceful = 0
-//CONST awesome = true`
-//);
-//test("todo", ` TODO: some thing must be done `);
+test("basic", "hello world", "basic");
+test("tagged", "#foo bar");
+test("comment", `// Character variables. We track just two, using a +/- scale`);
+test(
+  "declarations",
+  `VAR forceful = 0
+CONST awesome = true`
+);
+test("todo", ` TODO: some thing must be done `);
 
-//test("inline conditional", "{COND:yes please|no thank you}");
+test("inline conditional", "{COND:yes please|no thank you}");
 test(
   "multiline conditiona",
   `{DEBUG_MULTI:
 you are tester
 - else :hello production
-}`,
-  { once: true }
+}`
 );
 
 //{DEBUG:
