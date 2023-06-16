@@ -28,7 +28,7 @@ const languages = [
   {
     name: "ink",
     parsers: ["ink"],
-    extensions: ["ink"],
+    extensions: [".ink", ".inkle"],
   },
 ];
 
