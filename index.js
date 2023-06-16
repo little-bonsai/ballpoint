@@ -175,6 +175,9 @@ function print(path, options, print) {
       case "Number": {
         return node.value + "";
       }
+      case "String": {
+        return `"${node.toString()}"`;
+      }
       case "ref": {
         return join(".", print("pathIdentifiers"));
       }
@@ -202,6 +205,7 @@ function print(path, options, print) {
       case "Story": {
         return print("content");
       }
+
       case "Tag": {
         if (node.isStart) {
           return group(["#", path.map(print, "children"), line]);
@@ -279,6 +283,21 @@ function print(path, options, print) {
 
       case "Argument": {
         return [node.isByReference ? "ref " : [], print("identifier")];
+      }
+
+      case "IncDecExpression": {
+        return [
+          hardline,
+          group([
+            "~ ",
+            print("varIdentifier"),
+            node.expression
+              ? [node.isInc ? " += " : " -= ", print("expression")]
+              : node.isInc
+              ? "++"
+              : "--",
+          ]),
+        ];
       }
 
       case "UnaryExpression": {
@@ -423,7 +442,6 @@ function print(path, options, print) {
             " = ",
             print("expression"),
           ]),
-          softline,
         ];
       }
 

@@ -97,3 +97,15 @@ exports[`test/index.js TAP > todo 1`] = `
 
 TODO: some thing must be done
 `
+
+exports[`test/index.js TAP > variable modification 1`] = `
+
+~ num++
+~ num--
+~ num = 2
+~ num += 3
+~ num -= 4
+
+~ str = "hello"
+~ str = "world"
+`

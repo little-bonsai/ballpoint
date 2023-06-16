@@ -25,6 +25,21 @@ test(
   `VAR forceful = 0
 CONST awesome = true`
 );
+
+test(
+  "variable modification",
+  `
+~ num++
+~ num--
+~ num = 2
+~ num += 3
+~ num -= 4
+
+~ str = "hello"
+~ str = "world"
+`
+);
+
 test("todo", ` TODO: some thing must be done `);
 
 test("inline conditional", "{COND:yes please|no thank you}");
@@ -94,7 +109,3 @@ I will ask another question
 * no, I say -> DONE
 `
 );
-
-////test("tagged twice", "Monsieur. #surly #really_monsieur.ogg", {
-////once: true,
-////});
