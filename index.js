@@ -173,6 +173,10 @@ function print(path, options, print) {
       case "Story": {
         return print("content");
       }
+      case "Tag": {
+        console.error(node);
+        return "#";
+      }
 
       case "Divert": {
         if (node.isFunctionCall) {
