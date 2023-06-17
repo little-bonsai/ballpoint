@@ -16,8 +16,7 @@
   },
   "files": [
     "index.js",
-    "print.js",
-    "util.js"
+    "lib/*"
   ],
   "repository": {
     "type": "git",
