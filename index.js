@@ -19,6 +19,6 @@ module.exports = {
   defaultOptions: {
     tabWidth: 2,
     useTabs: false,
-    printWidth: 999,
+    printWidth: 9999,
   },
 };
