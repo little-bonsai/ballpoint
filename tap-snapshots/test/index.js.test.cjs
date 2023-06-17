@@ -28,9 +28,19 @@ exports[`test/index.js TAP basic > todo 1`] = `
 TODO: some thing must be done
 `
 
+exports[`test/index.js TAP choices > conditional choice 1`] = `
+
+=== knot ===
+
+  * { isCool } I ride motorbikes
+  * { not isCool } I hate motorbikes
+  * { isCool } { ownsMotorbike } get on babe
+`
+
 exports[`test/index.js TAP choices > nested knot 1`] = `
 
-=== testStitch ===hello world
+=== testStitch ===
+hello world
   * out
   * one
     * * one point one
@@ -71,6 +81,7 @@ exports[`test/index.js TAP choices > nested knot 1`] = `
 exports[`test/index.js TAP choices > simple knot 1`] = `
 
 === indentTest1 ===
+
   * one
     one child
     * * two
@@ -103,13 +114,6 @@ exports[`test/index.js TAP conditionals > switch case 1`] = `
 
 exports[`test/index.js TAP examples > function calls and diverts 1`] = `
 
-=== armoury_1 ===
-  * George: Hello, fellow Hentai Heads -> map_2
-  * Jerry: George! You got in to Spooky High too?
-    Kramer: Dang, George has used up all the hentai here, we'll have to look elsewhere!
-    ~ RANDOM(12)
-    ~ RANDOM(12)
-    -> map_1
 `
 
 exports[`test/index.js TAP functions > inline call 1`] = `
@@ -124,26 +128,31 @@ hello
 exports[`test/index.js TAP prettier ignore > prettier-ignore 1`] = `
 
 === knot ===
+
    //prettier-ignore
 ****** some fucked up styling
 -    { dsadwad     :    dwda |   dwadawdwa } some      other        line
 ~ var   =   true
 `
 
-exports[`test/index.js TAP prettier ignore > prettier-ignore stops 1`] = `
-
-=== knot ===
-   //prettier-ignore
-****** some fucked up styling
-
-
-=== knot ===
-      * * * this knot will be styled
-`
-
 exports[`test/index.js TAP variables > declarations 1`] = `
 
 VAR forceful = 0
 CONST awesome = true
-LIST colors = red(green)blue
+LIST colors = red, (green), blue
+`
+
+exports[`test/index.js TAP variables > variable modification 1`] = `
+
+~ num++
+~ num--
+~ num = 2
+
+~ num += 3
+~ num -= 4
+
+~ str = "hello"
+
+~ str = "world"
+
 `
