@@ -22,12 +22,6 @@ function runTest(t, name, src, { once = false, filepath, log = false } = {}) {
   }
 }
 
-//t.only("specific", (t) => {
-//const test = runTest.bind(null, t);
-
-//t.end();
-//});
-
 t.test("basic", (t) => {
   const test = runTest.bind(null, t);
 
@@ -78,6 +72,7 @@ you are tester
     `
   { LIST_COUNT(LIST_INVERT(quest ^ Journal)):
     - 0: ~ return true
+    - 42: ~ return "deep thought"
     - else: ~ return false
   }
 
