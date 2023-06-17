@@ -6,23 +6,26 @@
  */
 'use strict'
 exports[`test/index.js TAP basic > comment 1`] = `
-
+some value
+//Character variables. We track just two, using a +/- scale
+and some value
 `
 
 exports[`test/index.js TAP basic > single line 1`] = `
-
+hello world
 `
 
 exports[`test/index.js TAP basic > tagged 1`] = `
-
+hello #foo bar
 `
 
 exports[`test/index.js TAP basic > tagged multiple 1`] = `
-
+hello #foo #bar baz #qux
 `
 
 exports[`test/index.js TAP basic > todo 1`] = `
 
+TODO: some thing must be done
 `
 
 exports[`test/index.js TAP choices > conditional choice 1`] = `
@@ -38,15 +41,19 @@ exports[`test/index.js TAP choices > simple knot 1`] = `
 `
 
 exports[`test/index.js TAP conditionals > inline conditional 1`] = `
-
+{COND:yes please|no thank you}
 `
 
 exports[`test/index.js TAP conditionals > multiline conditiona 1`] = `
 
+{DEBUG_MULTI:
+  you are tester
+ - else: hello production
+  }
 `
 
 exports[`test/index.js TAP conditionals > switch case 1`] = `
-
+{LIST_COUNT(LIST_INVERT(quest ^ Journal)): === function /* could not parse, check error output */}
 `
 
 exports[`test/index.js TAP examples > function calls and diverts 1`] = `
@@ -54,11 +61,12 @@ exports[`test/index.js TAP examples > function calls and diverts 1`] = `
 `
 
 exports[`test/index.js TAP functions > inline call 1`] = `
-
+the time is now {RANDOM(1RANDOM(16))} o'clock
 `
 
 exports[`test/index.js TAP functions > outline call 1`] = `
-
+hello
+~ RANDOM(1RANDOM(16))world
 `
 
 exports[`test/index.js TAP prettier ignore > prettier-ignore 1`] = `

@@ -1,2 +1,4 @@
-hello { RANDOM(1,RANDOM(1,6)) } world
-~ RANDOM(1,RANDOM(1,6))
+  { LIST_COUNT(LIST_INVERT(quest ^ Journal)):
+    - 0: ~ return true
+    - else: ~ return false
+  }
