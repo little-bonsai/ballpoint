@@ -20,6 +20,7 @@ const {
 
 const { getKind, logNode, tap, tapJSON } = require("./util");
 const handlePrettierIgnore = require("./handlePrettierIgnore");
+const crunchTags = require("./crunchTags");
 
 let errored = false;
 module.exports = function print(path, options, print) {
@@ -42,25 +43,7 @@ module.exports = function print(path, options, print) {
       if (node.length === 0) {
         return [];
       } else {
-        let children = [...node];
-        while (node.length > 0) {
-          node.pop();
-        }
-
-        let inTag = false;
-        for (child of children) {
-          if (inTag) {
-            node.at(-1).children.push(child);
-          } else {
-            node.push(child);
-          }
-
-          if (getKind(child) === "Tag") {
-            inTag = child.isStart;
-            child.children ||= [];
-          }
-        }
-
+        crunchTags(path);
         return path.map(print);
       }
     }
@@ -112,7 +95,7 @@ module.exports = function print(path, options, print) {
 
       case "Tag": {
         if (node.isStart) {
-          return group(["#", path.map(print, "children"), line]);
+          return group(["#", path.map(print, "children"), softline]);
         } else {
           return "";
         }
@@ -331,7 +314,10 @@ module.exports = function print(path, options, print) {
             return handlePrettierIgnore(path, options);
           }
 
-          return [hardline, lineSuffix(group([line, `//${commentString}`]))];
+          return [
+            hardline,
+            lineSuffix(group([softline, `//${commentString}`])),
+          ];
         }
 
         if (

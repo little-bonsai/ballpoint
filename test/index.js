@@ -8,7 +8,7 @@ function parse(src, filepath = "main.ink") {
   });
 }
 
-function test(name, src, { once = false, filepath, log = false } = {}) {
+function runTest(t, name, src, { once = false, filepath, log = false } = {}) {
   const first = parse(src, filepath);
   t.matchSnapshot(first, name);
   if (log) {
@@ -22,28 +22,36 @@ function test(name, src, { once = false, filepath, log = false } = {}) {
   }
 }
 
-test("basic", "hello world", "basic");
-test(
-  "comment",
-  ` some value
+//t.only("specific", (t) => {
+//const test = runTest.bind(null, t);
+//t.end();
+//});
+
+t.test("suite", (t) => {
+  const test = runTest.bind(null, t);
+  test("basic", "hello world", "basic");
+  test(
+    "comment",
+    ` some value
 // Character variables. We track just two, using a +/- scale
 and some value `
-);
+  );
 
-test("todo", ` TODO: some thing must be done `);
-test("function call", `~ callFn(1, "a") `);
-test("tagged", "hello #foo bar");
+  test("todo", ` TODO: some thing must be done `);
+  test("function call", `~ callFn(1, "a") `);
+  test("tagged", "hello #foo bar");
+  test("tagged multiple", "hello #foo #bar baz #qux", { log: true });
 
-test(
-  "declarations",
-  `VAR forceful = 0
+  test(
+    "declarations",
+    `VAR forceful = 0
 CONST awesome = true
 LIST colors = red, (green), blue`
-);
+  );
 
-test(
-  "variable modification",
-  `
+  test(
+    "variable modification",
+    `
 ~ num++
 ~ num--
 ~ num = 2
@@ -53,20 +61,20 @@ test(
 ~ str = "hello"
 ~ str = "world"
 `
-);
+  );
 
-test("inline conditional", "{COND:yes please|no thank you}");
-test(
-  "multiline conditiona",
-  `{DEBUG_MULTI:
+  test("inline conditional", "{COND:yes please|no thank you}");
+  test(
+    "multiline conditiona",
+    `{DEBUG_MULTI:
 you are tester
 - else :hello production
 }`
-);
+  );
 
-test(
-  "simple knot",
-  `
+  test(
+    "simple knot",
+    `
 === indentTest1 ===
 * one
 one child
@@ -76,11 +84,11 @@ two child
 three child
 - -> DONE
 `
-);
+  );
 
-test(
-  "nested knot",
-  `
+  test(
+    "nested knot",
+    `
 === testStitch ===
 hello world
 * out
@@ -121,31 +129,31 @@ I will ask another question
 * yes, I say
 * no, I say -> DONE
 `
-);
+  );
 
-test(
-  "conditional choice",
-  `
+  test(
+    "conditional choice",
+    `
 === knot ===
 * { isCool } I ride motorbikes
 * { not isCool } I hate motorbikes
 `
-);
+  );
 
-test(
-  "prettier-ignore",
-  `
+  test(
+    "prettier-ignore",
+    `
    === knot
 //prettier-ignore
 ****** some fucked up styling
 -    { dsadwad     :    dwda |   dwadawdwa } some      other        line
 ~ var   =   true
 `
-);
+  );
 
-test(
-  "prettier-ignore stops",
-  `
+  test(
+    "prettier-ignore stops",
+    `
    === knot
 //prettier-ignore
 ****** some fucked up styling
@@ -153,4 +161,6 @@ test(
 === knot
 *** this knot will be styled
 `
-);
+  );
+  t.end();
+});

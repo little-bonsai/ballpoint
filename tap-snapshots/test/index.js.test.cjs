@@ -5,44 +5,44 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/index.js TAP > basic 1`] = `
+exports[`test/index.js TAP suite > basic 1`] = `
 
 hello world
 `
 
-exports[`test/index.js TAP > comment 1`] = `
+exports[`test/index.js TAP suite > comment 1`] = `
 
 some value
- //Character variables. We track just two, using a +/- scale
+//Character variables. We track just two, using a +/- scale
 and some value
 `
 
-exports[`test/index.js TAP > conditional choice 1`] = `
+exports[`test/index.js TAP suite > conditional choice 1`] = `
 
 === knot ===
   * { isCool } I ride motorbikes
   * { not isCool } I hate motorbikes
 `
 
-exports[`test/index.js TAP > declarations 1`] = `
+exports[`test/index.js TAP suite > declarations 1`] = `
 
 VAR forceful = 0
 CONST awesome = true
 LIST colors = red, (green), blue
 `
 
-exports[`test/index.js TAP > function call 1`] = `
+exports[`test/index.js TAP suite > function call 1`] = `
 
 ~ callFn(1, "a")
 
 `
 
-exports[`test/index.js TAP > inline conditional 1`] = `
+exports[`test/index.js TAP suite > inline conditional 1`] = `
 
 {COND:yes please|no thank you}
 `
 
-exports[`test/index.js TAP > multiline conditiona 1`] = `
+exports[`test/index.js TAP suite > multiline conditiona 1`] = `
 
 {DEBUG_MULTI:
     you are tester
@@ -50,7 +50,7 @@ exports[`test/index.js TAP > multiline conditiona 1`] = `
   }
 `
 
-exports[`test/index.js TAP > nested knot 1`] = `
+exports[`test/index.js TAP suite > nested knot 1`] = `
 
 === testStitch ===
   hello world
@@ -93,7 +93,7 @@ exports[`test/index.js TAP > nested knot 1`] = `
   * no, I say -> DONE
 `
 
-exports[`test/index.js TAP > prettier-ignore 1`] = `
+exports[`test/index.js TAP suite > prettier-ignore 1`] = `
 
 === knot ===
    //prettier-ignore
@@ -102,7 +102,7 @@ exports[`test/index.js TAP > prettier-ignore 1`] = `
 ~ var   =   true
 `
 
-exports[`test/index.js TAP > prettier-ignore stops 1`] = `
+exports[`test/index.js TAP suite > prettier-ignore stops 1`] = `
 
 === knot ===
    //prettier-ignore
@@ -113,7 +113,7 @@ exports[`test/index.js TAP > prettier-ignore stops 1`] = `
       * * * this knot will be styled
 `
 
-exports[`test/index.js TAP > simple knot 1`] = `
+exports[`test/index.js TAP suite > simple knot 1`] = `
 
 === indentTest1 ===
   * one
@@ -125,17 +125,22 @@ exports[`test/index.js TAP > simple knot 1`] = `
   - -> DONE
 `
 
-exports[`test/index.js TAP > tagged 1`] = `
+exports[`test/index.js TAP suite > tagged 1`] = `
 
-hello #foo bar 
+hello #foo bar
 `
 
-exports[`test/index.js TAP > todo 1`] = `
+exports[`test/index.js TAP suite > tagged multiple 1`] = `
+
+hello #foo #bar baz #qux
+`
+
+exports[`test/index.js TAP suite > todo 1`] = `
 
 TODO: some thing must be done
 `
 
-exports[`test/index.js TAP > variable modification 1`] = `
+exports[`test/index.js TAP suite > variable modification 1`] = `
 
 ~ num++
 ~ num--

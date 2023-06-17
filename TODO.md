@@ -4,12 +4,12 @@
 - [x] INCLUDE handling
 - [x] repeated application test
 - [x] tags... where are they?
-- [ ] proper comment handling
-- [ ] prettier-ignore pragma
+- [x] prettier-ignore pragma
+- [x] multiple tags
 - [ ] README.md
-- [ ] dynamic tags
-- [ ] multiple tags
 - [ ] web hosted
+- [ ] dynamic tags
+- [ ] proper comment handling
 - [ ] anounce
 - [ ] sort INCLUDEs
 - [ ] api?

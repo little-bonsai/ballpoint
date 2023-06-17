@@ -1,21 +1,6 @@
 const lineColumn = require("line-column");
 const {
-  builders: {
-    align,
-    breakParent,
-    dedent,
-    dedentToRoot,
-    group,
-    hardline,
-    indent,
-    join,
-    line,
-    lineSuffix,
-    literalline,
-    markAsRoot,
-    softline,
-    trim,
-  },
+  builders: { group, hardline, line, lineSuffix, trim },
 } = require("prettier").doc;
 
 function getSourcePositionsForNode(node) {
