@@ -1,6 +1,5 @@
-one {MORE:more|less} child
 
-/*
+
 === indentTest1 ===
 * one #foo #bar baz #qux
 one {MORE:more|less} child
@@ -12,4 +11,4 @@ three child
 ~ doSomething(foo)
 and then we end
 - -> DONE
-*/
+
