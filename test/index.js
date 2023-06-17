@@ -38,7 +38,13 @@ and some value `
   );
 
   test("todo", ` TODO: some thing must be done `);
-  test("function call", `~ callFn(1, "a") `);
+  test(
+    "function call",
+    `
+	text 
+	~ callFn(1, "a")
+	more text`
+  );
   test("tagged", "hello #foo bar");
   test("tagged multiple", "hello #foo #bar baz #qux", { log: true });
 
@@ -137,6 +143,7 @@ I will ask another question
 === knot ===
 * { isCool } I ride motorbikes
 * { not isCool } I hate motorbikes
+* { isCool } { ownsMotorbike } get on babe
 `
   );
 

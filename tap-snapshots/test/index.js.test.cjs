@@ -22,6 +22,7 @@ exports[`test/index.js TAP suite > conditional choice 1`] = `
 === knot ===
   * { isCool } I ride motorbikes
   * { not isCool } I hate motorbikes
+  * { isCool } { ownsMotorbike } get on babe
 `
 
 exports[`test/index.js TAP suite > declarations 1`] = `
@@ -33,8 +34,9 @@ LIST colors = red, (green), blue
 
 exports[`test/index.js TAP suite > function call 1`] = `
 
+text
 ~ callFn(1, "a")
-
+more text
 `
 
 exports[`test/index.js TAP suite > inline conditional 1`] = `
