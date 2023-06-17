@@ -28,9 +28,10 @@ function runTest(t, name, src, { once = false, filepath, log = false } = {}) {
 //t.end();
 //});
 
-t.test("suite", (t) => {
+t.test("basic", (t) => {
   const test = runTest.bind(null, t);
-  test("basic", "hello world", "basic");
+
+  test("single line", "hello world", "basic");
   test(
     "comment",
     ` some value
@@ -39,15 +40,55 @@ and some value `
   );
 
   test("todo", ` TODO: some thing must be done `);
-  test(
-    "function call",
-    `
-	text 
-	~ callFn(1, "a")
-	more text`
-  );
   test("tagged", "hello #foo bar");
   test("tagged multiple", "hello #foo #bar baz #qux", { log: true });
+
+  t.end();
+});
+
+t.test("functions", (t) => {
+  const test = runTest.bind(null, t);
+
+  test("inline call", ` the time is now { RANDOM(1,RANDOM(1,6)) } o'clock `);
+
+  test(
+    "outline call",
+    `hello
+~ RANDOM(1,RANDOM(1,6))
+world`
+  );
+
+  t.end();
+});
+
+t.test("conditionals", (t) => {
+  const test = runTest.bind(null, t);
+
+  test("inline conditional", "{COND:yes please|no thank you}");
+  test(
+    "multiline conditiona",
+    `{DEBUG_MULTI:
+you are tester
+- else :hello production
+}`
+  );
+
+  test(
+    "switch case",
+    `
+  { LIST_COUNT(LIST_INVERT(quest ^ Journal)):
+    - 0: ~ return true
+    - else: ~ return false
+  }
+
+`
+  );
+
+  t.end();
+});
+
+t.test("variables", (t) => {
+  const test = runTest.bind(null, t);
 
   test(
     "declarations",
@@ -70,14 +111,11 @@ LIST colors = red, (green), blue`
 `
   );
 
-  test("inline conditional", "{COND:yes please|no thank you}");
-  test(
-    "multiline conditiona",
-    `{DEBUG_MULTI:
-you are tester
-- else :hello production
-}`
-  );
+  t.end();
+});
+
+t.test("choices", (t) => {
+  const test = runTest.bind(null, t);
 
   test(
     "simple knot",
@@ -148,6 +186,11 @@ I will ask another question
 `
   );
 
+  t.end();
+});
+
+t.test("prettier ignore", (t) => {
+  const test = runTest.bind(null, t);
   test(
     "prettier-ignore",
     `
