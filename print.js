@@ -1,22 +1,25 @@
+const lineColumn = require("line-column");
 const {
   builders: {
-    breakParent,
-    dedentToRoot,
-    dedent,
-    lineSuffix,
-    literalline,
     align,
+    breakParent,
+    dedent,
+    dedentToRoot,
     group,
     hardline,
     indent,
     join,
     line,
+    lineSuffix,
+    literalline,
     markAsRoot,
     softline,
+    trim,
   },
 } = require("prettier").doc;
 
 const { getKind, logNode, tap, tapJSON } = require("./util");
+const handlePrettierIgnore = require("./handlePrettierIgnore");
 
 let errored = false;
 module.exports = function print(path, options, print) {
@@ -26,8 +29,6 @@ module.exports = function print(path, options, print) {
     }
 
     const node = path.getValue();
-
-    //console.log(path.getName(), path.getValue(), path.getNode(1));
 
     if (!node) {
       return "";
@@ -62,6 +63,10 @@ module.exports = function print(path, options, print) {
 
         return path.map(print);
       }
+    }
+
+    if (node.prettierIgnored) {
+      return "";
     }
 
     switch (getKind(node)) {
@@ -263,7 +268,7 @@ module.exports = function print(path, options, print) {
           }
         }
 
-        return indent(path.map(print, "children"));
+        return indent(print("children"));
       }
 
       case "Gather": {
@@ -306,22 +311,32 @@ module.exports = function print(path, options, print) {
       }
 
       case "variable assignment": {
-        if (node.variableIdentifier.name === "__littleBonsaiInternal_INCLUDE") {
+        if (
+          node.variableIdentifier.name ===
+          "__littleBonsaiPrettierInternalDoNotTouch_INCLUDE"
+        ) {
           return dedentToRoot([
             hardline,
             `INCLUDE ${atob(node.expression.toString())}`,
           ]);
         }
 
-        if (node.variableIdentifier.name === "__littleBonsaiInternal_Comment") {
-          return [
-            hardline,
-            lineSuffix(group([line, `//${atob(node.expression.toString())}`])),
-          ];
+        if (
+          node.variableIdentifier.name ===
+          "__littleBonsaiPrettierInternalDoNotTouch_Comment"
+        ) {
+          const commentString = atob(node.expression.toString());
+
+          if (commentString.trim() === "prettier-ignore") {
+            return handlePrettierIgnore(path, options);
+          }
+
+          return [hardline, lineSuffix(group([line, `//${commentString}`]))];
         }
 
         if (
-          node.variableIdentifier.name === "__littleBonsaiInternal_CommentMany"
+          node.variableIdentifier.name ===
+          "__littleBonsaiPrettierInternalDoNotTouch_CommentMany"
         ) {
           return [
             hardline,
@@ -330,7 +345,8 @@ module.exports = function print(path, options, print) {
         }
 
         if (
-          node.variableIdentifier.name === "__littleBonsaiInternal_BlankLine"
+          node.variableIdentifier.name ===
+          "__littleBonsaiPrettierInternalDoNotTouch_BlankLine"
         ) {
           return hardline;
         }

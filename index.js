@@ -45,18 +45,18 @@ const parsers = {
         .trim()
         .replace(/\n\n+/m, "\n\n")
         .replace(/\/\*[^(\/\*]*\*\//m, (multiLineComment) => {
-          return `~ __littleBonsaiInternal_CommentMany = "${btoa(
+          return `~ __littleBonsaiPrettierInternalDoNotTouch_CommentMany = "${btoa(
             multiLineComment
           )}"`;
         })
         .split("\n")
         .map((line) => {
           if (line.trim() === "") {
-            return "~ __littleBonsaiInternal_BlankLine = true";
+            return "~ __littleBonsaiPrettierInternalDoNotTouch_BlankLine = true";
           }
 
           if (line.trim().startsWith("//")) {
-            return `~ __littleBonsaiInternal_Comment = "${btoa(
+            return `~ __littleBonsaiPrettierInternalDoNotTouch_Comment = "${btoa(
               line.trim().replace(/^\/\//, "").trim()
             )}"`;
           }
@@ -96,12 +96,12 @@ function parse(text, parsers, options) {
   const fileHandler = {
     ResolveInkFilename: (filename) => filename,
     LoadInkFileContents: (filename) =>
-      `~ __littleBonsaiInternal_INCLUDE = "${btoa(filename)}"`,
+      `~ __littleBonsaiPrettierInternalDoNotTouch_INCLUDE = "${btoa(filename)}"`,
   };
 
   const parser = new InkParser(text, options.filepath, null, null, fileHandler);
   const ast = parser.StatementsAtLevel(StatementLevel.Top);
-  const out = { ____ROOT: ast, comments };
+  const out = { ____ROOT: ast };
 
   return out;
 }
