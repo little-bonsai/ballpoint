@@ -5,6 +5,17 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/index.js TAP examples > function calls and diverts 1`] = `
+
+=== armoury_1 ===
+  * George: Hello, fellow Hentai Heads -> map_2
+  * Jerry: George! You got in to Spooky High too?
+    Kramer: Dang, George has used up all the hentai here, we'll have to look elsewhere!
+    ~ RANDOM(1, 2)
+    ~ RANDOM(1, 2)
+    -> map_1
+`
+
 exports[`test/index.js TAP suite > basic 1`] = `
 
 hello world
@@ -47,7 +58,7 @@ exports[`test/index.js TAP suite > inline conditional 1`] = `
 exports[`test/index.js TAP suite > multiline conditiona 1`] = `
 
 {DEBUG_MULTI:
-    you are tester
+  you are tester
  - else: hello production
   }
 `
@@ -82,7 +93,8 @@ exports[`test/index.js TAP suite > nested knot 1`] = `
         go
         here
     + + (dangerousChoice) no
-        piss off -> fightScene.rumble
+        piss off
+        -> fightScene.rumble
     - - wow, alright, I'm super impressed
   * choice two
     wow, bold move
