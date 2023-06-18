@@ -1,3 +1,10 @@
+
+~ FOO(1, FOO(2,3))
+before {FOO(1, FOO(2,3))} after
+before {FOO(1, FOO(2,3))} after
+before {FOO(1, FOO(2,3))} after
+
+/*
 * x
 y
 z
@@ -25,7 +32,6 @@ ccc
 -- e
 - d
 
-/*
 hello
 world
 
@@ -51,6 +57,7 @@ just this
 ~ FOO(1, FOO(2,3))
 before {FOO(1, FOO(2,3))} after
 hello {a:b} world
+/*
 * {a} out
 out child #foo
 out dancer #foo #bar baz #qux
