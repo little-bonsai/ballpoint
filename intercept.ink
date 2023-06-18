@@ -1,12 +1,15 @@
-before {C:O} after
 
-/*
 base
 * one 
 one more child
 than you would expect
 ** two
 two children
+-- gather two
+- gather one
+
+
+/*
 === indentTest1 ===
 base
 * one #foo #bar baz #qux
