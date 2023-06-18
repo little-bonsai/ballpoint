@@ -1,10 +1,10 @@
-
 ~ FOO(1, FOO(2,3))
+
 before {FOO(1, FOO(2,3))} after
 before {FOO(1, FOO(2,3))} after
 before {FOO(1, FOO(2,3))} after
 
-/*
+
 * x
 y
 z
@@ -16,15 +16,17 @@ bbb
 ** c
 ccc
 -- e
+eee
 - d
+ddd
 
-===knot
+===knot (input)
 * x
 y
 z
 * a
 aaa
-** b [] inner
+** b [disapear] inner
 bbb
 bbb
 ** c
@@ -37,15 +39,26 @@ world
 
 {a:b}
 {a:b|c}
+
+
 {a:
 b
 -else:c
 }
+
+
 {a:
 - 1: b
 - 2: b
 -else:c
 }
+
+
+{
+	-this: a
+	-that: b
+	-else: c
+	}
 
 ~ FOO(1, FOO(2,3))
 before {FOO(1, FOO(2,3))} after
@@ -57,7 +70,6 @@ just this
 ~ FOO(1, FOO(2,3))
 before {FOO(1, FOO(2,3))} after
 hello {a:b} world
-/*
 * {a} out
 out child #foo
 out dancer #foo #bar baz #qux
@@ -118,4 +130,3 @@ Kramer: Dang, George has used up all the hentai here, we'll have to look elsewhe
 ~ RANDOM(1,2)
 ~ RANDOM(1,2)
 -> map_1
-*/
