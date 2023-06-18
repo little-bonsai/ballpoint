@@ -3,7 +3,22 @@ y
 z
 * a
 aaa
-** b
+** b [] inner
+bbb
+bbb
+** c
+ccc
+-- e
+- d
+
+===knot
+* x
+y
+z
+* a
+aaa
+** b [] inner
+bbb
 bbb
 ** c
 ccc
