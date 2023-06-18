@@ -1,15 +1,16 @@
+before {C:D} after 
 
 base
 * one 
 one more child
-than you {C:D} expect
+than you {C:D} expect 
+yes siree
+hello world
 ** two
 two children
 -- gather two
 - gather one
 and then {A:B} there's more
-
-
 /*
 === indentTest1 ===
 base
