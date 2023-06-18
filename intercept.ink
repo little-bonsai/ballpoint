@@ -11,7 +11,7 @@ two children
 -- gather two
 - gather one
 and then {A:B} there's more
-/*
+
 === indentTest1 ===
 base
 * one #foo #bar baz #qux
@@ -26,4 +26,3 @@ three child
 and then we end
 - -> DONE
 
-*/
