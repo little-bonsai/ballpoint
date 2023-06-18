@@ -20,38 +20,36 @@ hello world
 
 exports[`test/index.js TAP basic > tagged 1`] = `
 
+hello #foo bar
 `
 
 exports[`test/index.js TAP basic > tagged multiple 1`] = `
 
+hello #foo #bar baz #qux
 `
 
 exports[`test/index.js TAP basic > todo 1`] = `
-/* could not parse, check error output */
-`
 
-exports[`test/index.js TAP choices > conditional choice 1`] = `
-
-`
-
-exports[`test/index.js TAP choices > nested knot 1`] = `
-
+TODO: some thing must be done
 `
 
 exports[`test/index.js TAP choices > simple knot 1`] = `
 
+=== indentTest1 ===
+  * one
+    one child
+    * * two
+        two child
+      * * * three
+            three child
+  - -> DONE
 `
 
 exports[`test/index.js TAP conditionals > inline conditional 1`] = `
 
-`
-
-exports[`test/index.js TAP conditionals > multiline conditiona 1`] = `
-
-`
-
-exports[`test/index.js TAP conditionals > switch case 1`] = `
-
+{COND:
+    yes please|no thank you
+    }
 `
 
 exports[`test/index.js TAP examples > function calls and diverts 1`] = `
@@ -60,10 +58,16 @@ exports[`test/index.js TAP examples > function calls and diverts 1`] = `
 
 exports[`test/index.js TAP functions > inline call 1`] = `
 
+the time is now {RANDOM(1, RANDOM(1, 6))} o'clock
 `
 
 exports[`test/index.js TAP functions > outline call 1`] = `
 
+hello
+~ RANDOM(
+1
+~ RANDOM(1, 6))
+world
 `
 
 exports[`test/index.js TAP prettier ignore > prettier-ignore 1`] = `
@@ -76,8 +80,7 @@ exports[`test/index.js TAP prettier ignore > prettier-ignore stops 1`] = `
 
 exports[`test/index.js TAP variables > declarations 1`] = `
 
-`
-
-exports[`test/index.js TAP variables > variable modification 1`] = `
-
+VAR forceful = 0
+CONST awesome = true
+LIST colors = 
 `
