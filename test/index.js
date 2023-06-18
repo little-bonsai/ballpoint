@@ -58,7 +58,13 @@ world`
 t.test("conditionals", (t) => {
   const test = runTest.bind(null, t);
 
-  test("inline conditional", "{COND:yes please|no thank you}");
+  test(
+    "inline conditional",
+    `===knot
+	  //currently only works in knots
+	  base
+	before {COND:yes please|no thank you} after `
+  );
   test(
     "multiline conditiona",
     `{DEBUG_MULTI:

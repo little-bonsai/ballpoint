@@ -1,53 +1,92 @@
 hello
-~ RANDOM(1,RANDOM(1,RANDOM(1,8)))
 world
 
-the time is now { RANDOM(1,RANDOM(1,6)) } o'clock
-
-/*
-the time is now { RANDOM(1,RANDOM(1,6)) } o'clock
-
-{MORE:more|less}
-
-before {C:D} after 
-
-base
-* one 
-one more child
-than you {C:D} expect 
-yes siree
-hello world
-** two
-two children
--- gather two
-- gather one
-and then {A:B} there's more
-
-{DEBUG:
-hello freddie
-- else: hello world
+{a:b}
+{a:b|c}
+{a:
+b
+-else:c
+}
+{a:
+- 1: b
+- 2: b
+-else:c
 }
 
-{DEBUG:hello freddie}
-{DEBUG:hello freddie|hello world}
-{MORE:more|less}
-{ANSWER:
--0 : nothing
-- 42: deep thought
-- else: no answer yet
-}
+~ FOO(1, FOO(2,3))
+before {FOO(1, FOO(2,3))} after
 
-=== indentTest1 ===
-base
-* one #foo #bar baz #qux
-one {MORE:more|less} child
-than you would expect
-** two
-two {RANDOM(1, RANDOM(2,6))} children
-+++ {condition} (label) three
-three child
-~ foo = "hello world"
-~ doSomething(foo)
-and then we end
+* x
+y
+z
+* a
+** b
+- c
+
+=== knot
+just this
+
+=== knot ===
+~ FOO(1, FOO(2,3))
+before {FOO(1, FOO(2,3))} after
+hello {a:b} world
+* {a} out
+out child #foo
+out dancer #foo #bar baz #qux
+* {b} {c}one
+* * one point {a:b} one
+*** one point one{a:b|c} point one
+sub ooo
+*** one point one point two
+sub oot
+--- (alpha) gather alpha
+* * one point two
+-- gather beta
+* two
+* three
+* four
+* five
+- gather sigma -> stitch
+
+= stitch
+this is your choice:
+* choice one [ if you ] dare
+but will you?
+TODO: flesh out this choice
+* * yes
+wow, look at mr cool guy
+many
+lines
+go
+here
++ + (dangerousChoice) no
+piss off ->          fightScene.rumble
+- - wow, alright, I'm super impressed
+* choice two
+wow, bold move
+* choice three
+what else?
+- gather
+but now
+I will ask another question
+* yes, I say
+* no, I say 
 - -> DONE
-*/
+
+
+* George: Hello, fellow Hentai Heads -> map_2
+* Jerry: George! You got in to Spooky High too?
+Kramer: Dang, George has used up all the hentai here, 
+we'll have to look elsewhere!
+** yes
+** no
+- ok
+lets go
+
+=== armoury_1 ===
+* George: Hello, fellow Hentai Heads -> map_2
+* Jerry: George! You got in to Spooky High too?
+Kramer: Dang, George has used up all the hentai here, we'll have to look elsewhere!
+~ RANDOM(1,2)
+~ RANDOM(1,2)
+-> map_1
