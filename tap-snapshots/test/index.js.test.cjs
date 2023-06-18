@@ -65,8 +65,7 @@ exports[`test/index.js TAP functions > outline call 1`] = `
 
 hello
 ~ RANDOM(
-1
-~ RANDOM(1, 6))
+1RANDOM(1, 6))
 world
 `
 

@@ -1,6 +1,12 @@
+hello
+~ RANDOM(1,RANDOM(1,RANDOM(1,8)))
+world
+
 the time is now { RANDOM(1,RANDOM(1,6)) } o'clock
 
 /*
+the time is now { RANDOM(1,RANDOM(1,6)) } o'clock
+
 {MORE:more|less}
 
 before {C:D} after 
