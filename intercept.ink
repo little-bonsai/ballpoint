@@ -1,3 +1,16 @@
+* x
+y
+z
+* a
+aaa
+** b
+bbb
+** c
+ccc
+-- e
+- d
+
+/*
 hello
 world
 
@@ -15,13 +28,6 @@ b
 
 ~ FOO(1, FOO(2,3))
 before {FOO(1, FOO(2,3))} after
-
-* x
-y
-z
-* a
-** b
-- c
 
 === knot
 just this
@@ -90,3 +96,4 @@ Kramer: Dang, George has used up all the hentai here, we'll have to look elsewhe
 ~ RANDOM(1,2)
 ~ RANDOM(1,2)
 -> map_1
+*/
