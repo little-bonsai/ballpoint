@@ -17,7 +17,7 @@ module.exports = {
   parsers,
   printers,
   defaultOptions: {
-    tabWidth: 2,
+    tabWidth: 4,
     useTabs: false,
     printWidth: 9999,
   },

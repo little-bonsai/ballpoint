@@ -6,12 +6,15 @@
  */
 'use strict'
 exports[`test/index.js TAP basic > comment 1`] = `
+
 some value
 //Character variables. We track just two, using a +/- scale
+
 and some value
 `
 
 exports[`test/index.js TAP basic > single line 1`] = `
+
 hello world
 `
 
