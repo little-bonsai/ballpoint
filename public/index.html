@@ -86,10 +86,16 @@ hello {DEBUG:developer|public}!
 					.then((response) => {
 						if (response.ok) {
 							return response.json();
+						} else {
+							return response.json().then(x => Promise.reject(x))
 						}
 					})
 					.then(({ out }) => {
 						document.querySelector("#output").value = out;
+					})
+					.catch(({error}) => {
+						console.log(error)
+						alert(error);
 					});
 			});
 		</script>

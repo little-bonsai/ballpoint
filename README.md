@@ -63,9 +63,9 @@ If opening a MR, please include:
 - [x] multiple tags
 - [x] ref arguments
 - [x] INCLUDE handling
-- [ ] web hosted
+- [x] web hosted
   - [x] basic hosting
-  - [ ] error reporting
+  - [x] error reporting
 - [ ] comments
 - [ ] directives based approach
 - [ ] dynamic tags
