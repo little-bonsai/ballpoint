@@ -1,0 +1,31 @@
+<html>
+	<body>
+		<h1>Ballpoint</h1>
+
+		<textarea id="input" rows="80" cols="80">
+=== Knot ===
+* some
+*** choices
+- here
+		</textarea>
+		<textarea id="output" rows="80" cols="80"></textarea>
+
+		<button id="submit">submit</button>
+
+		<script>
+			document.querySelector("#submit").addEventListener("click", () => {
+				const input = document.querySelector("#input").value;
+
+				fetch("/api/format.js", { method: "POST", body: input })
+					.then((response) => {
+						if (response.ok) {
+							return response.json();
+						}
+					})
+					.then(({out}) => {
+						document.querySelector("#output").value = out;
+					});
+			});
+		</script>
+	</body>
+</html>

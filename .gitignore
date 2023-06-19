@@ -1,3 +1,5 @@
 node_modules
 *.prettier.*.ink
 .nyc_output
+.vercel
+vendor
