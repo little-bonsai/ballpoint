@@ -96,7 +96,7 @@ you are tester
   } `
   );
   test(
-    "bare switch case",
+    "bare switch case logic",
     `
   { 
     - answer == 0: ~ return true
@@ -106,6 +106,21 @@ you are tester
 
 `
   );
+
+  //TODO:
+  /*
+  test(
+    "bare switch case divert",
+    `
+{
+- check == value1: -> OtherLovers_Selfish
+- check == value2: -> OtherLovers_Passive
+- check == value2: -> OtherLovers_Giving
+}
+
+`
+  );
+  */
 
   t.end();
 });
@@ -118,7 +133,9 @@ t.test("variables", (t) => {
     `
 	  VAR forceful = 0
 CONST awesome = true
-LIST colors = red, (green), blue`
+LIST colors = red, (green), blue
+VAR emptyList = ()
+`
   );
 
   test(

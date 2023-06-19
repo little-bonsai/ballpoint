@@ -26,7 +26,7 @@ exports[`test/index.js TAP basic > todo 1`] = `
 TODO: some thing must be done
 `
 
-exports[`test/index.js TAP conditionals > bare switch case 1`] = `
+exports[`test/index.js TAP conditionals > bare switch case logic 1`] = `
 {
 - answer == 0: ~ return true
 - answer == 42: ~ return "deep thought"
@@ -153,6 +153,7 @@ exports[`test/index.js TAP variables > declarations 1`] = `
 VAR forceful = 0
 CONST awesome = true
 LIST colors = red, (green), blue
+VAR emptyList = ()
 `
 
 exports[`test/index.js TAP variables > variable modification 1`] = `

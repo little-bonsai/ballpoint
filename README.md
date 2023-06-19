@@ -62,9 +62,12 @@ If opening a MR, please include:
 - [x] tags
 - [x] multiple tags
 - [x] ref arguments
-- [ ] comments
 - [x] INCLUDE handling
 - [ ] web hosted
+  - [x] basic hosting
+  - [ ] error reporting
+- [ ] comments
+- [ ] directives based approach
 - [ ] dynamic tags
 - [ ] sort INCLUDEs option
 - [ ] api?
