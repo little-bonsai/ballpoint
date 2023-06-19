@@ -2,6 +2,8 @@
 
 > A CLI for formatting [ink] files
 
+Also available in [web app] form
+
 **⚠️PLEASE NOTE THIS TOOL IS STILL WORK IN PROGRESS⚠️**
 **It will delete your comments, and fail on INCLUDEs**
 **⚠️SAVE YOUR WORK BEFORE FORMATTING IT⚠️**
@@ -71,3 +73,4 @@ If opening a MR, please include:
 [ink]: https://github.com/inkle/ink/
 [nvm]: https://github.com/nvm-sh/nvm
 [inkjs]: https://github.com/y-lohse/inkjs
+[web app]: https://bonsai.li/ballpoint
