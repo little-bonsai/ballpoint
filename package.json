@@ -1,9 +1,12 @@
 {
-  "name": "prettier-plugin-ink",
-  "version": "1.1.1",
-  "description": "prettier plugin for inkle's ink",
+  "name": "@little-bonsai/ballpoint",
+  "version": "0.1.0",
+  "description": "cli for formatting ink files",
   "license": "MIT",
   "main": "index.js",
+  "bin": {
+    "ballpoint": "./index.js"
+  },
   "scripts": {
     "prepare": "npm run test",
     "test": "tap --no-coverage",
@@ -11,6 +14,7 @@
     "test-init": "curl https://raw.githubusercontent.com/inkle/the-intercept/master/Assets/Ink/TheIntercept.ink > intercept.ink"
   },
   "dependencies": {
+    "arg": "^5.0.2",
     "inkjs": "^2.2.1",
     "line-column": "^1.0.2"
   },
@@ -20,11 +24,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/little-bonsai/prettier-plugin-ink.git"
+    "url": "https://github.com/little-bonsai/ballpoint.git"
   },
   "keywords": [
-    "prettier",
-    "ink"
+    "ink",
+    "cli",
+    "formatter"
   ],
   "author": {
     "name": "Freddie Gilbraith",
@@ -32,7 +37,6 @@
     "url": "https://littlebonsai.co.uk/"
   },
   "devDependencies": {
-    "prettier": "^2.8.8",
     "tap": "^16.3.6"
   },
   "tap": {

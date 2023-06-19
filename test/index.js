@@ -1,15 +1,12 @@
 const t = require("tap");
-const prettier = require("prettier");
 
-function parse(src, filepath = "main.ink") {
-  return prettier.format(src, {
-    parser: "ink",
-    plugins: ["."],
-  });
-}
+require("inkjs/compiler/Parser/InkParser");
+require("inkjs/compiler/parser/StatementLevel");
+
+const format = require("../lib/format");
 
 function runTest(t, name, src, { once = false, filepath, log = false } = {}) {
-  const first = parse(src, filepath);
+  const first = format(src, filepath);
   t.matchSnapshot(first, name);
   if (log) {
     console.log("\n\n");
@@ -17,7 +14,7 @@ function runTest(t, name, src, { once = false, filepath, log = false } = {}) {
     console.log("\n\n");
   }
   if (!once) {
-    const second = parse(first, filepath);
+    const second = format(first, filepath);
     t.equal(first, second);
   }
 }
@@ -35,7 +32,23 @@ and some value `
 
   test("todo", ` TODO: some thing must be done `);
   test("tagged", "hello #foo bar");
-  test("tagged multiple", "hello #foo #bar baz #qux", { log: true });
+  test("tagged multiple", "hello #foo #bar baz #qux");
+
+  t.end();
+});
+
+t.test("sequences", (t) => {
+  const test = runTest.bind(null, t);
+
+  test(
+    "sequences",
+    `
+{|foo|bar|}
+{&|foo|bar|}
+{~|foo|bar|}
+{!|foo|bar|}
+	`
+  );
 
   t.end();
 });
@@ -80,6 +93,15 @@ you are tester
     - 0: ~ return true
     - 42: ~ return "deep thought"
     - else: ~ return false
+  } `
+  );
+  test(
+    "bare switch case",
+    `
+  { 
+    - answer == 0: ~ return true
+    - answer == 42: ~ return "deep thought"
+    - else: ~ return false
   }
 
 `
@@ -93,7 +115,8 @@ t.test("variables", (t) => {
 
   test(
     "declarations",
-    `VAR forceful = 0
+    `
+	  VAR forceful = 0
 CONST awesome = true
 LIST colors = red, (green), blue`
   );
@@ -115,8 +138,19 @@ LIST colors = red, (green), blue`
   t.end();
 });
 
-t.test("choices", (t) => {
+t.test("knots & weave", (t) => {
   const test = runTest.bind(null, t);
+
+  /*
+  test(
+    "function",
+    `
+=== function alter(ref x, k) ===
+~ x = x + k
+~ return x
+`
+  );
+  */
 
   test(
     "simple knot",
@@ -187,33 +221,6 @@ I will ask another question
 `
   );
 
-  t.end();
-});
-
-t.test("prettier ignore", (t) => {
-  const test = runTest.bind(null, t);
-  test(
-    "prettier-ignore",
-    `
-   === knot
-//prettier-ignore
-****** some fucked up styling
--    { dsadwad     :    dwda |   dwadawdwa } some      other        line
-~ var   =   true
-`
-  );
-
-  test(
-    "prettier-ignore stops",
-    `
-   === knot
-//prettier-ignore
-****** some fucked up styling
-
-=== knot
-*** this knot will be styled
-`
-  );
   t.end();
 });
 

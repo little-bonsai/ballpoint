@@ -1,9 +1,9 @@
-# Ink Prettier Plugin
+# Ballpoint
 
 > An [prettier] plugin for formatting [ink]
 
 **⚠️PLEASE NOTE THIS TOOL IS STILL WORK IN PROGRESS⚠️**
-
+**It will delete your comments, and fail on INCLUDEs**
 **⚠️SAVE YOUR WORK BEFORE FORMATTING IT⚠️**
 
 ## Get Started
@@ -18,36 +18,24 @@ nvm install 18
 nvm use 18
 ```
 
-### Step 2 Install Prettier & Prettier-Plugin-Ink
+### Step 2 Ballpoint
 
 ```bash
-npm install -g prettier prettier-plugin-ink
+npm install -g @littlebonsai/ballpoint
 ```
 
 ### Step 3 Run
 
-> Make sure you save your work first! This will overwrite your files!
-
 ```bash
-prettier -w **/*.ink
+ballpoint **/*.ink
 ```
 
-## Ignore
+## Acknowledgements
 
-Writing `//prettier-ignore` will cause the following lines to be ignored by prettier. It will ignore **All the following lines of the same depth**, eg:
+This would not have been possible without the great work of
 
-```ink
-
-=== knot
-//prettier-ignore
-****** this line WILL not be formatted
-****** this line WILL ALSO not be formatted
-
-=== knot
-*** this line WILL be formatted
-```
-
-Only `//` style comments are currently supported
+- [ink]
+- [inkjs]
 
 ## Contributing
 
@@ -68,18 +56,18 @@ If opening a MR, please include:
 ## TODO
 
 - [x] npm publish
-- [x] INCLUDE handling
 - [x] repeated application test
 - [x] tags
-- [x] prettier-ignore pragma
 - [x] multiple tags
+- [ ] comments
+- [ ] INCLUDE handling
+- [ ] ref arguments
 - [ ] web hosted
 - [ ] dynamic tags
-- [ ] proper comment handling
-- [ ] prettier-ignore multi-line comments
 - [ ] sort INCLUDEs option
 - [ ] api?
 
 [prettier]: https://prettier.io/
 [ink]: https://github.com/inkle/ink/
 [nvm]: https://github.com/nvm-sh/nvm
+[inkjs]: https://github.com/y-lohse/inkjs
