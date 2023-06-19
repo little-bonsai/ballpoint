@@ -59,9 +59,9 @@ If opening a MR, please include:
 - [x] repeated application test
 - [x] tags
 - [x] multiple tags
+- [x] ref arguments
 - [ ] comments
 - [ ] INCLUDE handling
-- [ ] ref arguments
 - [ ] web hosted
 - [ ] dynamic tags
 - [ ] sort INCLUDEs option

@@ -99,6 +99,14 @@ exports[`test/index.js TAP knots & weave > conditional choice 1`] = `
     
 `
 
+exports[`test/index.js TAP knots & weave > function 1`] = `
+
+=== function alter (ref x, k)
+~ x = x + k
+~ return x
+
+`
+
 exports[`test/index.js TAP knots & weave > nested knot 1`] = `
 
 === testStitch ===

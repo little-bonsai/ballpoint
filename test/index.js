@@ -141,7 +141,6 @@ LIST colors = red, (green), blue`
 t.test("knots & weave", (t) => {
   const test = runTest.bind(null, t);
 
-  /*
   test(
     "function",
     `
@@ -150,7 +149,6 @@ t.test("knots & weave", (t) => {
 ~ return x
 `
   );
-  */
 
   test(
     "simple knot",
