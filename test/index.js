@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const t = require("tap");
 
 require("inkjs/compiler/Parser/InkParser");
