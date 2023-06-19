@@ -97,7 +97,11 @@ exports[`test/index.js TAP knots & weave > function 1`] = `
 `
 
 exports[`test/index.js TAP knots & weave > nested knot 1`] = `
-=== testStitch ===
+=== previousKnot ===
+test
+
+
+=== Knot ===
 hello world
   * out
   * one
@@ -114,6 +118,8 @@ hello world
   * four
   * five
   - gather sigma
+
+= stitch
 this is your choice:
   * choice one [ if you ] dare
     but will you?

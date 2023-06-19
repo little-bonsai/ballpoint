@@ -180,7 +180,9 @@ three child
   test(
     "nested knot",
     `
-=== testStitch ===
+	  ===previousKnot
+	  test
+=== Knot ===
 hello world
 * out
 * one
@@ -197,6 +199,7 @@ sub oot
 * four
 * five
 - gather sigma
+=stitch
 this is your choice:
 * choice one [ if you ] dare
 but will you?
