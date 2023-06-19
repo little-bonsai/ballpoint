@@ -26,11 +26,19 @@ exports[`test/index.js TAP basic > todo 1`] = `
 TODO: some thing must be done
 `
 
+exports[`test/index.js TAP conditionals > bare switch case divert 1`] = `
+{
+    - check == value1: -> OtherLovers_Selfish
+    - check == value2: -> OtherLovers_Passive
+    - check == value2: -> OtherLovers_Giving
+}
+`
+
 exports[`test/index.js TAP conditionals > bare switch case logic 1`] = `
 {
-- answer == 0: ~ return true
-- answer == 42: ~ return "deep thought"
-- else: ~ return false
+    - answer == 0: ~ return true
+    - answer == 42: ~ return "deep thought"
+    - else: ~ return false
 }
 `
 
@@ -42,16 +50,16 @@ before {COND:yes please|no thank you} after
 
 exports[`test/index.js TAP conditionals > multiline conditiona 1`] = `
 {DEBUG_MULTI:
-you are tester
-- else: hello production
+    you are tester
+    - else: hello production
 }
 `
 
 exports[`test/index.js TAP conditionals > switch case 1`] = `
 {LIST_COUNT(LIST_INVERT(quest ^ Journal)):
-- 0: ~ return true
-- 42: ~ return "deep thought"
-- else: ~ return false
+    - 0: ~ return true
+    - 42: ~ return "deep thought"
+    - else: ~ return false
 }
 `
 
@@ -108,7 +116,6 @@ hello world
   - gather sigma
 this is your choice:
   * choice one [ if you ] dare
-    
     but will you?
     TODO: flesh out this choice
     * * yes

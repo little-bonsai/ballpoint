@@ -107,8 +107,6 @@ you are tester
 `
   );
 
-  //TODO:
-  /*
   test(
     "bare switch case divert",
     `
@@ -117,10 +115,8 @@ you are tester
 - check == value2: -> OtherLovers_Passive
 - check == value2: -> OtherLovers_Giving
 }
-
 `
   );
-  */
 
   t.end();
 });
