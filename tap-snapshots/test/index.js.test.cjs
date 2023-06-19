@@ -8,26 +8,22 @@
 exports[`test/index.js TAP basic > comment 1`] = `
 some value
 and some value
-
 `
 
 exports[`test/index.js TAP basic > single line 1`] = `
 hello world
-
 `
 
 exports[`test/index.js TAP basic > tagged 1`] = `
 hello #foo bar
-
 `
 
 exports[`test/index.js TAP basic > tagged multiple 1`] = `
 hello #foo #bar baz #qux
-
 `
 
 exports[`test/index.js TAP basic > todo 1`] = `
-TODO: some thing must be done 
+TODO: some thing must be done
 `
 
 exports[`test/index.js TAP conditionals > bare switch case 1`] = `
@@ -36,16 +32,12 @@ exports[`test/index.js TAP conditionals > bare switch case 1`] = `
 - answer == 42: ~ return "deep thought"
 - else: ~ return false
 }
-
 `
 
 exports[`test/index.js TAP conditionals > inline conditional 1`] = `
-
-
 === knot ===
 base
 before {COND:yes please|no thank you} after
-
 `
 
 exports[`test/index.js TAP conditionals > multiline conditiona 1`] = `
@@ -53,7 +45,6 @@ exports[`test/index.js TAP conditionals > multiline conditiona 1`] = `
 you are tester
 - else: hello production
 }
-
 `
 
 exports[`test/index.js TAP conditionals > switch case 1`] = `
@@ -62,12 +53,9 @@ exports[`test/index.js TAP conditionals > switch case 1`] = `
 - 42: ~ return "deep thought"
 - else: ~ return false
 }
-
 `
 
 exports[`test/index.js TAP examples > function calls and diverts 1`] = `
-
-
 === armoury_1 ===
   * George: Hello, fellow Hentai Heads []-> map_2
   * Jerry: George! You got in to Spooky High too?
@@ -79,38 +67,28 @@ exports[`test/index.js TAP examples > function calls and diverts 1`] = `
 
 exports[`test/index.js TAP functions > inline call 1`] = `
 the time is now {RANDOM(1, RANDOM(1, 6))} o'clock
-
 `
 
 exports[`test/index.js TAP functions > outline call 1`] = `
 hello
 ~ RANDOM(1, RANDOM(1, 6))
 world
-
 `
 
 exports[`test/index.js TAP knots & weave > conditional choice 1`] = `
-
-
 === knot ===
   * {isCool} I ride motorbikes
   * {not isCool} I hate motorbikes
   * { isCool } { ownsMotorbike } get on babe
-    
 `
 
 exports[`test/index.js TAP knots & weave > function 1`] = `
-
-
 === function alter (ref x, k)
 ~ x = x + k
 ~ return x
-
 `
 
 exports[`test/index.js TAP knots & weave > nested knot 1`] = `
-
-
 === testStitch ===
 hello world
   * out
@@ -151,13 +129,9 @@ but now
 I will ask another question
   * yes, I say
   * no, I say []-> DONE
-    
-    
 `
 
 exports[`test/index.js TAP knots & weave > simple knot 1`] = `
-
-
 === indentTest1 ===
   * one
     one child
@@ -173,14 +147,12 @@ exports[`test/index.js TAP sequences > sequences 1`] = `
 {&|foo|bar|}
 {~|foo|bar|}
 {!|foo|bar|}
-
 `
 
 exports[`test/index.js TAP variables > declarations 1`] = `
 VAR forceful = 0
 CONST awesome = true
 LIST colors = red, (green), blue
-
 `
 
 exports[`test/index.js TAP variables > variable modification 1`] = `
@@ -191,5 +163,4 @@ exports[`test/index.js TAP variables > variable modification 1`] = `
 ~ num -= 4
 ~ str = "hello"
 ~ str = "world"
-
 `
