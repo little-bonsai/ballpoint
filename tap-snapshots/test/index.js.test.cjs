@@ -41,6 +41,7 @@ exports[`test/index.js TAP conditionals > bare switch case 1`] = `
 
 exports[`test/index.js TAP conditionals > inline conditional 1`] = `
 
+
 === knot ===
 base
 before {COND:yes please|no thank you} after
@@ -66,14 +67,13 @@ exports[`test/index.js TAP conditionals > switch case 1`] = `
 
 exports[`test/index.js TAP examples > function calls and diverts 1`] = `
 
+
 === armoury_1 ===
   * George: Hello, fellow Hentai Heads []-> map_2
   * Jerry: George! You got in to Spooky High too?
     Kramer: Dang, George has used up all the hentai here, we'll have to look elsewhere!
     ~ RANDOM(1, 2)
-
     ~ RANDOM(1, 2)
-
     -> map_1
 `
 
@@ -85,12 +85,12 @@ the time is now {RANDOM(1, RANDOM(1, 6))} o'clock
 exports[`test/index.js TAP functions > outline call 1`] = `
 hello
 ~ RANDOM(1, RANDOM(1, 6))
-
 world
 
 `
 
 exports[`test/index.js TAP knots & weave > conditional choice 1`] = `
+
 
 === knot ===
   * {isCool} I ride motorbikes
@@ -101,6 +101,7 @@ exports[`test/index.js TAP knots & weave > conditional choice 1`] = `
 
 exports[`test/index.js TAP knots & weave > function 1`] = `
 
+
 === function alter (ref x, k)
 ~ x = x + k
 ~ return x
@@ -108,6 +109,7 @@ exports[`test/index.js TAP knots & weave > function 1`] = `
 `
 
 exports[`test/index.js TAP knots & weave > nested knot 1`] = `
+
 
 === testStitch ===
 hello world
@@ -154,6 +156,7 @@ I will ask another question
 `
 
 exports[`test/index.js TAP knots & weave > simple knot 1`] = `
+
 
 === indentTest1 ===
   * one

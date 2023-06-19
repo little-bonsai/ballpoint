@@ -61,7 +61,7 @@ If opening a MR, please include:
 - [x] multiple tags
 - [x] ref arguments
 - [ ] comments
-- [ ] INCLUDE handling
+- [x] INCLUDE handling
 - [ ] web hosted
 - [ ] dynamic tags
 - [ ] sort INCLUDEs option
