@@ -1,6 +1,6 @@
 # Ballpoint
 
-> An [prettier] plugin for formatting [ink]
+> A CLI for formatting [ink] files
 
 **⚠️PLEASE NOTE THIS TOOL IS STILL WORK IN PROGRESS⚠️**
 **It will delete your comments, and fail on INCLUDEs**
@@ -21,7 +21,7 @@ nvm use 18
 ### Step 2 Ballpoint
 
 ```bash
-npm install -g @littlebonsai/ballpoint
+npm install -g @little-bonsai/ballpoint
 ```
 
 ### Step 3 Run
