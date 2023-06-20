@@ -186,6 +186,13 @@ exports[`test/index.js TAP knots & weave > simple knot 1`] = `
   - -> DONE
 `
 
+exports[`test/index.js TAP knots & weave > tunnels 1`] = `
+=== murder_scene ===
+The bedroom. This is where it happened. Now to look for clues.
+  - (top) {bedroomLightState ? seen:  <- seen_light}
+ <- compare_prints
+`
+
 exports[`test/index.js TAP sequences > sequences 1`] = `
 {|foo|bar|}
 {&|foo|bar|}

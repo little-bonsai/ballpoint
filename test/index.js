@@ -280,6 +280,17 @@ and this line
  `
 	);
 
+	test(
+		"tunnels",
+		`
+		=== murder_scene ===
+    The bedroom. This is where it happened. Now to look for clues.
+- (top)
+    { bedroomLightState ? seen:     <- seen_light  }
+    <- compare_prints(-> top)
+`
+	);
+
 	t.end();
 });
 
