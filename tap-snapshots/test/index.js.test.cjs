@@ -122,6 +122,11 @@ exports[`test/index.js TAP knots & weave > conditional choice 1`] = `
   * { isCool } { ownsMotorbike } get on babe
 `
 
+exports[`test/index.js TAP knots & weave > divert target 1`] = `
+* (dobed) [The bed...]
+    * * {TURNS_SINCE(-> dobed) > 1} [Something else?]
+`
+
 exports[`test/index.js TAP knots & weave > nested knot 1`] = `
 === previousKnot ===
 test
