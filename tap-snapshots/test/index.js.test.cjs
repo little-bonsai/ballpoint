@@ -6,8 +6,12 @@
  */
 'use strict'
 exports[`test/index.js TAP basic > comment 1`] = `
-some value
-and some value
+/**
+* Welcome to the intercept
+*/
+first line
+// Character variables. We track just two, using a +/- scale
+second line
 `
 
 exports[`test/index.js TAP basic > single line 1`] = `
@@ -44,6 +48,7 @@ exports[`test/index.js TAP conditionals > bare switch case logic 1`] = `
 
 exports[`test/index.js TAP conditionals > inline conditional 1`] = `
 === knot ===
+//currently only works in knots
 base
 before {COND:yes please|no thank you} after
 `

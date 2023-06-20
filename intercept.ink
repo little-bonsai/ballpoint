@@ -1,3 +1,6 @@
-  ===knot
-  * George: Hello, fellow Hentai Heads []-> map_2
-  * Jerry: George! You got in to Spooky High too?
+/**
+* Welcome to the intercept
+*/
+first line
+// Character variables. We track just two, using a +/- scale
+second line

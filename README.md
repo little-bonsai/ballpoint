@@ -36,8 +36,8 @@ ballpoint **/*.ink
 
 This would not have been possible without the great work of
 
-- [ink]
-- [inkjs]
+-  [ink]
+-  [inkjs]
 
 ## Contributing
 
@@ -45,32 +45,33 @@ Bug Reports and PRs are very welcome.
 
 If filing a bug report, please include:
 
-- your original ink code
-- how it was formatted
-- how it should be formatted
-- any additional information
+-  your original ink code
+-  how it was formatted
+-  how it should be formatted
+-  any additional information
 
 If opening a MR, please include:
 
-- a description of the change
-- at least 1 test showing the input and output
+-  a description of the change
+-  at least 1 test showing the input and output
 
 ## TODO
 
-- [x] npm publish
-- [x] repeated application test
-- [x] tags
-- [x] multiple tags
-- [x] ref arguments
-- [x] INCLUDE handling
-- [x] web hosted
-  - [x] basic hosting
-  - [x] error reporting
-- [ ] comments
-- [ ] directives based approach
-- [ ] dynamic tags
-- [ ] sort INCLUDEs option
-- [ ] api?
+-  [x] npm publish
+-  [x] repeated application test
+-  [x] tags
+-  [x] multiple tags
+-  [x] ref arguments
+-  [x] INCLUDE handling
+-  [x] web hosted
+   -  [x] basic hosting
+   -  [x] error reporting
+-  [x] comments
+-  [x] directives based approach
+-  [x] api?
+-  [ ] multi-lined multi-conditioned choices
+-  [ ] dynamic tags
+-  [ ] sort INCLUDEs option
 
 [prettier]: https://prettier.io/
 [ink]: https://github.com/inkle/ink/
