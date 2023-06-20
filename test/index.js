@@ -272,6 +272,14 @@ and this line
 `
 	);
 
+	test(
+		"divert target",
+		`
+*   (dobed) [The bed...]
+* *     {TURNS_SINCE(-> dobed) > 1} [Something else?]
+ `
+	);
+
 	t.end();
 });
 
