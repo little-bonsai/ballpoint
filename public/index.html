@@ -7,8 +7,8 @@
       ></script>
       <script src="https://cdn.tailwindcss.com"></script>
    </head>
-   <body>
-      <h1 class="px-8 py-2 text-2xl">Ballpoint</h1>
+   <body class="flex flex-col">
+	   <h1 class="px-8 py-2 pt-6 text-5xl relative self-start">Ballpoint <span class="absolute -right-3 top-6 text-3xl rotate-12 text-red-600">BETA</span></h1>
       <div>
          An
          <a href="https://www.inklestudios.com/ink/">ink</a> auto-formatter
@@ -16,7 +16,7 @@
 
       <input
          type="submit"
-         class="border-2 border-green-700 bg-green-200 text-green-700 rounded shadow hover:shadow-xl transition-all px-4 py-2 m-2 cursor-pointer "
+         class="border-2 border-green-700 bg-green-200 text-green-700 rounded shadow hover:shadow-xl transition-all px-4 py-2 m-2 cursor-pointer disabled:opacity-50 "
          id="submit"
          value="Format"
       />
@@ -87,12 +87,30 @@ hello {DEBUG:developer|public}!
                <li class="ml-4"> <a class="text-blue-800 underline" href="https://bonsai.li/toot" >Developer Mastodon</a > </li>
                <li class="ml-4"> <a class="text-blue-800 underline" href="https://twitter.com/GilbraithVO" >Developer Twitter</a > </li>
             </ul>
+
+            <h2 class="pt-4 text-lg text-center">Notes</h2>
+
+			<div class="w-96">
+				<p class="py-1">
+			Because of the symantic importance of whitespace in both ink's symantics and it's runtime representation; re-formatting ink code in this way can result in slight changes in behaviour.
+				</p>
+				<p class="py-1 font-bold">
+				While in a beta state, you should check that the code output from ballpoint still works the way you are expecting.
+				</p>
+				<p class="py-1">
+				However, the output of Ballpoint should be stable: Running Ballpoint on its own output shouldn't result in any changes.
+				</p>
+			</div>
          </div>
       </div>
 
       <script>
          document.querySelector("#submit").addEventListener("click", () => {
+			 const button = document.querySelector("#submit")
             const input = document.querySelector("#input").value;
+
+			 button.value = "..."
+			 button.disabled= true
 
             fetch("/api/format.js", { method: "POST", body: input })
                .then((response) => {
@@ -108,7 +126,11 @@ hello {DEBUG:developer|public}!
                .catch(({ error }) => {
                   console.log(error);
                   alert(error);
-               });
+			   }).then( () => {
+			 button.value = "Format"
+			 button.disabled= false
+
+			   });
          });
       </script>
    </body>
