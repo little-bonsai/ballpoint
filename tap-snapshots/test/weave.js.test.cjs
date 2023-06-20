@@ -71,7 +71,7 @@ this is your choice:
 but now
 I will ask another question
   * yes, I say
-  * no, I say []-> DONE
+  * no, I say -> DONE
 `
 
 exports[`test/weave.js TAP knots & weave > simple knot 1`] = `
