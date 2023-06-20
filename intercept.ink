@@ -1,6 +1,5 @@
-/**
-* Welcome to the intercept
-*/
-first line
-// Character variables. We track just two, using a +/- scale
-second line
+INCLUDE ./another.ink
+
+VAR isFormatted = falsedwad
+CONST ballpointIsHelpful = true
+LIST badEnoughDudes = (you), dwdwaus

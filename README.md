@@ -4,10 +4,6 @@
 
 Also available in [web app] form
 
-**⚠️PLEASE NOTE THIS TOOL IS STILL WORK IN PROGRESS⚠️**
-**It will delete your comments, and fail on INCLUDEs**
-**⚠️SAVE YOUR WORK BEFORE FORMATTING IT⚠️**
-
 ## Get Started
 
 ### Step 1 Install node.js
