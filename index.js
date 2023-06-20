@@ -9,36 +9,56 @@ require("inkjs/compiler/parser/StatementLevel");
 const format = require("./lib/format");
 
 async function main(args) {
-  if (args["--help"]) {
-    return printHelp();
-  }
+	if (args["--help"]) {
+		return printHelp();
+	}
 
-  for (const inputFilename of args._) {
-    const src = await fs.readFile(inputFilename, "utf8");
-    const out = format(src, inputFilename);
+	for (const inputFilename of args._) {
+		process.stdout.write(inputFilename);
 
-    console.log(out);
-  }
+		const src = await fs.readFile(inputFilename, "utf8");
+		const out = (() => {
+			try {
+				return format(src, inputFilename);
+			} catch (e) {
+				return e;
+			}
+		})();
+
+		if (typeof out === "string") {
+			process.stdout.write(" [ OK ]\n");
+
+			if (args["--write"]) {
+				await fs.writeFile(inputFilename, out);
+			} else {
+				console.log(out);
+			}
+		} else {
+			process.stdout.write(" [ Error ]\n");
+			console.log(out);
+			break;
+		}
+	}
 }
 
 const argSpec = {
-  // General
-  "--help": Boolean,
-  "--version": Boolean,
-  "--verbose": arg.COUNT, // Counts the number of times --verbose is passed
+	// General
+	"--help": Boolean,
+	"--version": Boolean,
+	"--verbose": arg.COUNT, // Counts the number of times --verbose is passed
 
-  "--sort-includes": Boolean,
-  "--write": Boolean,
+	"--sort-includes": Boolean,
+	"--write": Boolean,
 
-  // Aliases
-  "-h": "--help",
-  "-w": "--write",
-  "-v": "--verbose",
+	// Aliases
+	"-h": "--help",
+	"-w": "--write",
+	"-v": "--verbose",
 };
 
 function printHelp() {
-  console.log(
-    `
+	console.log(
+		`
 Ballpoint
 A CLI for formatting .ink files
 
@@ -59,8 +79,8 @@ Arguments:
         -s = --sort-includes
         -v = --verbose
 `.trim(),
-    "\n"
-  );
+		"\n"
+	);
 }
 
 main(arg(argSpec, { permissive: true, argv: process.argv.slice(2) }));
