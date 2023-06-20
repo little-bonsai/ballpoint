@@ -85,6 +85,10 @@ exports[`test/index.js TAP examples > function calls and diverts 1`] = `
     -> map_1
 `
 
+exports[`test/index.js TAP functions > externals 1`] = `
+EXTERNAL functionName(a, b, c)
+`
+
 exports[`test/index.js TAP functions > function 1`] = `
 === function alter (ref x, k)
 ~ temp altered = x + k

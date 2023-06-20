@@ -87,6 +87,13 @@ world`
 `
 	);
 
+	test(
+		"externals",
+		`
+EXTERNAL functionName(a,b,c)
+`
+	);
+
 	t.end();
 });
 
