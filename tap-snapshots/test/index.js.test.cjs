@@ -14,6 +14,13 @@ first line
 second line
 `
 
+exports[`test/index.js TAP basic > includes 1`] = `
+INCLUDE ./foo.ink
+INCLUDE ./bar/baz.ink
+INCLUDE ./qux.ink
+VAR isFormatted = falsedwad
+`
+
 exports[`test/index.js TAP basic > single line 1`] = `
 hello world
 `
@@ -78,6 +85,13 @@ exports[`test/index.js TAP examples > function calls and diverts 1`] = `
     -> map_1
 `
 
+exports[`test/index.js TAP functions > function 1`] = `
+=== function alter (ref x, k)
+~ temp altered = x + k
+~ x = altered
+~ return x
+`
+
 exports[`test/index.js TAP functions > inline call 1`] = `
 the time is now {RANDOM(1, RANDOM(1, 6))} o'clock
 `
@@ -88,17 +102,20 @@ hello
 world
 `
 
+exports[`test/index.js TAP knots & weave > Glue 1`] = `
+this line <>
+and this line
+`
+
+exports[`test/index.js TAP knots & weave > Tunnel Onwards 1`] = `
+something ->->
+`
+
 exports[`test/index.js TAP knots & weave > conditional choice 1`] = `
 === knot ===
   * {isCool} I ride motorbikes
   * {not isCool} I hate motorbikes
   * { isCool } { ownsMotorbike } get on babe
-`
-
-exports[`test/index.js TAP knots & weave > function 1`] = `
-=== function alter (ref x, k)
-~ x = x + k
-~ return x
 `
 
 exports[`test/index.js TAP knots & weave > nested knot 1`] = `

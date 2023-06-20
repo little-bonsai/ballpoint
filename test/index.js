@@ -36,6 +36,15 @@ second line `
 	test("todo", ` TODO: some thing must be done `);
 	test("tagged", "hello #foo bar");
 	test("tagged multiple", "hello #foo #bar baz #qux");
+	test(
+		"includes",
+		`
+INCLUDE ./foo.ink
+INCLUDE ./bar/baz.ink
+INCLUDE ./qux.ink
+
+VAR isFormatted = falsedwad`
+	);
 
 	t.end();
 });
@@ -66,6 +75,16 @@ t.test("functions", (t) => {
 		`hello
 ~ RANDOM(1,RANDOM(1,6))
 world`
+	);
+
+	test(
+		"function",
+		`
+=== function alter(ref x, k) ===
+~ temp altered = x + k
+~ x = altered
+~ return x
+`
 	);
 
 	t.end();
@@ -158,15 +177,6 @@ t.test("knots & weave", (t) => {
 	const test = runTest.bind(null, t);
 
 	test(
-		"function",
-		`
-=== function alter(ref x, k) ===
-~ x = x + k
-~ return x
-`
-	);
-
-	test(
 		"simple knot",
 		`
 === indentTest1 ===
@@ -235,6 +245,23 @@ I will ask another question
 * { isCool } I ride motorbikes
 * { not isCool } I hate motorbikes
 * { isCool } { ownsMotorbike } get on babe
+`
+	);
+
+	test(
+		"Tunnel Onwards",
+		`
+something ->->
+
+`
+	);
+
+	test(
+		"Glue",
+		`
+this line <>
+and this line
+
 `
 	);
 
