@@ -74,6 +74,8 @@ I will ask another question
 * { isCool } I ride motorbikes
 * { not isCool } I hate motorbikes
 * { isCool } { ownsMotorbike } get on babe
+* { not isCool } { ownsMotorbike } -> paradox.motorbikeImposibility
+
 `
 	);
 

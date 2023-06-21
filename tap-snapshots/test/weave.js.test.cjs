@@ -18,11 +18,16 @@ exports[`test/weave.js TAP knots & weave > conditional choice 1`] = `
 === knot ===
   * {isCool} I ride motorbikes
   * {not isCool} I hate motorbikes
-  * { isCool } { ownsMotorbike } get on babe
+  * { isCool } 
+    { ownsMotorbike } 
+    get on babe
+  * { not isCool } 
+    { ownsMotorbike } 
+    -> paradox.motorbikeImposibility
 `
 
 exports[`test/weave.js TAP knots & weave > divert target 1`] = `
-* (dobed) [The bed...]
+  * (dobed) [The bed...]
     * * {TURNS_SINCE(-> dobed) > 1} [Something else?]
 `
 
