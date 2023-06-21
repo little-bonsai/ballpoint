@@ -65,9 +65,13 @@ If opening a MR, please include:
 -  [x] comments
 -  [x] directives based approach
 -  [x] api?
+-  [ ] PR GetType overrides into inkjs
+-  [ ] PR Parser export into inkjs
 -  [ ] multi-lined multi-conditioned choices
 -  [ ] dynamic tags
 -  [ ] sort INCLUDEs option
+-  [ ] make package available as importable lib
+-  [ ] look at integrating into inky
 
 [prettier]: https://prettier.io/
 [ink]: https://github.com/inkle/ink/
