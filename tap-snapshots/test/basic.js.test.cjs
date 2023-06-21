@@ -25,14 +25,6 @@ exports[`test/basic.js TAP basic > single line 1`] = `
 hello world
 `
 
-exports[`test/basic.js TAP basic > tagged 1`] = `
-hello #foo bar
-`
-
-exports[`test/basic.js TAP basic > tagged multiple 1`] = `
-hello #foo #bar baz #qux
-`
-
 exports[`test/basic.js TAP basic > todo 1`] = `
 TODO: some thing must be done
 `

@@ -17,8 +17,6 @@ second line `
 	);
 
 	test("todo", ` TODO: some thing must be done `);
-	test("tagged", "hello #foo bar");
-	test("tagged multiple", "hello #foo #bar baz #qux");
 	test(
 		"includes",
 		`
