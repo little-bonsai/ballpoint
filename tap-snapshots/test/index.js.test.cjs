@@ -5,6 +5,24 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/index.js TAP examples > eg2 1`] = `
+=== function reach (statesToSet)
+    ~ temp x = pop(statesToSet)
+    {
+        - not x: ~ return false
+        - not reached(x): 
+            ~ temp chain = LIST_ALL(x)
+            ~ temp statesGained = LIST_RANGE(chain, LIST_MIN(chain), x)
+            ~ knowledgeState += statesGained
+            ~ reach(statesToSet)
+            // set any other states left to set
+            ~ return true
+        // and we set this state, so true
+        - else: ~ return false || reach(statesToSet)
+
+    }
+`
+
 exports[`test/index.js TAP examples > function calls and diverts 1`] = `
 === armoury_1 ===
   * George: Hello, fellow Hentai Heads -> map_2

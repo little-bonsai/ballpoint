@@ -65,10 +65,10 @@ If opening a MR, please include:
 -  [x] comments
 -  [x] directives based approach
 -  [x] api?
+-  [x] multi-lined multi-conditioned choices
+-  [x] dynamic tags
 -  [ ] PR GetType overrides into inkjs
--  [ ] PR Parser export into inkjs
--  [ ] multi-lined multi-conditioned choices
--  [ ] dynamic tags
+-  [ ] PR Parser export into inkj
 -  [ ] sort INCLUDEs option
 -  [ ] make package available as importable lib
 -  [ ] look at integrating into inky
