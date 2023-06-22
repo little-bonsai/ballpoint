@@ -39,28 +39,38 @@ Kramer: Dang, George has used up all the hentai here, we'll have to look elsewhe
     `
 	);
 
-	//test(
-	//"tunnel function",
-	//`
+	/*
+	test(
+		"tunnel function",
+		`
 
-	//The bedroom. This is where it happened. Now to look for clues.
-	//- (top)
-	//{ bedroomLightState ? seen:     <- seen_light  }
-	//<- compare_prints(-> top)
-	//`
-	//);
+	The bedroom. This is where it happened. Now to look for clues.
+	- (top)
+	{ bedroomLightState ? seen:     <- seen_light  }
+	<- compare_prints(-> top)
+	`
+	);
 
-	//test(
-	//"blank gather",
-	//`
-	//- - (bedhub)
-	//* *     [Lift the bedcover]
-	//I lifted back the bedcover. The duvet underneath was crumpled.
-	//~ reach (crumpled_duvet)
-	//~ BedState = covers_shifted
-	//* *     (uncover) {reached(crumpled_duvet)}
-	//`
-	//);
+	test(
+	"blank gather",
+	`
+	- - (bedhub)
+	* *     [Lift the bedcover]
+	I lifted back the bedcover. The duvet underneath was crumpled.
+	~ reach (crumpled_duvet)
+	~ BedState = covers_shifted
+	* *     (uncover) {reached(crumpled_duvet)}
+	`
+	);
 
+
+	test(
+		"stitch function",
+		`
+	= compare_prints (-> backto)
+	foo
+	`
+	);
+	*/
 	t.end();
 });
