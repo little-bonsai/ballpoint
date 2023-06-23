@@ -46,17 +46,15 @@ t.test("examples", (t) => {
 	`
 	);
 
-	//test(
-	//"blank gather",
-	//`
-	//- - (bedhub)
-	//* *     [Lift the bedcover]
-	//I lifted back the bedcover. The duvet underneath was crumpled.
-	//~ reach (crumpled_duvet)
-	//~ BedState = covers_shifted
-	//* *     (uncover) {reached(crumpled_duvet)}
-	//`
-	//);
+	test(
+		"blank gather",
+		`
+=== murder_scene ===
+    - - (bedhub)
+    * *     [Lift the bedcover]
+            I lifted back the bedcover. The duvet underneath was crumpled.
+	`
+	);
 
 	//test(
 	//"stitch function",

@@ -5,6 +5,13 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/index.js TAP examples > blank gather 1`] = `
+=== murder_scene ===
+    - - (bedhub) 
+    * * [Lift the bedcover]
+        I lifted back the bedcover. The duvet underneath was crumpled.
+`
+
 exports[`test/index.js TAP examples > eg2 1`] = `
 === function reach (statesToSet)
     ~ temp x = pop(statesToSet)
