@@ -17,5 +17,35 @@ LIST l = CARSTAIRS_KNOWS_EARRING_YOURS, KNOW_MALC_IN_DEBT_CARSTAIRS
 	`
 	);
 
+	test(
+		"002",
+		`
+	{once:
+	-  Hi!
+	}
+	`
+	);
+
+	//test(
+	//"003",
+	//`
+	//* * V:  Have the other one too.
+	//- - CARSTAIRS:  Please.
+	//CARSTAIRS:  I can't and won't take them.
+	//-> takeopts
+
+	//=== takeopts
+	//takeopts
+	//`
+	//);
+
+	//test(
+	//"004",
+	//`
+	//- ->->
+	//LIST walkarounddeck = WANNA_WALK_AROUND_DECK, DID_WALK_AROUND_DECK
+	//`
+	//);
+
 	t.end();
 });

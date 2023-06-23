@@ -13,3 +13,9 @@ LIST l = CARSTAIRS_KNOWS_EARRING_YOURS, KNOW_MALC_IN_DEBT_CARSTAIRS
 === function reached(x)
     ~ return false
 `
+
+exports[`test/examples.js TAP examples > 002 1`] = `
+{once:
+    - Hi!
+}
+`
