@@ -19,3 +19,10 @@ exports[`test/examples.js TAP examples > 002 1`] = `
     - Hi!
 }
 `
+
+exports[`test/examples.js TAP examples > 004 1`] = `
+=== knot ===
+x
+  - ->->
+LIST walkarounddeck = WANNA_WALK_AROUND_DECK, DID_WALK_AROUND_DECK
+`

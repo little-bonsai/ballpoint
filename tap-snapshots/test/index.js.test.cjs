@@ -16,13 +16,11 @@ exports[`test/index.js TAP examples > eg2 1`] = `
             ~ reach(statesToSet)
             ~ return true
         - else: ~ return false || reach(statesToSet)
-
     }
 
 
 === function reached(x)
     ~ return false
-
 
 === function pop(ref list)
     ~ return false

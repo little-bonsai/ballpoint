@@ -25,7 +25,6 @@ exports[`test/weave.js TAP knots & weave > conditional choice 1`] = `
 VAR isCool = true
 VAR ownsMotorbike = true
 
-
 === knot ===
   * {isCool} I ride motorbikes
   * {not isCool} I hate motorbikes
