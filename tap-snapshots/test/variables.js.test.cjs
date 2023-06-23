@@ -13,6 +13,8 @@ VAR emptyList = ()
 `
 
 exports[`test/variables.js TAP variables > variable modification 1`] = `
+VAR num = 0
+VAR str = ""
 ~ num++
 ~ num--
 ~ num = 2

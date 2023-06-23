@@ -7,8 +7,8 @@
 'use strict'
 exports[`test/basic.js TAP basic > comment 1`] = `
 /**
-* Welcome to the intercept
-*/
+	* Welcome to the intercept
+	*/
 first line
 // Character variables. We track just two, using a +/- scale
 second line
@@ -18,7 +18,7 @@ exports[`test/basic.js TAP basic > includes 1`] = `
 INCLUDE ./foo.ink
 INCLUDE ./bar/baz.ink
 INCLUDE ./qux.ink
-VAR isFormatted = falsedwad
+VAR isFormatted = false
 `
 
 exports[`test/basic.js TAP basic > single line 1`] = `

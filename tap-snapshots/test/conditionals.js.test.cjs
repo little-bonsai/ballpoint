@@ -6,37 +6,44 @@
  */
 'use strict'
 exports[`test/conditionals.js TAP conditionals > bare switch case divert 1`] = `
+=== Knot1 ===
+hello one
+
+
+=== Knot2 ===
+hello two
+
+
+=== Knot3 ===
+hello three
 {
-    - check == value1: -> OtherLovers_Selfish
-    - check == value2: -> OtherLovers_Passive
-    - check == value2: -> OtherLovers_Giving
+    - "a" == "b": -> Knot1
+    - "a" == "c": -> Knot2
+    - "a" == "d": -> Knot3
 }
 `
 
 exports[`test/conditionals.js TAP conditionals > bare switch case logic 1`] = `
 {
-    - answer == 0: ~ return true
-    - answer == 42: ~ return "deep thought"
+    - RANDOM(0, 1) == 0: ~ return true
+    - RANDOM(0, 1) == 42: ~ return "deep thought"
     - else: ~ return false
 }
 `
 
 exports[`test/conditionals.js TAP conditionals > inline conditional 1`] = `
-=== knot ===
-//currently only works in knots
-base
-before {COND:yes please|no thank you} after
+before {true:yes please|no thank you} after
 `
 
 exports[`test/conditionals.js TAP conditionals > multiline conditiona 1`] = `
-{DEBUG_MULTI:
+{true:
     you are tester
     - else: hello production
 }
 `
 
 exports[`test/conditionals.js TAP conditionals > switch case 1`] = `
-{LIST_COUNT(LIST_INVERT(quest ^ Journal)):
+{RANDOM(0, RANDOM(0, 69)):
     - 0: ~ return true
     - 42: ~ return "deep thought"
     - else: ~ return false

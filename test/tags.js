@@ -7,7 +7,7 @@ t.test("basic", (t) => {
 
 	test("tagged", "hello #foo bar");
 	test("tagged multiple", "hello #foo #bar baz #qux");
-	test("dynamic tag", "hello #some_{x:RANDOM(y,z) | a}_{|foo|bar|bar}.jpg");
+	test("dynamic tag", `hello #some_{true:RANDOM(1,9) | "else"}_{|1|2|3}.jpg`);
 
 	t.end();
 });

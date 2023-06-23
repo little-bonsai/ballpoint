@@ -6,7 +6,7 @@
  */
 'use strict'
 exports[`test/tags.js TAP basic > dynamic tag 1`] = `
-hello #some_{x:RANDOM(y,z) | a}_{|foo|bar|bar}.jpg
+hello #some_{true:RANDOM(1,9) | "else"}_{|1|2|3}.jpg
 `
 
 exports[`test/tags.js TAP basic > tagged 1`] = `

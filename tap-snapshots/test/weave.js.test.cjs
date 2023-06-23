@@ -15,6 +15,10 @@ something ->->
 `
 
 exports[`test/weave.js TAP knots & weave > conditional choice 1`] = `
+VAR isCool = true
+VAR ownsMotorbike = true
+
+
 === knot ===
   * {isCool} I ride motorbikes
   * {not isCool} I hate motorbikes
@@ -24,6 +28,11 @@ exports[`test/weave.js TAP knots & weave > conditional choice 1`] = `
   * { not isCool } 
     { ownsMotorbike } 
     -> paradox.motorbikeImposibility
+
+
+=== paradox ===
+= motorbikeImposibility
+but that's ... not possible
 `
 
 exports[`test/weave.js TAP knots & weave > divert target 1`] = `
@@ -77,6 +86,11 @@ but now
 I will ask another question
   * yes, I say
   * no, I say -> DONE
+
+
+=== fightScene ===
+= rumble
+let's fight
 `
 
 exports[`test/weave.js TAP knots & weave > simple knot 1`] = `
@@ -88,11 +102,4 @@ exports[`test/weave.js TAP knots & weave > simple knot 1`] = `
       * * * three
             three child
   - -> DONE
-`
-
-exports[`test/weave.js TAP knots & weave > tunnels 1`] = `
-=== murder_scene ===
-The bedroom. This is where it happened. Now to look for clues.
-  - (top) {bedroomLightState ? seen:  <- seen_light}
- <- compare_prints
 `

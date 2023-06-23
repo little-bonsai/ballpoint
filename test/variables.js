@@ -18,6 +18,8 @@ VAR emptyList = ()
 	test(
 		"variable modification",
 		`
+		VAR num = 0
+		VAR str = ""
 ~ num++
 ~ num--
 ~ num = 2

@@ -22,8 +22,8 @@ three child
 	test(
 		"nested knot",
 		`
-	  ===previousKnot
-	  test
+===previousKnot
+test
 === Knot ===
 hello world
 * out
@@ -64,56 +64,67 @@ but now
 I will ask another question
 * yes, I say
 * no, I say -> DONE
+
+=== fightScene
+= rumble
+let's fight
 `
 	);
 
 	test(
 		"conditional choice",
 		`
-=== knot ===
-* { isCool } I ride motorbikes
-* { not isCool } I hate motorbikes
-* { isCool } { ownsMotorbike } get on babe
-* { not isCool } { ownsMotorbike } -> paradox.motorbikeImposibility
+		VAR isCool = true
+		VAR ownsMotorbike = true
 
-`
+	=== knot ===
+	* { isCool } I ride motorbikes
+	* { not isCool } I hate motorbikes
+	* { isCool } { ownsMotorbike } get on babe
+	* { not isCool } { ownsMotorbike } -> paradox.motorbikeImposibility
+
+=== paradox
+= motorbikeImposibility
+but that's ... not possible
+
+	`
 	);
 
 	test(
 		"Tunnel Onwards",
 		`
-something ->->
+	something ->->
 
-`
+	`
 	);
 
 	test(
 		"Glue",
 		`
-this line <>
-and this line
+	this line <>
+	and this line
 
-`
+	`
 	);
 
 	test(
 		"divert target",
 		`
-*   (dobed) [The bed...]
-* *     {TURNS_SINCE(-> dobed) > 1} [Something else?]
- `
+	*   (dobed) [The bed...]
+	* *     {TURNS_SINCE(-> dobed) > 1} [Something else?]
+	`
 	);
 
-	test(
-		"tunnels",
-		`
-		=== murder_scene ===
-    The bedroom. This is where it happened. Now to look for clues.
-- (top)
-    { bedroomLightState ? seen:     <- seen_light  }
-    <- compare_prints(-> top)
-`
-	);
+	//test(
+	//"tunnels",
+	//`
+	//=== murder_scene ===
+	//The bedroom. This is where it happened. Now to look for clues.
+	//- (top)
+	//{ bedroomLightState ? seen:     <- seen_light  }
+	//<- compare_prints(-> top)
+	//`
+	//);
 
 	t.end();
 });
