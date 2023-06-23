@@ -47,17 +47,6 @@ t.test("examples", (t) => {
 	);
 
 	//test(
-	//"tunnel function",
-	//`
-
-	//The bedroom. This is where it happened. Now to look for clues.
-	//- (top)
-	//{ bedroomLightState ? seen:     <- seen_light  }
-	//<- compare_prints(-> top)
-	//`
-	//);
-
-	//test(
 	//"blank gather",
 	//`
 	//- - (bedhub)

@@ -115,16 +115,21 @@ but that's ... not possible
 	`
 	);
 
-	//test(
-	//"tunnels",
-	//`
-	//=== murder_scene ===
-	//The bedroom. This is where it happened. Now to look for clues.
-	//- (top)
-	//{ bedroomLightState ? seen:     <- seen_light  }
-	//<- compare_prints(-> top)
-	//`
-	//);
+	test(
+		"tunnels",
+		`
+=== murder_scene ===
+The bedroom. This is where it happened. Now to look for clues.
+- (top) { true:     <- seen_light  }
+<- compare_prints(-> top)
+- ->DONE
+
+=== seen_light
+seen light  ->DONE
+=== compare_prints( -> div)
+compare_prints  ->DONE
+		`
+	);
 
 	t.end();
 });

@@ -103,3 +103,18 @@ exports[`test/weave.js TAP knots & weave > simple knot 1`] = `
             three child
   - -> DONE
 `
+
+exports[`test/weave.js TAP knots & weave > tunnels 1`] = `
+=== murder_scene ===
+The bedroom. This is where it happened. Now to look for clues.
+  - (top) {true: <- seen_light}
+<- compare_prints(-> top)
+  - -> DONE
+
+=== seen_light ===
+seen light -> DONE
+
+
+=== compare_prints (div) ===
+compare_prints -> DONE
+`
