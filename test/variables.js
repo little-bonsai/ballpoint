@@ -12,6 +12,7 @@ t.test("variables", (t) => {
 CONST awesome = true
 LIST colors = red, (green), blue
 VAR emptyList = ()
+VAR tf2Colors = (red, blue)
 `
 	);
 
