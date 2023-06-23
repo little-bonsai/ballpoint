@@ -131,5 +131,23 @@ compare_prints  ->DONE
 		`
 	);
 
+	test(
+		"blank gather",
+		`
+=== murder_scene ===
+    - - (bedhub)
+    * *     [Lift the bedcover]
+            I lifted back the bedcover. The duvet underneath was crumpled.
+	`
+	);
+
+	test(
+		"stitch function",
+		`
+	= compare_prints (-> backto)
+	foo
+	`
+	);
+
 	t.end();
 });

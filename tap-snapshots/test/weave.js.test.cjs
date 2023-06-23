@@ -14,6 +14,13 @@ exports[`test/weave.js TAP knots & weave > Tunnel Onwards 1`] = `
 something ->->
 `
 
+exports[`test/weave.js TAP knots & weave > blank gather 1`] = `
+=== murder_scene ===
+    - - (bedhub) 
+    * * [Lift the bedcover]
+        I lifted back the bedcover. The duvet underneath was crumpled.
+`
+
 exports[`test/weave.js TAP knots & weave > conditional choice 1`] = `
 VAR isCool = true
 VAR ownsMotorbike = true
@@ -104,6 +111,11 @@ exports[`test/weave.js TAP knots & weave > simple knot 1`] = `
   - -> DONE
 `
 
+exports[`test/weave.js TAP knots & weave > stitch function 1`] = `
+= compare_prints(-> backto)
+foo
+`
+
 exports[`test/weave.js TAP knots & weave > tunnels 1`] = `
 === murder_scene ===
 The bedroom. This is where it happened. Now to look for clues.
@@ -115,6 +127,6 @@ The bedroom. This is where it happened. Now to look for clues.
 seen light -> DONE
 
 
-=== compare_prints (div) ===
+=== compare_prints(-> div) ===
 compare_prints -> DONE
 `

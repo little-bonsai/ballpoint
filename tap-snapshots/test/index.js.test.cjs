@@ -5,15 +5,8 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/index.js TAP examples > blank gather 1`] = `
-=== murder_scene ===
-    - - (bedhub) 
-    * * [Lift the bedcover]
-        I lifted back the bedcover. The duvet underneath was crumpled.
-`
-
 exports[`test/index.js TAP examples > eg2 1`] = `
-=== function reach (statesToSet)
+=== function reach(statesToSet)
     ~ temp x = pop(statesToSet)
     {
         - not x: ~ return false
@@ -27,11 +20,11 @@ exports[`test/index.js TAP examples > eg2 1`] = `
     }
 
 
-=== function reached (x)
+=== function reached(x)
     ~ return false
 
 
-=== function pop (ref list)
+=== function pop(ref list)
     ~ return false
 `
 

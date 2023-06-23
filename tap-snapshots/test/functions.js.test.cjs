@@ -10,7 +10,7 @@ EXTERNAL functionName(a, b, c)
 `
 
 exports[`test/functions.js TAP functions > function 1`] = `
-=== function alter (ref x, k)
+=== function alter(ref x, k)
     ~ temp altered = x + k
     ~ x = altered
     ~ return x
