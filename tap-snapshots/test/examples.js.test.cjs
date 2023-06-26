@@ -20,6 +20,14 @@ exports[`test/examples.js TAP examples > 002 1`] = `
 }
 `
 
+exports[`test/examples.js TAP examples > 003 1`] = `
+    * * V:  Have the other one too.
+    - - response line
+        response line 2
+  - new topic line one
+    new topic line two
+`
+
 exports[`test/examples.js TAP examples > 004 1`] = `
 === knot ===
 x

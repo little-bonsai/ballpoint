@@ -88,8 +88,8 @@ this is your choice:
   * choice three
     what else?
   - gather
-but now
-I will ask another question
+    but now
+    I will ask another question
   * yes, I say
   * no, I say -> DONE
 
@@ -119,7 +119,7 @@ exports[`test/weave.js TAP knots & weave > tunnels 1`] = `
 === murder_scene ===
 The bedroom. This is where it happened. Now to look for clues.
   - (top) {true: <- seen_light}
-<- compare_prints(-> top)
+    <- compare_prints(-> top)
   - -> DONE
 
 === seen_light ===
