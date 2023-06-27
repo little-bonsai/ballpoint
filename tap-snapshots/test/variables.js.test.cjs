@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/variables.js TAP variables > declarations 1`] = `
+exports[`test/variables.js TAP variables declarations > snap 1`] = `
 VAR forceful = 0
 CONST awesome = true
 LIST colors = red, (green), blue
@@ -13,7 +13,7 @@ VAR emptyList = ()
 VAR tf2Colors = (red, blue)
 `
 
-exports[`test/variables.js TAP variables > variable modification 1`] = `
+exports[`test/variables.js TAP variables variable modification > snap 1`] = `
 VAR num = 0
 VAR str = ""
 ~ num++

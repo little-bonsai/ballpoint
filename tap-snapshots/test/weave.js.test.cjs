@@ -5,23 +5,23 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/weave.js TAP knots & weave > Glue 1`] = `
+exports[`test/weave.js TAP knots & weave Glue > snap 1`] = `
 this line <>
 and this line
 `
 
-exports[`test/weave.js TAP knots & weave > Tunnel Onwards 1`] = `
+exports[`test/weave.js TAP knots & weave Tunnel Onwards > snap 1`] = `
 something ->->
 `
 
-exports[`test/weave.js TAP knots & weave > blank gather 1`] = `
+exports[`test/weave.js TAP knots & weave blank gather > snap 1`] = `
 === murder_scene ===
     - - (bedhub) 
     * * [Lift the bedcover]
         I lifted back the bedcover. The duvet underneath was crumpled.
 `
 
-exports[`test/weave.js TAP knots & weave > conditional choice 1`] = `
+exports[`test/weave.js TAP knots & weave conditional choice > snap 1`] = `
 VAR isCool = true
 VAR ownsMotorbike = true
 
@@ -41,12 +41,32 @@ VAR ownsMotorbike = true
 but that's ... not possible
 `
 
-exports[`test/weave.js TAP knots & weave > divert target 1`] = `
+exports[`test/weave.js TAP knots & weave divert target > snap 1`] = `
   * (dobed) [The bed...]
     * * {TURNS_SINCE(-> dobed) > 1} [Something else?]
 `
 
-exports[`test/weave.js TAP knots & weave > nested knot 1`] = `
+exports[`test/weave.js TAP knots & weave labled conditional choice > snap 1`] = `
+VAR isCool = true
+VAR ownsMotorbike = true
+
+=== knot ===
+  * (label1) {isCool} 
+    I ride motorbikes
+  * (label2) { isCool } 
+    { ownsMotorbike } 
+    get on babe
+  * (label3) { not isCool } 
+    { ownsMotorbike } 
+    -> paradox.motorbikeImposibility
+
+
+=== paradox ===
+= motorbikeImposibility
+but that's ... not possible
+`
+
+exports[`test/weave.js TAP knots & weave nested knot > snap 1`] = `
 === previousKnot ===
 test
 
@@ -99,7 +119,7 @@ this is your choice:
 let's fight
 `
 
-exports[`test/weave.js TAP knots & weave > simple knot 1`] = `
+exports[`test/weave.js TAP knots & weave simple knot > snap 1`] = `
 === indentTest1 ===
   * one
     one child
@@ -110,12 +130,12 @@ exports[`test/weave.js TAP knots & weave > simple knot 1`] = `
   - -> DONE
 `
 
-exports[`test/weave.js TAP knots & weave > stitch function 1`] = `
+exports[`test/weave.js TAP knots & weave stitch function > snap 1`] = `
 = compare_prints(-> backto)
 foo
 `
 
-exports[`test/weave.js TAP knots & weave > tunnels 1`] = `
+exports[`test/weave.js TAP knots & weave tunnels > snap 1`] = `
 === murder_scene ===
 The bedroom. This is where it happened. Now to look for clues.
   - (top) {true: <- seen_light}

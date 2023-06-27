@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/examples.js TAP examples > 001 1`] = `
+exports[`test/examples.js TAP examples 001 > snap 1`] = `
 LIST l = CARSTAIRS_KNOWS_EARRING_YOURS, KNOW_MALC_IN_DEBT_CARSTAIRS
 ~ reached((CARSTAIRS_KNOWS_EARRING_YOURS, KNOW_MALC_IN_DEBT_CARSTAIRS))
 
@@ -14,13 +14,13 @@ LIST l = CARSTAIRS_KNOWS_EARRING_YOURS, KNOW_MALC_IN_DEBT_CARSTAIRS
     ~ return false
 `
 
-exports[`test/examples.js TAP examples > 002 1`] = `
+exports[`test/examples.js TAP examples 002 > snap 1`] = `
 {once:
     - Hi!
 }
 `
 
-exports[`test/examples.js TAP examples > 003 1`] = `
+exports[`test/examples.js TAP examples 003 > snap 1`] = `
     * * V:  Have the other one too.
     - - response line
         response line 2
@@ -28,7 +28,7 @@ exports[`test/examples.js TAP examples > 003 1`] = `
     new topic line two
 `
 
-exports[`test/examples.js TAP examples > 004 1`] = `
+exports[`test/examples.js TAP examples 004 > snap 1`] = `
 === knot ===
 x
   - ->->

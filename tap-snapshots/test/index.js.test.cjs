@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/index.js TAP examples > eg2 1`] = `
+exports[`test/index.js TAP examples eg2 > snap 1`] = `
 === function reach(statesToSet)
     ~ temp x = pop(statesToSet)
     {
@@ -26,7 +26,7 @@ exports[`test/index.js TAP examples > eg2 1`] = `
     ~ return false
 `
 
-exports[`test/index.js TAP examples > function calls and diverts 1`] = `
+exports[`test/index.js TAP examples function calls and diverts > snap 1`] = `
 === armoury_1 ===
   * George: Hello, fellow Hentai Heads -> map_1
   * Jerry: George! You got in to Spooky High too?

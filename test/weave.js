@@ -91,6 +91,24 @@ but that's ... not possible
 	);
 
 	test(
+		"labled conditional choice",
+		`
+		VAR isCool = true
+		VAR ownsMotorbike = true
+
+	=== knot ===
+	* (label1) { isCool } I ride motorbikes
+	* (label2) { isCool } { ownsMotorbike } get on babe
+	* (label3) { not isCool } { ownsMotorbike } -> paradox.motorbikeImposibility
+
+=== paradox
+= motorbikeImposibility
+but that's ... not possible
+
+	`
+	);
+
+	test(
 		"Tunnel Onwards",
 		`
 	something ->->

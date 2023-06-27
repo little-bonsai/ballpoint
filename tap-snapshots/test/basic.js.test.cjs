@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/basic.js TAP basic > comment 1`] = `
+exports[`test/basic.js TAP basic comment > snap 1`] = `
 /**
 	* Welcome to the intercept
 	*/
@@ -14,17 +14,17 @@ first line
 second line
 `
 
-exports[`test/basic.js TAP basic > includes 1`] = `
+exports[`test/basic.js TAP basic includes > snap 1`] = `
 INCLUDE ./foo.ink
 INCLUDE ./bar/baz.ink
 INCLUDE ./qux.ink
 VAR isFormatted = false
 `
 
-exports[`test/basic.js TAP basic > single line 1`] = `
+exports[`test/basic.js TAP basic single line > snap 1`] = `
 hello world
 `
 
-exports[`test/basic.js TAP basic > todo 1`] = `
+exports[`test/basic.js TAP basic todo > snap 1`] = `
 TODO: some thing must be done
 `
