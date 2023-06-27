@@ -47,5 +47,21 @@ LIST l = CARSTAIRS_KNOWS_EARRING_YOURS, KNOW_MALC_IN_DEBT_CARSTAIRS
 	`
 	);
 
+	test(
+		"005",
+		`
+CONST GOBLIN_SAY_LAND_IS_DONE_FOR = true
+CONST ICEY = "it is icey"
+
+=== function reached(x)
+~return true
+
+=== knot
+	  *   (donefor) { reached(GOBLIN_SAY_LAND_IS_DONE_FOR)} 
+        [{ICEY} - "You said the land is done for." ] 
+		MOIRA: You said the land is done for.
+		`
+	);
+
 	t.end();
 });

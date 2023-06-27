@@ -34,3 +34,16 @@ x
   - ->->
 LIST walkarounddeck = WANNA_WALK_AROUND_DECK, DID_WALK_AROUND_DECK
 `
+
+exports[`test/examples.js TAP examples 005 > snap 1`] = `
+CONST GOBLIN_SAY_LAND_IS_DONE_FOR = true
+CONST ICEY = "it is icey"
+
+=== function reached(x)
+    ~ return true
+
+=== knot ===
+  * (donefor) {reached(GOBLIN_SAY_LAND_IS_DONE_FOR)} 
+    [{ICEY} - "You said the land is done for." ] 
+    MOIRA: You said the land is done for.
+`
