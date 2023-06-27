@@ -63,5 +63,14 @@ CONST ICEY = "it is icey"
 		`
 	);
 
+	test(
+		"006",
+		`  
+		
+	*   -> 
+		ICEY:   May your crampons never slip! 
+		`
+	);
+
 	t.end();
 });

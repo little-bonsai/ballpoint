@@ -47,3 +47,8 @@ CONST ICEY = "it is icey"
     [{ICEY} - "You said the land is done for." ] 
     MOIRA: You said the land is done for.
 `
+
+exports[`test/examples.js TAP examples 006 > snap 1`] = `
+  * ->
+    ICEY:   May your crampons never slip!
+`
