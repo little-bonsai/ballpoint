@@ -52,3 +52,15 @@ exports[`test/examples.js TAP examples 006 > snap 1`] = `
   * ->
     ICEY:   May your crampons never slip!
 `
+
+exports[`test/examples.js TAP examples 007 > snap 1`] = `
+VAR hasItem = true
+{hasItem:
+  + [ Choice ] 
+    -> divert
+}
+
+
+=== divert ===
+divert
+`

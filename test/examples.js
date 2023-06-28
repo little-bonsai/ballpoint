@@ -72,5 +72,20 @@ CONST ICEY = "it is icey"
 		`
 	);
 
+	test(
+		"007",
+		`    
+		VAR hasItem = true
+
+	{hasItem:
+            +   [ Choice ] 
+                 -> divert   
+	} 
+
+		=== divert
+		divert
+	`
+	);
+
 	t.end();
 });
