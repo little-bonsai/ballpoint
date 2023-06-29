@@ -20,6 +20,14 @@ exports[`test/sequences.js TAP sequences once > snap 1`] = `
 }
 `
 
+exports[`test/sequences.js TAP sequences one once > snap 1`] = `
+That's a wrap {once:on this! -> bye} folks!
+
+
+=== bye ===
+that's all
+`
+
 exports[`test/sequences.js TAP sequences sequences > snap 1`] = `
 {|foo|bar|}
 {&|foo|bar|}

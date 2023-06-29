@@ -62,6 +62,16 @@ At the table, I drew a card. <>
 	);
 
 	test(
+		"one once",
+		`
+That's a wrap {once:on this! -> bye} folks!
+
+=== bye
+that's all 
+`
+	);
+
+	test(
 		"shuffle once",
 		`
 { shuffle once:

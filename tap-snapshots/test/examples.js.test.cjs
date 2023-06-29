@@ -15,9 +15,12 @@ LIST l = CARSTAIRS_KNOWS_EARRING_YOURS, KNOW_MALC_IN_DEBT_CARSTAIRS
 `
 
 exports[`test/examples.js TAP examples 002 > snap 1`] = `
-{once:
-    - Hi!
-}
+{once: -> bye}
+That's a wrap {once:on this! -> bye} folks!
+
+
+=== bye ===
+that's all
 `
 
 exports[`test/examples.js TAP examples 003 > snap 1`] = `

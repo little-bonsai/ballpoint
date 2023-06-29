@@ -65,11 +65,9 @@ async function doForFile(args, inputFilename) {
 
 	if (args["--write"]) {
 		await fs.writeFile(inputFilename, data);
-	} else if (args["--verbose"]) {
+	} else {
 		return { info: data };
 	}
-
-	return {};
 }
 
 async function main(args) {
