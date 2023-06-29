@@ -27,7 +27,8 @@ exports[`test/conditionals.js TAP conditionals bare switch case logic > snap 1`]
 {
     - RANDOM(0, 1) == 0: ~ return true
     - RANDOM(0, 1) == 42: ~ return "deep thought"
-    - else: ~ return false
+- else: 
+    ~ return false
 }
 `
 
@@ -47,7 +48,9 @@ before {true:yes please|no thank you} after
 exports[`test/conditionals.js TAP conditionals multiline conditiona > snap 1`] = `
 {true:
     you are tester
-    - else: hello production
+- else: 
+    hello production
+    this is the game for real
 }
 `
 
@@ -55,6 +58,7 @@ exports[`test/conditionals.js TAP conditionals switch case > snap 1`] = `
 {RANDOM(0, RANDOM(0, 69)):
     - 0: ~ return true
     - 42: ~ return "deep thought"
-    - else: ~ return false
+- else: 
+    ~ return false
 }
 `

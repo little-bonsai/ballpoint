@@ -12,6 +12,7 @@ t.test("conditionals", (t) => {
 		`{true:
 	you are tester
 	- else :hello production
+	this is the game for real
 	}`
 	);
 
