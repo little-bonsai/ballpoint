@@ -25,15 +25,19 @@ that's all
 
 exports[`test/examples.js TAP examples 003 > snap 1`] = `
     * * V:  Have the other one too.
+
     - - response line
         response line 2
+
   - new topic line one
+
     new topic line two
 `
 
 exports[`test/examples.js TAP examples 004 > snap 1`] = `
 === knot ===
 x
+
   - ->->
 LIST walkarounddeck = WANNA_WALK_AROUND_DECK, DID_WALK_AROUND_DECK
 `
@@ -59,6 +63,7 @@ exports[`test/examples.js TAP examples 006 > snap 1`] = `
 exports[`test/examples.js TAP examples 007 > snap 1`] = `
 VAR hasItem = true
 {hasItem:
+
   + [ Choice ] 
     -> divert
 }
