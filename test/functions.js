@@ -31,5 +31,14 @@ EXTERNAL functionName(a,b,c)
 `
 	);
 
+	test(
+		"0-arity function",
+		`
+EXTERNAL cutSceneAdvance()
+~ cutSceneAdvance()
+before{ cutSceneAdvance() } after
+		`
+	);
+
 	t.end();
 });

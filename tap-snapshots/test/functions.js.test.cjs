@@ -5,6 +5,12 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/functions.js TAP functions 0-arity function > snap 1`] = `
+EXTERNAL cutSceneAdvance()
+~ cutSceneAdvance()
+before{cutSceneAdvance()} after
+`
+
 exports[`test/functions.js TAP functions externals > snap 1`] = `
 EXTERNAL functionName(a, b, c)
 `
