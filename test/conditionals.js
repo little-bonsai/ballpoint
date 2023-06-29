@@ -53,5 +53,16 @@ t.test("conditionals", (t) => {
 	`
 	);
 
+	test(
+		"condition based on nested path",
+		`
+	 "I've done things," I begin{harris_demands_component.cant_talk_right: helplessly}. "Things I didn't want to do. I tried not to. But in the end, it felt like cutting off my own arm to resist."
+
+	 === harris_demands_component
+	 = cant_talk_right
+	 "I can't talk right" I said, incomprehensibly
+	`
+	);
+
 	t.end();
 });

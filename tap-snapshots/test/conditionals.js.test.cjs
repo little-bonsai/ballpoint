@@ -31,6 +31,15 @@ exports[`test/conditionals.js TAP conditionals bare switch case logic > snap 1`]
 }
 `
 
+exports[`test/conditionals.js TAP conditionals condition based on nested path > snap 1`] = `
+"I've done things," I begin{harris_demands_component.cant_talk_right: helplessly}. "Things I didn't want to do. I tried not to. But in the end, it felt like cutting off my own arm to resist."
+
+
+=== harris_demands_component ===
+= cant_talk_right
+"I can't talk right" I said, incomprehensibly
+`
+
 exports[`test/conditionals.js TAP conditionals inline conditional > snap 1`] = `
 before {true:yes please|no thank you} after
 `
