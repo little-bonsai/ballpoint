@@ -12,6 +12,7 @@ and this line
 
 exports[`test/weave.js TAP knots & weave Tunnel Onwards > snap 1`] = `
 something ->->
+  - gather
 `
 
 exports[`test/weave.js TAP knots & weave blank gather > snap 1`] = `
