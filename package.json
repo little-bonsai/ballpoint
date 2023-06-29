@@ -17,6 +17,7 @@
 		"arg": "^5.0.2",
 		"deep-equal": "^2.2.1",
 		"inkjs": "^2.2.1",
+		"jest-diff": "^29.5.0",
 		"line-column": "^1.0.2"
 	},
 	"files": [

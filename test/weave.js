@@ -150,6 +150,19 @@ compare_prints  ->DONE
 	);
 
 	test(
+		"the other sort of tunnel...?",
+		`
+=== window_opts ===
+Through the steamed glass I couldn't see the brook. -> see_prints_on_glass -> window_opts
+
+=== see_prints_on_glass
+see prints on glass
+->->
+
+`
+	);
+
+	test(
 		"blank gather",
 		`
 === murder_scene ===

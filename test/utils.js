@@ -40,14 +40,16 @@ exports.runTest = function runTest(
 					},
 				};
 				try {
-					const firstJson = new Compiler(src, compileOptions)
-						.Compile()
-						.ToJson();
+					const firstJson = JSON.parse(
+						new Compiler(src, compileOptions).Compile().ToJson()
+					);
 					try {
-						const secondJson = new Compiler(first, compileOptions)
-							.Compile()
-							.ToJson();
-						t.equal(firstJson, secondJson);
+						const secondJson = JSON.parse(
+							new Compiler(first, compileOptions)
+								.Compile()
+								.ToJson()
+						);
+						t.same(firstJson, secondJson);
 						return firstJson;
 					} catch (e) {
 						console.error(name, "Second Compile", e, errors);

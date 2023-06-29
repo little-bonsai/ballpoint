@@ -14,6 +14,11 @@ function doValidation(src, out, inputFilename) {
 
 	if (validation) {
 		process.stdout.write(" [ Validation Error ]\n");
+		if (typeof validation === "string") {
+			console.log(validation);
+			return validation;
+		}
+
 		const lineNumber = Number(validation.message.match(/\d+/));
 		console.log(validation);
 		console.log("");
@@ -66,7 +71,7 @@ async function main(args) {
 			}
 		})();
 
-		if (doValidation(src, out, inputFilename, args)) {
+		if (args["--validate"] && doValidation(src, out, inputFilename, args)) {
 			break;
 		}
 
@@ -95,6 +100,7 @@ const argSpec = {
 
 	"--sort-includes": Boolean,
 	"--write": Boolean,
+	"--validate": Boolean,
 
 	// Aliases
 	"-h": "--help",
@@ -117,6 +123,7 @@ Arguments:
         --verbose
 
         --sort-includes  : Sort all INCLUDE statements in the file
+        --validate       : Compile the formatted output & check against the compiled input for diferences
         --write          : Overwrite the files
 
         / Aliases

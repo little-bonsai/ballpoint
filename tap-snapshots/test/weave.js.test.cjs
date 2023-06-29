@@ -135,6 +135,16 @@ exports[`test/weave.js TAP knots & weave stitch function > snap 1`] = `
 foo
 `
 
+exports[`test/weave.js TAP knots & weave the other sort of tunnel...? > snap 1`] = `
+=== window_opts ===
+Through the steamed glass I couldn't see the brook. -> see_prints_on_glass -> window_opts
+
+
+=== see_prints_on_glass ===
+see prints on glass
+->->
+`
+
 exports[`test/weave.js TAP knots & weave tunnels > snap 1`] = `
 === murder_scene ===
 The bedroom. This is where it happened. Now to look for clues.
