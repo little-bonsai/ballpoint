@@ -106,12 +106,12 @@ hello {DEBUG:developer|public}!
                      return response.json().then((x) => Promise.reject(x));
                   }
                })
-               .then(({ out }) => {
-                  document.querySelector("#output").value = out;
+               .then(({ data }) => {
+                  document.querySelector("#output").value = data;
                })
                .catch(({ error }) => {
                   console.log(error);
-                  alert(error);
+                  alert((error));
 			   }).then( () => {
 			 button.value = "Format"
 			 button.disabled= false

@@ -9,24 +9,18 @@ require("inkjs/compiler/parser/StatementLevel");
 const format = require("./lib/format");
 const validate = require("./lib/validate");
 
-function doValidation(src, out, inputFilename, args) {
+function doValidation(args, src, out, inputFilename) {
 	const validation = validate(src, out, inputFilename);
 
 	if (validation) {
-		if (args["--verbose"]) {
-			console.log(out);
-		}
-
-		process.stdout.write(" [ Validation Error ]\n");
 		if (typeof validation === "string") {
-			console.log(validation);
 			return validation;
 		}
 
 		const lineNumber = Number(validation.message.match(/\d+/));
-		console.log(validation);
-		console.log("");
-		console.log(
+		return (
+			validation +
+			"\n\n" +
 			out
 				.split("\n")
 				.flatMap((line, i, { length }) => {
@@ -54,6 +48,30 @@ function doValidation(src, out, inputFilename, args) {
 	return validation;
 }
 
+async function doForFile(args, inputFilename) {
+	const src = await fs.readFile(inputFilename, "utf8");
+	const { data, error: formatError } = format(src, inputFilename);
+
+	if (formatError) {
+		return { error: formatError };
+	}
+
+	if (args["--validate"]) {
+		const validationError = doValidation(args, src, data, inputFilename);
+		if (validationError) {
+			return { error: validationError, info: data };
+		}
+	}
+
+	if (args["--write"]) {
+		await fs.writeFile(inputFilename, data);
+	} else if (args["--verbose"]) {
+		return { info: data };
+	}
+
+	return {};
+}
+
 async function main(args) {
 	if (args["--help"]) {
 		return printHelp();
@@ -62,37 +80,25 @@ async function main(args) {
 		console.log({ args });
 		console.log("");
 	}
-
 	for (const inputFilename of args._) {
 		process.stdout.write(inputFilename);
+		const { error, info } = await doForFile(args, inputFilename);
 
-		const src = await fs.readFile(inputFilename, "utf8");
-		const out = (() => {
-			try {
-				return format(src, inputFilename);
-			} catch (e) {
-				return e;
+		if (error) {
+			process.stdout.write(" [ Error ]\n");
+			if (args["--verbose"]) {
+				console.log(info);
 			}
-		})();
-
-		if (args["--validate"] && doValidation(src, out, inputFilename, args)) {
+			console.log(error);
 			break;
 		}
 
-		if (typeof out === "string") {
-			process.stdout.write(" [ OK ]\n");
-
-			if (args["--write"]) {
-				await fs.writeFile(inputFilename, out);
-			}
-			if (!args["--write"] || args["--verbose"]) {
-				console.log(out);
-			}
-		} else {
-			process.stdout.write(" [ Format Error ]\n");
-			console.log(out);
-			break;
+		process.stdout.write(" [ Ok ]\n");
+		if (info) {
+			console.log(info);
 		}
+
+		continue;
 	}
 }
 

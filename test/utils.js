@@ -16,7 +16,7 @@ exports.runTest = function runTest(
 	} = {}
 ) {
 	t.test(name, async (t) => {
-		const first = format(src, sourceFilename);
+		const { data: first } = format(src, sourceFilename);
 
 		t.matchSnapshot(first, "snap");
 		if (log) {
@@ -24,8 +24,9 @@ exports.runTest = function runTest(
 			console.log(first);
 			console.log("\n\n");
 		}
+
 		if (!once) {
-			const second = format(first, sourceFilename);
+			const { data: second } = format(first, sourceFilename);
 			t.equal(first, second, "re-compile");
 			if (withCompile) {
 				let includeI = 0;

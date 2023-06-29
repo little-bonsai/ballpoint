@@ -1,15 +1,19 @@
 const formatInk = require("../lib/format");
 
 module.exports = (req, res) => {
-  const src = req.body;
+	const src = req.body;
 
-  try {
-    const out = formatInk(src);
+	try {
+		const { data, error } = formatInk(src);
 
-    res.json({
-      out,
-    });
-  } catch (e) {
-    res.status(400).json({ error: e.message });
-  }
+		if (error) {
+			res.status(400).json({ error: error.message ?? error });
+		} else {
+			res.json({
+				data,
+			});
+		}
+	} catch (e) {
+		res.status(400).json({ error: error.message ?? error });
+	}
 };
