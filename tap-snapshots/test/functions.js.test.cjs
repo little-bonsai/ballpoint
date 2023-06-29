@@ -11,6 +11,14 @@ EXTERNAL cutSceneAdvance()
 before{cutSceneAdvance()} after
 `
 
+exports[`test/functions.js TAP functions calling with list > snap 1`] = `
+LIST Supporters = on_desk, on_floor, on_bed, under_bed, held, with_joe
+
+=== function move_to_supporter(ref item_state, new_supporter)
+    ~ item_state -= LIST_ALL(Supporters)
+    ~ item_state += new_supporter
+`
+
 exports[`test/functions.js TAP functions externals > snap 1`] = `
 EXTERNAL functionName(a, b, c)
 `

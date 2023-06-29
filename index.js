@@ -66,7 +66,7 @@ async function main(args) {
 			}
 		})();
 
-		if (doValidation(src, out, inputFilename)) {
+		if (doValidation(src, out, inputFilename, args)) {
 			break;
 		}
 
@@ -75,7 +75,8 @@ async function main(args) {
 
 			if (args["--write"]) {
 				await fs.writeFile(inputFilename, out);
-			} else {
+			}
+			if (!args["--write"] || args["--verbose"]) {
 				console.log(out);
 			}
 		} else {

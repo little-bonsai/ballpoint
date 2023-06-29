@@ -40,5 +40,17 @@ before{ cutSceneAdvance() } after
 		`
 	);
 
+	test(
+		"calling with list",
+		`
+
+LIST Supporters = on_desk, on_floor, on_bed, under_bed, held, with_joe
+
+=== function move_to_supporter(ref item_state, new_supporter) ===
+    ~ item_state -= LIST_ALL(Supporters)
+	~ item_state += new_supporter
+`
+	);
+
 	t.end();
 });
