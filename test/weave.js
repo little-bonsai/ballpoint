@@ -134,7 +134,7 @@ but that's ... not possible
 	);
 
 	test(
-		"tunnels",
+		"threads",
 		`
 === murder_scene ===
 The bedroom. This is where it happened. Now to look for clues.
@@ -150,10 +150,22 @@ compare_prints  ->DONE
 	);
 
 	test(
-		"the other sort of tunnel...?",
+		"specified tunnels",
 		`
 === window_opts ===
 Through the steamed glass I couldn't see the brook. -> see_prints_on_glass -> window_opts
+
+=== see_prints_on_glass
+see prints on glass
+->->
+
+`
+	);
+	test(
+		"unspecified tunnels",
+		`
+=== window_opts ===
+Through the steamed glass I couldn't see the brook. -> see_prints_on_glass -> 
 
 === see_prints_on_glass
 see prints on glass

@@ -9,10 +9,14 @@ require("inkjs/compiler/parser/StatementLevel");
 const format = require("./lib/format");
 const validate = require("./lib/validate");
 
-function doValidation(src, out, inputFilename) {
+function doValidation(src, out, inputFilename, args) {
 	const validation = validate(src, out, inputFilename);
 
 	if (validation) {
+		if (args["--verbose"]) {
+			console.log(out);
+		}
+
 		process.stdout.write(" [ Validation Error ]\n");
 		if (typeof validation === "string") {
 			console.log(validation);
