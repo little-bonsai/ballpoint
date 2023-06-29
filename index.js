@@ -65,6 +65,7 @@ async function doForFile(args, inputFilename) {
 
 	if (args["--write"]) {
 		await fs.writeFile(inputFilename, data);
+		return {};
 	} else {
 		return { info: data };
 	}
