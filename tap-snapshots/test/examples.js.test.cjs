@@ -24,7 +24,6 @@ that's all
 
 exports[`test/examples.js TAP examples 003 > snap 1`] = `
     * * V:  Have the other one too.
-
     - - response line
         response line 2
 
