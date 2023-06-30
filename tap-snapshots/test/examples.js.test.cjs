@@ -9,7 +9,6 @@ exports[`test/examples.js TAP examples 001 > snap 1`] = `
 LIST l = CARSTAIRS_KNOWS_EARRING_YOURS, KNOW_MALC_IN_DEBT_CARSTAIRS
 ~ reached((CARSTAIRS_KNOWS_EARRING_YOURS, KNOW_MALC_IN_DEBT_CARSTAIRS))
 
-
 === function reached(x)
     ~ return false
 `
@@ -48,6 +47,7 @@ CONST ICEY = "it is icey"
 
 === function reached(x)
     ~ return true
+
 
 === knot ===
   * (donefor) {reached(GOBLIN_SAY_LAND_IS_DONE_FOR)} 

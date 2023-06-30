@@ -28,6 +28,7 @@ exports[`test/weave.js TAP knots & weave conditional choice > snap 1`] = `
 VAR isCool = true
 VAR ownsMotorbike = true
 
+
 === knot ===
   * {isCool} I ride motorbikes
   * {not isCool} I hate motorbikes
@@ -52,6 +53,7 @@ exports[`test/weave.js TAP knots & weave divert target > snap 1`] = `
 exports[`test/weave.js TAP knots & weave labled conditional choice > snap 1`] = `
 VAR isCool = true
 VAR ownsMotorbike = true
+
 
 === knot ===
   * (label1) {isCool} 
@@ -96,7 +98,6 @@ hello world
   * five
 
   - gather sigma
-
 = stitch
 this is your choice:
   * choice one [ if you ] dare
@@ -165,6 +166,7 @@ The bedroom. This is where it happened. Now to look for clues.
     <- compare_prints(-> top)
 
   - -> DONE
+
 
 === seen_light ===
 seen light -> DONE

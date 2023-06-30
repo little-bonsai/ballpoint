@@ -9,7 +9,6 @@ exports[`test/knowScripts.js TAP Example example.ink > snap 1`] = `
 -> murder_scene
 // Helper function: popping elements from lists
 
-
 === function pop(ref list)
     ~ temp x = LIST_MIN(list)
     ~ list -= x
@@ -254,6 +253,7 @@ I flicked the light switch.
 
   - -> top
 
+
 === joe_in_hall ===
 My police contact, Joe, was waiting in the hall. 'So?' he demanded. 'Did you find anything interesting?'
 
@@ -372,6 +372,7 @@ VAR DEBUG = false
 	Start the story!
 
 --------------------------------------------------------------------------------*/
+
 
 === start ===
 //  Intro
@@ -498,6 +499,7 @@ VAR DEBUG = false
 
   - -> missing_reel -> harris_demands_component
 
+
 === missing_reel ===
   * [The stolen component...]
   * [Shrug]
@@ -515,6 +517,7 @@ VAR DEBUG = false
     ~ raise(forceful)
 
   - ->->
+
 
 === here_at_bletchley_diversion ===
 "Here at Bletchley? Of course."
@@ -568,6 +571,7 @@ VAR DEBUG = false
   * [Lie] 		-> fine
 
   - (done) -> harris_demands_component
+
 
 === harris_demands_component ===
 "{here_at_bletchley_diversion:Please|So}. Do you have it?" Harris is {forceful > 3:sweating slightly|wasting no time}: Bletchley is his watch. "Do you know where it is?"
@@ -640,6 +644,7 @@ VAR DEBUG = false
     He appears to consider the offer.
     -> harris_asks_for_theory
 
+
 === harris_presses_for_details ===
 // Open to Blackmail
 "You mean you've left yourself open," Harris answers. "To pressure. Is that what you're saying?"
@@ -660,13 +665,13 @@ VAR DEBUG = false
     He looks at me with pity. -> harris_has_seen_it_before
 
   - "It's simple enough," Harris says. -> harris_has_seen_it_before
-
 = admit_open_to_pressure
 "That's it," I reply. "There are some things... which a man shouldn't do."
 ~ admitblackmail = true
 Harris doesn't stiffen. Doesn't lean away, as though my condition might be infectious. I had thought they trained them in the army to shoot my kind on sight.
 He offers no sympathy either. He nods, once. His understanding of me is a mere turning cog in his calculations, with no meaning to it.
 -> harris_has_seen_it_before
+
 
 === admitted_to_something ===
 // Admitting Something
@@ -701,12 +706,12 @@ There's a long pause, like the delay between feeding a line of cypher into the B
 "I've done things," I begin{harris_demands_component.cant_talk_right: helplessly}. "Things I didn't want to do. I tried not to. But in the end, it felt like cutting off my own arm to resist."
 -> harris_presses_for_details
 
+
 === harris_asks_for_theory ===
 "Tell me, then," he asks. "What's your theory? You're a smart fellow — as smart as they come around here, and that's saying something. What's your opinion on the missing component? Accident, perhaps? Or do you blame one of the other men? {hooper_mentioned:Hooper?}"
   * [Blame no—one] 
     -> an_accident
   * [Blame someone] -> claim_hooper_took_component
-
 = an_accident
 "An accident, naturally." I risk a smile. "That damned machine is made from spare parts and string. Even these Huts leak when it rains. It wouldn't take more than one fellow to trip over a cable to shake out a component. Have you tried looking under the thing?"
 "Do you believe we haven't?"
@@ -733,6 +738,7 @@ In a sudden moment I understand that his reply is a threat.
     - - "Talk," Harris demands. "Talk now. Tell me where you've hidden it or who you passed it to. Or God help me, I'll take your wretched pansy body to pieces looking for it."
         -> harris_demands_you_speak
 
+
 === harris_has_seen_it_before ===
 "I've seen it before. A young man like you — clever, removed. The kind that doesn't go to parties. Who takes himself too seriously. Who takes things too far."
 He slides his thumb between two fingers.
@@ -756,6 +762,7 @@ He slides his thumb between two fingers.
   - (tell_me_now) <> So why don't you tell me, right now. Where is it?"
     -> harris_demands_you_speak
 
+
 === harris_demands_you_speak ===
 His eyes bear down like carbonised drill—bits.
   * [Confess] 
@@ -771,6 +778,7 @@ His eyes bear down like carbonised drill—bits.
     ~ lower(forceful)
 
   - -> i_met_a_young_man
+
 
 === i_met_a_young_man ===
 //  Explain Story
@@ -857,7 +865,6 @@ His eyes bear down like carbonised drill—bits.
 
   * [Tell the truth] 	-> yes
   * [Lie] 				-> notright
-
 = i_dont_have_it
 "I don't have it any more. I passed it through the fence to my contact straight after taking it, before it was discovered to be missing. It would have been idiocy to do differently. It's long gone, I'm afraid."
 "You fool, Manning," Harris curses, getting quickly to his feet. "You utter fool. Do you suppose you will be any better off living under Hitler? It's men like you who will get us all killed. Men too feeble, too weak in their hearts to stand up and take a man's responsibility for the world. You're happier to stay a child all your life and play with your little childish toys."
@@ -890,6 +897,7 @@ His eyes bear down like carbonised drill—bits.
 /*--------------------------------------------------------------------------------
 	Trying to frame Hooper
 --------------------------------------------------------------------------------*/
+
 
 === claim_hooper_took_component ===
 //  Blame Hooper
@@ -967,7 +975,6 @@ His eyes bear down like carbonised drill—bits.
       * * * "You're right." -> shake_head
 
   * [Block] -> its_your_problem
-
 = harris_being_convinced
 "Makes sense," Harris agrees, cautiously. {evasive > 1:I can see he's still not entirely convinced by my tale, as well he might not be — I've hardly been entirely straight with him.|I can see he's still not certain whether he can trust me.} "Which means the question is, what can we do to rat him out?"
   * [Offer to help] 
@@ -982,7 +989,6 @@ His eyes bear down like carbonised drill—bits.
 
   * [Don't offer to help]
     I lean back. -> its_your_problem
-
 = putmein
 Harris shakes his head.
 "He despises you. I don't see why he'd give himself up to you."
@@ -1032,6 +1038,7 @@ Harris considers it. I watch his eyes, flicking backwards and forwards over mine
 /*--------------------------------------------------------------------------------
 	Quick visit to see Hooper
 --------------------------------------------------------------------------------*/
+
 
 === harris_takes_you_to_hooper ===
 // Past Hooper
@@ -1102,6 +1109,7 @@ Harris marches me over to Hut 3, and gestures for the guard to stand aside. Push
   - He hustles me up the steps of the barracks, keeping me firmly gripped as if I had any chance of giving him, a trained military man, the slip. It's all I can do not to fall into the room.
     -> slam_door_shut_and_gone
 
+
 === inside_hoopers_hut ===
 
   - Harris opens the door and pushes me inside. "Captain," he calls. "Could I have a moment?"
@@ -1165,6 +1173,7 @@ Harris hustles me over to the barracks. "I hope that's the end of it," he mutter
 	Left alone overnight
 --------------------------------------------------------------------------------*/
 
+
 === slam_door_shut_and_gone ===
 Then they slam the door shut, and it locks.
 {hooperClueType == NONE:
@@ -1177,7 +1186,6 @@ Then they slam the door shut, and it locks.
         If he hates me enough, and is paranoid enough, then he might {hooperClueType > STRAIGHT:unravel my little riddle and} go searching around Hut 2.
 }
   * [Wait] 	-> night_falls
-
 = try_the_door
 I try the door. It's locked, of course.
 -> from_outside_heard
@@ -1270,7 +1278,6 @@ Nothing.
     ~ revealedhooperasculprit = false
     "All right." I am beaten, after all. "<>-> reveal_location_of_component
   * [Say nothing] -> my_lips_are_sealed
-
 = find_something_to_smash_window
 Let me see. There's the bunk, {(not smashingWindowItem) == BUCKET:a bucket,} nothing else. I have my jacket but nothing in the pockets — no handkerchief, for instance.
 
@@ -1294,6 +1301,7 @@ Let me see. There's the bunk, {(not smashingWindowItem) == BUCKET:a bucket,} not
   * {(not smashingWindowItem) == BUCKET} [The bucket] 
     The bucket? Hardly. The bucket might do some good if I wanted to sweep up the glass afterwards, but it won't help me smash the glass quietly.
     -> opts
+
 
 === smash_the_window ===
 //  Smashing glass
@@ -1342,6 +1350,7 @@ Then I heft {smashingWindowItem == BUCKET:up the bucket — this really is quite
 	Visit Hooper's dorm overnight
 --------------------------------------------------------------------------------*/
 
+
 === go_to_hoopers_dorm ===
 // Hooper's Dorm
 I creep around the outside of the huts towards Hooper's dorm. Time to wrap up this little game once and for all. A few guards patrol the area at night but not many — after all, very few know this place even exists.
@@ -1382,14 +1391,12 @@ I hang back for a moment. If Harris is keeping to the terms of our deal then som
     * * [Behind the tent]			 	-> wide_circuit
     * * [Inside the porch section] 		-> outer_zip
     * * [On top of the canvas] 			-> put_component_on_tent
-
 = put_component_on_tent
 A neat idea strikes me. If I could place it on top of the canvas, somewhere in the middle where it would bow the cloth inwards, then it would be invisible to anyone passing by. But to Hooper, it would be above him: a shadow staring him in the face as he awoke. What could be more natural than getting up, coming out, and looking to see what had fallen on him during the night?
 It's the work of a moment. I was once an excellent bowler for the second XI back at school. This time I throw underarm, of course, but I still land the vital missing component exactly where I want it to go.
 ~ framedhooper = true
 ~ gotcomponent = false
 For a second I hold my breath, but nothing and no—one stirs. -> return_to_room_after_excursion
-
 = toss_component_into_bushes
 I toss the component away into the bushes behind Hooper's tent and return to my barrack, wishing myself a long sleep followed by a morning, free of this business.
 ~ gotcomponent = false
@@ -1398,6 +1405,7 @@ I toss the component away into the bushes behind Hooper's tent and return to my 
 /*--------------------------------------------------------------------------------
 	Ending: Run away from the camp
 --------------------------------------------------------------------------------*/
+
 
 === live_on_the_run ===
 Better to live on the run than die on the spit. Creeping around the edge of the compound{gotcomponent:, the Bombe component heavy in my pocket}, I make my way to the front gate. As always, it's manned by two guards, but I slip past their box by crawling on my belly.
@@ -1409,6 +1417,7 @@ For the moment, at least.
 	Return to room after slipping out
 --------------------------------------------------------------------------------*/
 
+
 === return_to_room_after_excursion ===
 {gotcomponent:The weight of the Bombe component safely in my jacket|Satisfied}, I return the short way up the paths between the huts to the barrack block and the broken window.
 It's a little harder getting back through — the window is higher off the ground than the floor inside — but after a decent bit of jumping and hauling I manage to get my elbows up, and then one leg, and finally I collapse inside, quite winded and out breath.
@@ -1416,6 +1425,7 @@ It's a little harder getting back through — the window is higher off the groun
 /*--------------------------------------------------------------------------------
 	Night passes
 --------------------------------------------------------------------------------*/
+
 
 === night_passes ===
 // In room smashed glass
@@ -1439,7 +1449,6 @@ The rest of the night passes slowly. I sleep a little, dozing mostly. Then I'm w
         Harris shakes his head. "Well, we can look into that matter later. For now, you probably want to hear the more pressing news. -> found_missing_component
 
   * {gotcomponent} [Show him the component] -> someone_threw_component
-
 = put_component_inside_tent
 He takes one look around, and sighs, a deep, wistful sigh.
 "Things just get worse and worse for you, Manning," he remarks. "You are your own worst enemy."
@@ -1471,7 +1480,6 @@ He takes one look around, and sighs, a deep, wistful sigh.
 
   - I mean, he managed to find it, by accident, somewhere where it wasn't the night before. And at the same time, you're sitting here with your window broken. So, I rather think you've played your last hand and lost. It's utterly implausible that Hooper stole that component and then left it lying around in the doorway of his tent. So I came to tell you that the game is up, for you."
     He nods and gets to his feet. -> left_alone
-
 = someone_threw_component
 "Someone threw this in through the window over night," I reply, and open my jacket to reveal the component from the Bombe. "I couldn't see who, it was too dark. But I know what it is."
 He reaches out and takes it. "Well, I'll be damned," he murmurs. "That's it all right. And you didn't have it on you when we put you in here. But it can't have been Hooper — I had men watching him all night. And there's no—one else it could have been."
@@ -1525,6 +1533,7 @@ We found the missing component. Or rather, Hooper found it for us. He snuck out 
     I do as he says. Outside the barrack, the air has never smelt sweeter.
 
   - -> head_for_my_dorm_free
+
 
 === night_falls ===
 //  Night falls
@@ -1620,7 +1629,6 @@ Night falls. The clockwork of the heavens keeps turning, whatever state I might 
         -> head_for_my_dorm_free
 
   * {hooperClueType == NONE} [Wait] -> morning_not_saved
-
 = morning_not_saved
 // Not saved
 Morning comes with the call of a rooster from the yard of the House. I must have slept after all. I pull myself up off the bunk, shivering slightly. There is condensation on the inside of the window. I have probably given myself a chill.
@@ -1633,6 +1641,7 @@ It's not long after that Harris enters the hut. He closes the door behind him, c
 
   - -> harris_certain_is_you
 
+
 === harris_certain_is_you ===
 "Well, I'm afraid it is going to get worse for you," Harris replies soberly. "We followed Hooper, and he took himself neatly to bed and slept like a boy scout. Which puts us back to square one, and you firmly in the frame. And I'm afraid I don't have time for any more games. I want you to tell me where that component is, or we will hang you as a traitor."
 ~ revealedhooperasculprit = false
@@ -1641,6 +1650,7 @@ It's not long after that Harris enters the hut. He closes the door behind him, c
 /*---------------------------------------------------------------
 	Ending: they don't think it was you
 ---------------------------------------------------------------*/
+
 
 === head_for_my_dorm_free ===
 I head for my dorm, intent on a bath, breakfast, a glance at the crossword before the other men get to it, and then on with work. They should have replaced the component in the Bombe by now. We will only be a day behind.
@@ -1697,6 +1707,7 @@ Nothing, that is, except to act as if there is no game being played. I'll have a
     //  End - Scot Free
     -> END
 
+
 === go_to_where_component_is_hidden ===
 It won't take a moment to settle the matter. I can justify a walk past Hut 2 as part of my morning stroll. It will be obvious in a moment if the component is still there.
 On my way across the paddocks, between the huts and the House, I catch sight of young Miss Lyon, arriving for work on her bicycle. She giggles as she sees me and waves.
@@ -1747,6 +1758,7 @@ On my way across the paddocks, between the huts and the House, I catch sight of 
 	Ending: they think it was you
 ---------------------------------------------------------------*/
 
+
 === harris_threatens_lynching ===
 {harris_certain_is_you:He passes a hand across his eyes with a long look of despair.|He gets to his feet, and gathers his gloves from the table top.}
 "I'm going to go outside and organise a rope. That'll take about twelve minutes. That's how long you have to decide."
@@ -1783,6 +1795,7 @@ On my way across the paddocks, between the huts and the House, I catch sight of 
     "That doesn't prove anything," Harris returns sharply. "But we'll check what you say, all the same." He gets to his feet and heads out of the door.
     -> left_alone
 
+
 === reveal_location_of_component ===
 <> The missing component of the Bombe computer is hidden in a small cavity in a breeze—block supporting the left rear post of Hut 2. I put in there anticipating a search. I intended to {revealedhooperasculprit:pass it to Hooper|dispose of it} once the fuss had died down. I suppose I was foolish to think that it might."
 ~ piecereturned = true
@@ -1804,6 +1817,7 @@ The Commander takes one look back from the doorway as he pulls it to.
 "It's been a pleasure working with you, Mr Manning," he declares. "You've done a great service to this country. If we come through, I'm sure they'll remember you name. I'm sorry it had to end this way and I'll do my best to keep it quiet. No—one need know what you did."
 -> left_alone
 
+
 === all_too_farfetched ===
 //  Returned Component
 "This is all too far—fetched," Harris says. "I'm glad to have this back, but I need to think."
@@ -1811,10 +1825,12 @@ Getting to his feet, he nods once. "You'll have to wait a little longer, I'm afr
 Then he steps out of the door, muttering to himself.
 -> make_your_peace
 
+
 === left_alone ===
 //  Alone, about to die
 {slam_door_shut_and_gone.time_to_move_now:The Commander holds the door for his superior, and follows him out.} Then the door closes. I am alone again, as I have been for most of my short life.
 -> make_your_peace
+
 
 === make_your_peace ===
   * [Make your peace]

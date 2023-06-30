@@ -19,7 +19,6 @@ exports[`test/index.js TAP examples eg2 > snap 1`] = `
         ~ return false || reach(statesToSet)
     }
 
-
 === function reached(x)
     ~ return false
 
@@ -35,6 +34,7 @@ exports[`test/index.js TAP examples function calls and diverts > snap 1`] = `
     ~ RANDOM(1, 2)
     ~ RANDOM(1, 2)
     -> map_1
+
 
 === map_1 ===
 map
