@@ -12,13 +12,11 @@ and this line
 
 exports[`test/weave.js TAP knots & weave Tunnel Onwards > snap 1`] = `
 something ->->
-
   - gather
 `
 
 exports[`test/weave.js TAP knots & weave blank gather > snap 1`] = `
 === murder_scene ===
-
     - - (bedhub) 
     * * [Lift the bedcover]
         I lifted back the bedcover. The duvet underneath was crumpled.
@@ -161,10 +159,8 @@ foo
 exports[`test/weave.js TAP knots & weave threads > snap 1`] = `
 === murder_scene ===
 The bedroom. This is where it happened. Now to look for clues.
-
   - (top) {true: <- seen_light}
     <- compare_prints(-> top)
-
   - -> DONE
 
 

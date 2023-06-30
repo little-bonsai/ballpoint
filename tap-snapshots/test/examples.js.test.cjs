@@ -29,14 +29,12 @@ exports[`test/examples.js TAP examples 003 > snap 1`] = `
         response line 2
 
   - new topic line one
-
     new topic line two
 `
 
 exports[`test/examples.js TAP examples 004 > snap 1`] = `
 === knot ===
 x
-
   - ->->
 LIST walkarounddeck = WANNA_WALK_AROUND_DECK, DID_WALK_AROUND_DECK
 `

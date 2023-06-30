@@ -81,7 +81,6 @@ LIST WindowKnowledge = steam_on_glass, fingerprints_on_glass, fingerprints_on_gl
 
 === murder_scene ===
 The bedroom. This is where it happened. Now to look for clues.
-
   - (top) {bedroomLightState ? seen: <- seen_light}
     <- compare_prints(-> top)
   * (dobed) [The bed...]
@@ -256,7 +255,6 @@ I flicked the light switch.
 
 === joe_in_hall ===
 My police contact, Joe, was waiting in the hall. 'So?' he demanded. 'Did you find anything interesting?'
-
   - (found) 
   * {found == 1} 'Nothing.'
     He shrugged. 'Shame.'
@@ -302,7 +300,6 @@ My police contact, Joe, was waiting in the hall. 'So?' he demanded. 'Did you fin
     -> done
 
   - -> found
-
   - (done) {
         - between(joe_wants_better_prints, joe_got_better_prints): 
             ~ reach(joe_got_better_prints)
@@ -406,7 +403,6 @@ VAR DEBUG = false
 
   - -> waited
 = waited
-
   - Half an hour goes by before Commander Harris returns. He closes the door behind him quickly, as though afraid a loose word might slip inside.
     "Well, then," he begins, awkwardly. This is an unseemly situation.
   * "Commander."
@@ -435,7 +431,6 @@ VAR DEBUG = false
     - - (pushes_cup) He pushes one mug halfway towards me: <>
 
   - a small gesture of friendship.
-
     Enough to give me hope?
   * (lift_up_cup) {not teacup} 
     [Take it] 
@@ -468,7 +463,6 @@ VAR DEBUG = false
             <>, sipping at my tea as though we were old friends
     }
     <>.
-
   - 
   * [Watch him]
     His face is telling me nothing. I've seen Harris broad and full of laughter. Today he is tight, as much part of the military machine as the device in Hut 5.
@@ -480,12 +474,10 @@ VAR DEBUG = false
     // Why you're here
 
   - "We need that component," he says.
-
   - //"There's no alternative, of course," he continues.
     {not missing_reel:
             -> missing_reel -> harris_demands_component
     }
-
   - 
   * [Yes]
     "Of course I do," I answer.
@@ -507,7 +499,6 @@ VAR DEBUG = false
     ->->
 
   - The reel went missing from the Bombe this afternoon. The four of us were in the Hut, working on the latest German intercept. The results were garbage. It was Russell who found the gap in the plugboard.
-
   - Any of us could have taken it; and no one else would have known its worth.
   * {forceful <= 0} [Panic] They will pin it on me. They need a scapegoat so that the work can continue. I'm a likely target. Weaker than the rest. 
     ~ lower(forceful)
@@ -600,7 +591,6 @@ VAR DEBUG = false
 
   - (silence) There's an icy silence. {forceful > 2:I've cracked him a little.|{evasive > 2:He's tiring of my evasiveness.}}
     // Drink tea and talk
-
   - (drinkit) "Now drink your tea and talk."
   * {teacup} [Drink] 			-> drinkfromcup
   * {teacup} [Put the cup down] 
@@ -621,7 +611,6 @@ VAR DEBUG = false
     - - (whatsinit) "Why?" I ask coldly. "What's in it?"
 
   - "Lapsang Souchong," he {drinkfromcup:remarks|replies}, placing his own cup back on the table untouched. "Such a curious flavour. It might almost not be tea at all. You might say it hides a multitude of sins. As do you. Isn't that right?"
-
   * (suppose_i_have) [Agree] 
     // Regrets
     "I suppose so," I reply. "I've done things I shouldn't have done."
@@ -817,7 +806,6 @@ His eyes bear down like carbonised drill—bits.
   * {not drugged} [Lie] -> nope
 
   - "Go on with your confession."
-
   - (paused) {not nope:
         That gives me pause. I hadn't thought of it as such. But I suppose he's right. I am about to admit what I did.
     }
@@ -941,7 +929,6 @@ His eyes bear down like carbonised drill—bits.
         -> hoopers_hut_3
 
   - "We are left with two possibilities. You, or Hooper." The Commander pauses to smooth down his moustache. <>
-
   - (hoopers_hut_3) "Hooper's in Hut 3 with the Captain, having a similar conversation."
   * "And the other men?["] Do we have a hut each? Are there  enough senior officers to go round?"
     "Collins was outside when it happened, and Peterson can't get round the machine in that chair of his," Harris replies. "That leaves you and Hooper.
@@ -1074,7 +1061,6 @@ Harris marches me over to Hut 3, and gestures for the guard to stand aside. Push
         -> only_catch
 
   - The Captain comes outside, pulling the door to. "What's this?" he asks. "A confession? Just like that?"
-
     "No," the Commander admits, in a low voice. "I'm afraid not. Rather more a scheme. The idea is to let Hooper go and see what he does. If he believes we have Manning here in irons, he'll try to shift the component."
     "If he has it."
     "Indeed."
@@ -1111,7 +1097,6 @@ Harris marches me over to Hut 3, and gestures for the guard to stand aside. Push
 
 
 === inside_hoopers_hut ===
-
   - Harris opens the door and pushes me inside. "Captain," he calls. "Could I have a moment?"
     The Captain, looking puzzled, steps out. The door is closed. Hooper stares at me, open—mouthed, about to say something. I probably have less than a minute before the Captain storms back in and declares this plan to be bunkum.
   * [Threaten]
@@ -1223,7 +1208,6 @@ The window is my only way out of here. I just need a way to smash it.
     * * [Look around] -> use_bucket
 
   - And the noise would be terrible. There must be a way of making this easier. I'm supposed to be a thief now. What would a burglar do?
-
   * [Work slowly] 
     Work carefully? It's difficult to work carefully when all one's has is {smashingWindowItem == BUCKET:a bucket. It's rather like the sledgehammer for the proverbial nut|{smashingWindowItem == SHOE:a shoe|nothing but brute force}}.
     * * [Just do it] -> time_to_move_now
@@ -1311,7 +1295,6 @@ Then I heft {smashingWindowItem == BUCKET:up the bucket — this really is quite
   * [Smash!]
 
   - The sound of the impact is muffled. With my arm still covered, I sweep out the remaining glass in the frame.
-
   - I'm ready to escape. The only trouble is — when they look in on me in the morning, there will be no question what has happened. It won't help me one jot with shifting suspicion off my back.
   * [Wait]
     So perhaps I should wait it out, after all. Who knows? I might have a better opportunity later.
@@ -1496,7 +1479,6 @@ He turns the component over in his hands, bemused.
   * [Suggest nothing] 
 
   - I shrug, eloquently.
-
   - -> all_too_farfetched
 = glad_youre_here
 "Shame," he remarks. "I should have left that window open and put a guard on you. Might have been interesting to see where you went. Anyway, I'm glad you're still here, even if you do smell like a dog."
@@ -1613,7 +1595,6 @@ Night falls. The clockwork of the heavens keeps turning, whatever state I might 
             "Don't ask me to explain why he did what he did," Harris sighs. "Just be grateful that he did, and you're now off the hook."
 
     - - Curiouser and curiouser. I nod once to Harris and slip outside into the cold morning air.
-
         {hooperClueType == NONE:
                 Hooper's confession only makes sense in one fashion{hooperConfessed:, and that is his being dim—witted and slow| — if I successfully implied to him that I had him framed, but he did not unpack my little clue well enough to go looking for the component. Well, I had figured him for a more intelligent opponent, but a resignation from the game will suffice}. Or perhaps he knew he would be followed if he went to check, and decided he would be doomed either way.
         - else: 
@@ -1733,7 +1714,6 @@ On my way across the paddocks, between the huts and the House, I catch sight of 
         Harris is there, leaning in against the wall. He holds a stub pistol in his hand.
 
   - {hooperClueType > STRAIGHT:
-
             "{hooperClueType == CHESS:Queen to rook two|Messy without one missing whatever it was}," he declares. "I wouldn't have fathomed it but Hooper did. Explained it right after we sprung him doing what you're doing now. We weren't sure what to believe but now, you seem to have resolved that for us."
     - else: 
         "Hooper said you'd told him where to look. I didn't believe him. Or, well. I wasn't sure what to believe. Now I rather think you've settled it."
@@ -1750,7 +1730,6 @@ On my way across the paddocks, between the huts and the House, I catch sight of 
     I almost wish I had a way to make the hut explode, but of course I don't.
 
   - "Enough." Harris gestures for me to start walking. "This story couldn't be simpler. You took it to cover your back. You hid it. You lied to get Hooper into trouble, and when you thought you'd won, you came to scoop your prize. A good hand but ultimately, {hooperClueType <= STRAIGHT:if it hadn't have been you who hid the component, then you wouldn't be here now|you told Hooper where to look with your little riddle}."
-
   - (done) //   End - Caught in AM
     He leads me across the yard. Back towards Hut 5 to be decoded, and taken to pieces, once again.
     -> END
@@ -1783,7 +1762,6 @@ On my way across the paddocks, between the huts and the House, I catch sight of 
         "No. I didn't."
 
   - -> all_too_farfetched
-
   * {throwncomponentaway} [Confess]
     "I don't need twelve minutes. The component is in the long grass behind Hooper's tent. I threw it there hoping to somehow frame him, but now I see that won't be possible. I was naive, I suppose."
     ~ piecereturned = true
@@ -1850,7 +1828,6 @@ Then he steps out of the door, muttering to himself.
 
   - <> I suppose I do not believe they will hang me. They will lock me up and continue to use my brain, if they can. I wonder what they will tell the world — perhaps that I have taken my own life. That would be simplest. The few who know me would believe it.
     Well, then. Not a bad existence, in prison. Removed from temptation.
-
   - (monastic) A monastic life, with plenty of problems to keep me going.
     I wonder what else I might yet unravel before I'm done?
   * The door is opening.[] Harris is returning. Our little calculation here is complete. {not piecereturned: I can only hope one of the others will be able to explain to him that the part I stole will mean nothing to the Germans.|We are just pieces in this machine; interchangeable and prone to wear.}
