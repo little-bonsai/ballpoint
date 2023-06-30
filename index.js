@@ -50,7 +50,9 @@ function doValidation(args, src, out, inputFilename) {
 
 async function doForFile(args, inputFilename) {
 	const src = await fs.readFile(inputFilename, "utf8");
-	const { data, error: formatError } = format(src, inputFilename);
+	const { data, error: formatError } = format(src, inputFilename, {
+		sortStatements: args["--sort-statements"],
+	});
 
 	if (formatError) {
 		return { error: formatError };
@@ -107,7 +109,7 @@ const argSpec = {
 	"--version": Boolean,
 	"--verbose": arg.COUNT, // Counts the number of times --verbose is passed
 
-	"--sort-includes": Boolean,
+	"--sort-statements": Boolean,
 	"--write": Boolean,
 	"--validate": Boolean,
 
@@ -124,21 +126,21 @@ Ballpoint
 A CLI for formatting .ink files
 
 Usage:
-         $ ballpoint --sort-includes --write **/*.ink
+         $ ballpoint --sort-statements --write **/*.ink
 
 Arguments:
         --help
         --version
         --verbose
 
-        --sort-includes  : Sort all INCLUDE statements in the file
+        --sort-statements  : Sort all INCLUDE, VAR, & CONST statements in the file
         --validate       : Compile the formatted output & check against the compiled input for diferences
         --write          : Overwrite the files
 
         / Aliases
         -h = --help
         -w = --write
-        -s = --sort-includes
+        -s = --sort-statements
         -v = --verbose
 `.trim(),
 		"\n"
