@@ -116,6 +116,7 @@ The bedroom. This is where it happened. Now to look for clues.
     * * {TURNS_SINCE(-> dobed) > 1} [Something else?]
         I took a step back from the bed and looked around.
         -> top
+
     - - -> bedhub
 
   * {(darkunder && (bedroomLightState ? on_floor)) && (bedroomLightState ? on)} [ Look under the bed ]
@@ -152,6 +153,7 @@ The bedroom. This is where it happened. Now to look for clues.
     I turned my attention to the desk. A lamp sat in one corner, a neat, empty in-tray in the other. There was nothing else out.
     Leaning against the desk was a wooden cane.
     ~ bedroomLightState += seen
+
     - - (deskstate) 
     * * (pickup_cane) {Inventory !? cane} 
         [Pick up the cane ]
@@ -167,6 +169,7 @@ The bedroom. This is where it happened. Now to look for clues.
     * * {deskstate >= 2} [Something else?]
         I took a step away from the desk once more.
         -> top
+
     - - -> deskstate
 
   * {(Inventory ? cane) && (TURNS_SINCE(-> deskstate) <= 2)} [Swoosh the cane]
@@ -200,11 +203,13 @@ The bedroom. This is where it happened. Now to look for clues.
         }
         I leant back from the glass. My breath had steamed up the pane a little.
         ~ GlassState = steamed
+
     - - -> window_opts
 
   * {top >= 5} [Leave the room]
     I'd seen enough. I {bedroomLightState ? on:switched off the lamp, then} turned and left the room.
     -> joe_in_hall
+
   - -> top
 = operate_lamp
 I flicked the light switch.
@@ -295,7 +300,9 @@ My police contact, Joe, was waiting in the hall. 'So?' he demanded. 'Did you fin
   * {found > 1} 'That's it.'
     'All right. It's a start,' Joe replied.
     -> done
+
   - -> found
+
   - (done) {
         - between(joe_wants_better_prints, joe_got_better_prints): 
             ~ reach(joe_got_better_prints)
@@ -398,6 +405,7 @@ VAR DEBUG = false
 
   - -> waited
 = waited
+
   - Half an hour goes by before Commander Harris returns. He closes the door behind him quickly, as though afraid a loose word might slip inside.
     "Well, then," he begins, awkwardly. This is an unseemly situation.
   * "Commander."
@@ -487,6 +495,7 @@ VAR DEBUG = false
     -> here_at_bletchley_diversion
   * [Lie] 
     -> no
+
   - -> missing_reel -> harris_demands_component
 
 === missing_reel ===
@@ -494,6 +503,7 @@ VAR DEBUG = false
   * [Shrug]
     I shrug.
     ->->
+
   - The reel went missing from the Bombe this afternoon. The four of us were in the Hut, working on the latest German intercept. The results were garbage. It was Russell who found the gap in the plugboard.
 
   - Any of us could have taken it; and no one else would have known its worth.
@@ -537,6 +547,7 @@ VAR DEBUG = false
             ~ raise(evasive)
             "But of course you do." Harris narrows his eyes.
             -> done
+
       - - - (suggest_its_a_lie) "All I can say is, ever since I arrived here, he's been looking to ways to bring me down a peg. I wouldn't be surprised if he set this whole affair up just to have me court—martialled."
             "We don't court—martial civilians," Harris replies. "Traitors are simply hung at her Majesty's pleasure."
       * * * "Quite right[."]," I answer smartly.
@@ -920,8 +931,8 @@ His eyes bear down like carbonised drill—bits.
         "We have," Harris replies simply.
         It's all I can do not to gape.
         -> hoopers_hut_3
-  - "We are left with two possibilities. You, or Hooper." The Commander pauses to smooth down his moustache. <>
 
+  - "We are left with two possibilities. You, or Hooper." The Commander pauses to smooth down his moustache. <>
 
   - (hoopers_hut_3) "Hooper's in Hut 3 with the Captain, having a similar conversation."
   * "And the other men?["] Do we have a hut each? Are there  enough senior officers to go round?"
@@ -1047,12 +1058,14 @@ Harris marches me over to Hut 3, and gestures for the guard to stand aside. Push
     "I'll get you Hooper, you'll see!" I cry. Then:
     * * "Queen to rook two, checkmate!"[] I call, then laugh viciously, as if I am damning him straight to hell.
         ~ hooperClueType = CHESS
+
     - - (only_catch) I only catch Hooper's reaction for a moment — his eyebrow lifts in surprise and alarm. Good. If he thinks it is a threat then he just might be careless enough to go looking for what it might mean.
     * * "Ask not for whom the bell tolls!"
         He stares back at me, as if were a madman and perhaps for a split second I see him shudder.
     * * "Two words: messy, without one missing!"[] I cry, laughing. It isn't the best clue, hardly worthy of The Times, but it will have to do.
         ~ hooperClueType = CROSSWORD
         -> only_catch
+
   - The Captain comes outside, pulling the door to. "What's this?" he asks. "A confession? Just like that?"
 
     "No," the Commander admits, in a low voice. "I'm afraid not. Rather more a scheme. The idea is to let Hooper go and see what he does. If he believes we have Manning here in irons, he'll try to shift the component."
@@ -1090,6 +1103,7 @@ Harris marches me over to Hut 3, and gestures for the guard to stand aside. Push
     -> slam_door_shut_and_gone
 
 === inside_hoopers_hut ===
+
   - Harris opens the door and pushes me inside. "Captain," he calls. "Could I have a moment?"
     The Captain, looking puzzled, steps out. The door is closed. Hooper stares at me, open—mouthed, about to say something. I probably have less than a minute before the Captain storms back in and declares this plan to be bunkum.
   * [Threaten]
@@ -1440,6 +1454,7 @@ He takes one look around, and sighs, a deep, wistful sigh.
   * [Evade] 
     "I'm looking forward to having a wash and a change of clothes; which should make me a little less evil to be around."
     -> droll
+
   - Our men watching Hooper's tent saw Hooper wake up, get dressed, clamber out of his tent and then step on something in at the entrance of his tent."
     ~ piecereturned = true
   * [Be interested] 

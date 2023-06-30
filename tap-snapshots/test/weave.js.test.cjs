@@ -18,6 +18,7 @@ something ->->
 
 exports[`test/weave.js TAP knots & weave blank gather > snap 1`] = `
 === murder_scene ===
+
     - - (bedhub) 
     * * [Lift the bedcover]
         I lifted back the bedcover. The duvet underneath was crumpled.
@@ -162,6 +163,7 @@ The bedroom. This is where it happened. Now to look for clues.
 
   - (top) {true: <- seen_light}
     <- compare_prints(-> top)
+
   - -> DONE
 
 === seen_light ===
