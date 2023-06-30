@@ -85,15 +85,18 @@ hello world
             sub ooo
       * * * one point one point two
             sub oot
+
       - - - (alpha) gather alpha
 
     * * one point two
+
     - - gather beta
 
   * two
   * three
   * four
   * five
+
   - gather sigma
 
 = stitch
@@ -109,12 +112,14 @@ this is your choice:
         here
     + + (dangerousChoice) no
         piss off -> fightScene.rumble
+
     - - wow, alright, I'm super impressed
 
   * choice two
     wow, bold move
   * choice three
     what else?
+
   - gather
     but now
     I will ask another question
