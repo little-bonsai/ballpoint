@@ -37,6 +37,7 @@ exports[`test/conditionals.js TAP conditionals condition based on nested path > 
 
 
 === harris_demands_component ===
+
 = cant_talk_right
 "I can't talk right" I said, incomprehensibly
 `

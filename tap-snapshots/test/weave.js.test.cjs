@@ -39,6 +39,7 @@ VAR ownsMotorbike = true
 
 
 === paradox ===
+
 = motorbikeImposibility
 but that's ... not possible
 `
@@ -65,6 +66,7 @@ VAR ownsMotorbike = true
 
 
 === paradox ===
+
 = motorbikeImposibility
 but that's ... not possible
 `
@@ -93,6 +95,7 @@ hello world
   * four
   * five
   - gather sigma
+
 = stitch
 this is your choice:
   * choice one [ if you ] dare
@@ -120,6 +123,7 @@ this is your choice:
 
 
 === fightScene ===
+
 = rumble
 let's fight
 `
