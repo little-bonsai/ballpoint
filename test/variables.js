@@ -40,5 +40,13 @@ VAR tf2Colors = (red, blue)
 	`
 	);
 
+	test(
+		"Content List",
+		`
+===knot
+~ temp noPrefix = "{|Nah, |Sorry, }"
+`
+	);
+
 	t.end();
 });

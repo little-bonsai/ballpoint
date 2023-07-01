@@ -5,6 +5,11 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/variables.js TAP variables Content List > snap 1`] = `
+=== knot ===
+~ temp noPrefix = "{|Nah, |Sorry, }"
+`
+
 exports[`test/variables.js TAP variables declarations > snap 1`] = `
 VAR forceful = 0
 CONST awesome = true
