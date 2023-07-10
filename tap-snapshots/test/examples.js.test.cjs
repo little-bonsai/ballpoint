@@ -7,6 +7,7 @@
 'use strict'
 exports[`test/examples.js TAP examples 001 > snap 1`] = `
 LIST l = CARSTAIRS_KNOWS_EARRING_YOURS, KNOW_MALC_IN_DEBT_CARSTAIRS
+
 ~ reached((CARSTAIRS_KNOWS_EARRING_YOURS, KNOW_MALC_IN_DEBT_CARSTAIRS))
 
 === function reached(x)
@@ -60,6 +61,7 @@ exports[`test/examples.js TAP examples 006 > snap 1`] = `
 
 exports[`test/examples.js TAP examples 007 > snap 1`] = `
 VAR hasItem = true
+
 {hasItem:
 
   + [ Choice ] 

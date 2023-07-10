@@ -7,6 +7,7 @@
 'use strict'
 exports[`test/functions.js TAP functions 0-arity function > snap 1`] = `
 EXTERNAL cutSceneAdvance()
+
 ~ cutSceneAdvance()
 before{cutSceneAdvance()} after
 `

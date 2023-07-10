@@ -68,12 +68,14 @@ VAR knowledgeState = ()
     //
 VAR bedroomLightState = (off, on_desk)
 VAR knifeState = (under_bed)
+
     //
     // Knowledge chains
     //
 LIST BedKnowledge = neatly_made, crumpled_duvet, hastily_remade, body_on_bed, murdered_in_bed, murdered_while_asleep
 LIST KnifeKnowledge = prints_on_knife, joe_seen_prints_on_knife, joe_wants_better_prints, joe_got_better_prints
 LIST WindowKnowledge = steam_on_glass, fingerprints_on_glass, fingerprints_on_glass_match_knife
+
 //
 // Content
 //
@@ -330,15 +332,19 @@ VAR drugged = false
 VAR hooper_mentioned = false
 VAR losttemper = false
 VAR admitblackmail = false
+
 // what kind of clue did we pass to Hooper?
 CONST NONE = 0
 CONST STRAIGHT = 1
 CONST CHESS = 2
 CONST CROSSWORD = 3
+
 VAR hooperClueType = NONE
 VAR hooperConfessed = false
+
 CONST SHOE = 1
 CONST BUCKET = 2
+
 VAR smashingWindowItem = NONE
 VAR notraitor = false
 VAR revealedhooperasculprit = false
@@ -352,6 +358,7 @@ VAR piecereturned = false
 VAR longgrasshooperframe = false
 // DEBUG mode adds a few shortcuts - remember to set to false in release!
 VAR DEBUG = false
+
 {DEBUG:
     IN DEBUG MODE!
   * [Beginning...]	-> start
