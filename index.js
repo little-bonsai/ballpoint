@@ -4,7 +4,7 @@ const fs = require("fs/promises");
 const arg = require("arg");
 
 require("inkjs/compiler/Parser/InkParser");
-require("inkjs/compiler/parser/StatementLevel");
+require("inkjs/compiler/Parser/StatementLevel");
 
 const format = require("./lib/format");
 const validate = require("./lib/validate");

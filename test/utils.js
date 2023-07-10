@@ -1,5 +1,5 @@
 require("inkjs/compiler/Parser/InkParser");
-require("inkjs/compiler/parser/StatementLevel");
+require("inkjs/compiler/Parser/StatementLevel");
 const { Compiler } = require("inkjs");
 
 const format = require("../lib/format");
