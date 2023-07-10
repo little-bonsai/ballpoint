@@ -11,6 +11,7 @@ t.test("variables", (t) => {
 	  VAR forceful = 0
 CONST awesome = true
 LIST colors = red, (green), blue
+LIST ItemsWithValue =  banana = 100,  apples, carrot = 10, oranges
 VAR emptyList = ()
 VAR tf2Colors = (red, blue)
 `
