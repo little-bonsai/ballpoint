@@ -178,6 +178,21 @@ see prints on glass
 	);
 
 	test(
+		"unspecified tunnel into gather",
+		`
+=== knot
+* go to other
+	-> other ->  
+	-  -> continue
+
+	=== other
+	other
+	=== continue
+	continue
+		`
+	);
+
+	test(
 		"blank gather",
 		`
 === murder_scene ===

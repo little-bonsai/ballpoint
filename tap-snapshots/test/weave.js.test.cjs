@@ -176,6 +176,21 @@ exports[`test/weave.js TAP knots & weave threads > snap 1`] = `
     compare_prints -> DONE
 `
 
+exports[`test/weave.js TAP knots & weave unspecified tunnel into gather > snap 1`] = `
+=== knot ===
+  * go to other
+    -> other -> 
+  - -> continue
+
+
+=== other ===
+    other
+
+
+=== continue ===
+    continue
+`
+
 exports[`test/weave.js TAP knots & weave unspecified tunnels > snap 1`] = `
 === window_opts ===
     Through the steamed glass I couldn't see the brook. -> see_prints_on_glass -> 
