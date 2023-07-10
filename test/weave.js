@@ -76,12 +76,14 @@ let's fight
 		`
 		VAR isCool = true
 		VAR ownsMotorbike = true
+		VAR reallyReallyLongConditionThatGoesOnAndOnAndShouldReallyCauseALineBreak = true
 
 	=== knot ===
 	* { isCool } I ride motorbikes
 	* { not isCool } I hate motorbikes
 	* { isCool } { ownsMotorbike } get on babe
 	* { not isCool } { ownsMotorbike } -> paradox.motorbikeImposibility
+	* { reallyReallyLongConditionThatGoesOnAndOnAndShouldReallyCauseALineBreak } haha, what a long line!
 
 === paradox
 = motorbikeImposibility

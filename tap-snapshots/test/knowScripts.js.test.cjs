@@ -117,7 +117,8 @@ LIST WindowKnowledge = steam_on_glass, fingerprints_on_glass, fingerprints_on_gl
         -> top
     - - -> bedhub
 
-  * {(darkunder && (bedroomLightState ? on_floor)) && (bedroomLightState ? on)} [ Look under the bed ]
+  * {(darkunder && (bedroomLightState ? on_floor)) && (bedroomLightState ? on)} 
+    [ Look under the bed ]
     I peered under the bed. Something glinted back at me.
 
     - - (reaching) 
@@ -169,7 +170,8 @@ LIST WindowKnowledge = steam_on_glass, fingerprints_on_glass, fingerprints_on_gl
         -> top
     - - -> deskstate
 
-  * {(Inventory ? cane) && (TURNS_SINCE(-> deskstate) <= 2)} [Swoosh the cane]
+  * {(Inventory ? cane) && (TURNS_SINCE(-> deskstate) <= 2)} 
+    [Swoosh the cane]
     I was still holding the cane: I gave it an experimental swoosh. It was heavy indeed, though not heavy enough to be used as a bludgeon.
     But it might have been useful in self-defence. Why hadn't the victim reached for it? Knocked it over?
   * [The window...]
@@ -184,7 +186,8 @@ LIST WindowKnowledge = steam_on_glass, fingerprints_on_glass, fingerprints_on_gl
     * * (greasy) [Look at the glass]
         {GlassState ? steamed: -> downy}
         The glass in the window was greasy. No one had cleaned it in a while, inside or out.
-    * * {(((GlassState ? steamed) && (not see_prints_on_glass)) && downy) && greasy} [ Look at the steam ]
+    * * {(((GlassState ? steamed) && (not see_prints_on_glass)) && downy) && greasy} 
+        [ Look at the steam ]
         A cold day outside. Natural my breath should steam. -> see_prints_on_glass -> 
     + + {GlassState ? steam_gone} [ Breathe on the glass ]
         I breathed gently on the glass once more. {reached(fingerprints_on_glass): The fingerprints reappeared. }
@@ -221,7 +224,8 @@ LIST WindowKnowledge = steam_on_glass, fingerprints_on_glass, fingerprints_on_gl
     ->->
 
 = compare_prints(-> backto)
-  * {between((fingerprints_on_glass, prints_on_knife), fingerprints_on_glass_match_knife)} [Compare the prints on the knife and the window ]
+  * {between((fingerprints_on_glass, prints_on_knife), fingerprints_on_glass_match_knife)} 
+    [Compare the prints on the knife and the window ]
     Holding the bloodied knife near the window, I breathed to bring out the prints once more, and compared them as best I could.
     Hardly scientific, but they seemed very similar - very similiar indeed.
     ~ reach(fingerprints_on_glass_match_knife)
@@ -236,7 +240,8 @@ LIST WindowKnowledge = steam_on_glass, fingerprints_on_glass, fingerprints_on_gl
 = seen_light
   * {bedroomLightState !? on} [ Turn on lamp ]
     -> operate_lamp -> 
-  * {(bedroomLightState !? on_bed) && (BedState ? bloodstain_visible)} [ Move the light to the bed ]
+  * {(bedroomLightState !? on_bed) && (BedState ? bloodstain_visible)} 
+    [ Move the light to the bed ]
     ~ move_to_supporter(bedroomLightState, on_bed)
     I moved the light over to the bloodstain and peered closely at it. It had soaked deeply into the fibres of the cotton sheet.
     There was no doubt about it. This was where the blow had been struck.
@@ -269,7 +274,8 @@ LIST WindowKnowledge = steam_on_glass, fingerprints_on_glass, fingerprints_on_gl
     He regarded them carefully.
     'Hrm. Not very complete. It'll be hard to get a match from these.'
     ~ reach(joe_seen_prints_on_knife)
-  * {reached((fingerprints_on_glass_match_knife, joe_seen_prints_on_knife))} 'They match a set of prints on the window, too.'
+  * {reached((fingerprints_on_glass_match_knife, joe_seen_prints_on_knife))} 
+    'They match a set of prints on the window, too.'
     'Anyone could have touched the window,' Joe replied thoughtfully. 'But if they're more complete, they should help us get a decent match!'
     ~ reach(joe_wants_better_prints)
   * {between(body_on_bed, murdered_in_bed)} 'The body was moved to the bed at some point[.'],' I told him. 'And then moved back to the floor.'
@@ -1727,7 +1733,8 @@ VAR DEBUG = false
     - - (too_clever) "You leave me no choice," Harris snaps back, eyes cold as gun—metal. "You and your damn cyphers. Your damn clever problems. If men like you didn't exist, if we could just all be <i>straight</i> with one another." He gets to his feet and heads for the door. "I fear for the future of this world, with men like you in. Reich or no Reich, Mr Manning, people like you simply <i>complicate</i> matters."
         -> left_alone
 
-  * {(not gotcomponent) && (not throwncomponentaway)} [Confess] 
+  * {(not gotcomponent) && (not throwncomponentaway)} 
+    [Confess] 
     I nod. "I don't need twelve minutes. -> reveal_location_of_component
   * [Stay silent] -> my_lips_are_sealed
   * {gotcomponent} [Show him the component] 

@@ -25,6 +25,7 @@ exports[`test/weave.js TAP knots & weave blank gather > snap 1`] = `
 exports[`test/weave.js TAP knots & weave conditional choice > snap 1`] = `
 VAR isCool = true
 VAR ownsMotorbike = true
+VAR reallyReallyLongConditionThatGoesOnAndOnAndShouldReallyCauseALineBreak = true
 
 
 === knot ===
@@ -36,6 +37,8 @@ VAR ownsMotorbike = true
   * { not isCool } 
     { ownsMotorbike } 
     -> paradox.motorbikeImposibility
+  * {reallyReallyLongConditionThatGoesOnAndOnAndShouldReallyCauseALineBreak} 
+    haha, what a long line!
 
 
 === paradox ===
