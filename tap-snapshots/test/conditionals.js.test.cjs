@@ -7,20 +7,20 @@
 'use strict'
 exports[`test/conditionals.js TAP conditionals bare switch case divert > snap 1`] = `
 === Knot1 ===
-hello one
+    hello one
 
 
 === Knot2 ===
-hello two
+    hello two
 
 
 === Knot3 ===
-hello three
-{
-    - "a" == "b": -> Knot1
-    - "a" == "c": -> Knot2
-    - "a" == "d": -> Knot3
-}
+    hello three
+    {
+        - "a" == "b": -> Knot1
+        - "a" == "c": -> Knot2
+        - "a" == "d": -> Knot3
+    }
 `
 
 exports[`test/conditionals.js TAP conditionals bare switch case logic > snap 1`] = `
@@ -39,7 +39,7 @@ exports[`test/conditionals.js TAP conditionals condition based on nested path > 
 === harris_demands_component ===
 
 = cant_talk_right
-"I can't talk right" I said, incomprehensibly
+    "I can't talk right" I said, incomprehensibly
 `
 
 exports[`test/conditionals.js TAP conditionals inline conditional > snap 1`] = `

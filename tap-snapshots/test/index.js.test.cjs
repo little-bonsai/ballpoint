@@ -37,5 +37,5 @@ exports[`test/index.js TAP examples function calls and diverts > snap 1`] = `
 
 
 === map_1 ===
-map
+    map
 `

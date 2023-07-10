@@ -7,7 +7,7 @@
 'use strict'
 exports[`test/variables.js TAP variables Content List > snap 1`] = `
 === knot ===
-~ temp noPrefix = "{|Nah, |Sorry, }"
+    ~ temp noPrefix = "{|Nah, |Sorry, }"
 `
 
 exports[`test/variables.js TAP variables declarations > snap 1`] = `

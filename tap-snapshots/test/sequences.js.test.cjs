@@ -25,7 +25,7 @@ That's a wrap {once:on this! -> bye} folks!
 
 
 === bye ===
-that's all
+    that's all
 `
 
 exports[`test/sequences.js TAP sequences sequences > snap 1`] = `

@@ -19,7 +19,7 @@ That's a wrap {once:on this! -> bye} folks!
 
 
 === bye ===
-that's all
+    that's all
 `
 
 exports[`test/examples.js TAP examples 003 > snap 1`] = `
@@ -33,7 +33,8 @@ exports[`test/examples.js TAP examples 003 > snap 1`] = `
 
 exports[`test/examples.js TAP examples 004 > snap 1`] = `
 === knot ===
-x
+    x
+
   - ->->
 LIST walkarounddeck = WANNA_WALK_AROUND_DECK, DID_WALK_AROUND_DECK
 `
@@ -67,5 +68,5 @@ VAR hasItem = true
 
 
 === divert ===
-divert
+    divert
 `

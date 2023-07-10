@@ -41,7 +41,7 @@ VAR ownsMotorbike = true
 === paradox ===
 
 = motorbikeImposibility
-but that's ... not possible
+    but that's ... not possible
 `
 
 exports[`test/weave.js TAP knots & weave divert target > snap 1`] = `
@@ -68,16 +68,16 @@ VAR ownsMotorbike = true
 === paradox ===
 
 = motorbikeImposibility
-but that's ... not possible
+    but that's ... not possible
 `
 
 exports[`test/weave.js TAP knots & weave nested knot > snap 1`] = `
 === previousKnot ===
-test
+    test
 
 
 === Knot ===
-hello world
+    hello world
   * out
   * one
     * * one point one
@@ -97,7 +97,7 @@ hello world
   - gather sigma
 
 = stitch
-this is your choice:
+    this is your choice:
   * choice one [ if you ] dare
     but will you?
     TODO: flesh out this choice
@@ -125,7 +125,7 @@ this is your choice:
 === fightScene ===
 
 = rumble
-let's fight
+    let's fight
 `
 
 exports[`test/weave.js TAP knots & weave simple knot > snap 1`] = `
@@ -142,22 +142,23 @@ exports[`test/weave.js TAP knots & weave simple knot > snap 1`] = `
 
 exports[`test/weave.js TAP knots & weave specified tunnels > snap 1`] = `
 === window_opts ===
-Through the steamed glass I couldn't see the brook. -> see_prints_on_glass -> window_opts
+    Through the steamed glass I couldn't see the brook. -> see_prints_on_glass -> window_opts
 
 
 === see_prints_on_glass ===
-see prints on glass
-->->
+    see prints on glass
+    ->->
 `
 
 exports[`test/weave.js TAP knots & weave stitch function > snap 1`] = `
 = compare_prints(-> backto)
-foo
+    foo
 `
 
 exports[`test/weave.js TAP knots & weave threads > snap 1`] = `
 === murder_scene ===
-The bedroom. This is where it happened. Now to look for clues.
+    The bedroom. This is where it happened. Now to look for clues.
+
   - (top) {true: <- seen_light}
     <- compare_prints(-> top)
 
@@ -165,19 +166,19 @@ The bedroom. This is where it happened. Now to look for clues.
 
 
 === seen_light ===
-seen light -> DONE
+    seen light -> DONE
 
 
 === compare_prints(-> div) ===
-compare_prints -> DONE
+    compare_prints -> DONE
 `
 
 exports[`test/weave.js TAP knots & weave unspecified tunnels > snap 1`] = `
 === window_opts ===
-Through the steamed glass I couldn't see the brook. -> see_prints_on_glass -> 
+    Through the steamed glass I couldn't see the brook. -> see_prints_on_glass -> 
 
 
 === see_prints_on_glass ===
-see prints on glass
-->->
+    see prints on glass
+    ->->
 `
