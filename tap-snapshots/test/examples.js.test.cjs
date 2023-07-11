@@ -63,7 +63,6 @@ exports[`test/examples.js TAP examples 007 > snap 1`] = `
 VAR hasItem = true
 
 {hasItem:
-
   + [ Choice ] 
     -> divert
 }

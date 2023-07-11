@@ -8,7 +8,14 @@ t.test("conditionals", (t) => {
 	test("inline conditional", ` before {true:yes please|no thank you} after `);
 
 	test(
-		"multiline conditiona",
+		"multiline unary",
+		`{true:
+	hello world
+	}`
+	);
+
+	test(
+		"multiline binary",
 		`{true:
 	you are tester
 	- else :hello production
