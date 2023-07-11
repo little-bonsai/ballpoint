@@ -15,6 +15,7 @@ exports[`test/index.js TAP examples eg2 > snap 1`] = `
             ~ temp statesGained = LIST_RANGE(chain, LIST_MIN(chain), x)
             ~ reach(statesToSet)
             ~ return true
+
         - else: ~ return false || reach(statesToSet)
     }
 

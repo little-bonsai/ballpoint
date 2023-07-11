@@ -71,6 +71,7 @@ VAR conditionB = true
     {
         - conditionA: 
             ME:     Some dialogue.
+
         - conditionB: ~ return false
     }
 
@@ -81,7 +82,9 @@ VAR conditionB = true
         - "a" == "d": 
             ~ test1()
             ~ test1()
+
     }
+
     ME: Some more.
 `
 

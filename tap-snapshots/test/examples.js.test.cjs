@@ -103,8 +103,11 @@ VAR conditionB = false
 {
     - conditionA: 
         ME:     Some dialogue.
+
     - conditionB: 
         ME:     Some dialogue.
+
 }
+
 ME: Some more.
 `
