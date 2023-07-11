@@ -111,3 +111,12 @@ VAR conditionB = false
 
 ME: Some more.
 `
+
+exports[`test/examples.js TAP examples 010 > snap 1`] = `
+=== tunnel ===
+    tunnel
+    ->->
+  * ME:     Dialogue.
+    -> tunnel -> 
+    THEY:     Reply.
+`

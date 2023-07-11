@@ -130,5 +130,19 @@ VAR conditionB = false
 		`
 	);
 
+	test(
+		"010",
+		`
+
+	=== tunnel
+	tunnel 
+	->->
+
+    *   ME:     Dialogue.
+        -> tunnel ->        
+		THEY:     Reply.
+		`
+	);
+
 	t.end();
 });
