@@ -59,6 +59,32 @@ exports[`test/conditionals.js TAP conditionals multiline unary > snap 1`] = `
 }
 `
 
+exports[`test/conditionals.js TAP conditionals newlines based on child structure > snap 1`] = `
+VAR conditionA = true
+VAR conditionB = true
+
+
+=== Knot1 ===
+    knot1
+
+=== function test1
+    {
+        - conditionA: 
+            ME:     Some dialogue.
+        - conditionB: ~ return false
+    }
+
+
+=== test2 ===
+    {
+        - "a" == "b": -> Knot1
+        - "a" == "d": 
+            ~ test1()
+            ~ test1()
+    }
+    ME: Some more.
+`
+
 exports[`test/conditionals.js TAP conditionals switch case > snap 1`] = `
 {RANDOM(0, RANDOM(0, 69)):
     - 0: ~ return true

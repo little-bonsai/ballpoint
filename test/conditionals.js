@@ -72,5 +72,33 @@ t.test("conditionals", (t) => {
 	`
 	);
 
+	test(
+		"newlines based on child structure",
+		`
+
+VAR conditionA = true
+VAR conditionB = true
+=== Knot1 ===
+	knot1
+
+=== function test1
+		{
+    - conditionA:
+        ME:     Some dialogue.
+		- conditionB:
+		~return false
+	}
+
+	=== test2
+	{
+	- "a" == "b": -> Knot1
+	- "a" == "d":
+	~ test1()
+	~ test1()
+	}
+	ME: Some more.
+	`
+	);
+
 	t.end();
 });

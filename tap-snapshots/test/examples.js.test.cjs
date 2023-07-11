@@ -73,10 +73,38 @@ VAR hasItem = true
 `
 
 exports[`test/examples.js TAP examples 008 > snap 1`] = `
-{condition:
-    -> outcome1 -> 
-- else: 
-    ~ rodents()
-    -> outcome2 -> 
+VAR condition = true
+
+
+=== outcome1 ===
+    outcome1
+
+
+=== outcome2 ===
+    outcome2
+
+=== function rodents
+    ~ return false
+
+
+=== test ===
+    {condition:
+        -> outcome1 -> 
+    - else: 
+        ~ rodents()
+        -> outcome2 -> 
+    }
+`
+
+exports[`test/examples.js TAP examples 009 > snap 1`] = `
+VAR conditionA = true
+VAR conditionB = false
+
+{
+    - conditionA: 
+        ME:     Some dialogue.
+    - conditionB: 
+        ME:     Some dialogue.
 }
+ME: Some more.
 `

@@ -93,6 +93,15 @@ CONST ICEY = "it is icey"
 	test(
 		"008",
 		`
+VAR condition = true
+=== outcome1
+outcome1
+=== outcome2
+outcome2
+=== function rodents()
+~return false
+
+=== test
 
     { condition:
         -> outcome1 -> 
@@ -102,5 +111,24 @@ CONST ICEY = "it is icey"
     } 
 		`
 	);
+
+	test(
+		"009",
+		`    
+VAR conditionA = true
+VAR conditionB = false
+
+		{
+    - conditionA:
+        ME:     Some dialogue.
+        
+    - conditionB: 
+        ME:     Some dialogue.
+  
+    }
+	ME: Some more.
+		`
+	);
+
 	t.end();
 });
