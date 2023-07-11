@@ -71,3 +71,12 @@ VAR hasItem = true
 === divert ===
     divert
 `
+
+exports[`test/examples.js TAP examples 008 > snap 1`] = `
+{condition:
+    -> outcome1 -> 
+- else: 
+    ~ rodents()
+    -> outcome2 -> 
+}
+`

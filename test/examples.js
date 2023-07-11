@@ -90,5 +90,17 @@ CONST ICEY = "it is icey"
 	`
 	);
 
+	test(
+		"008",
+		`
+
+    { condition:
+        -> outcome1 -> 
+    - else: 
+        ~ rodents()
+        -> outcome2 -> 
+    } 
+		`
+	);
 	t.end();
 });
