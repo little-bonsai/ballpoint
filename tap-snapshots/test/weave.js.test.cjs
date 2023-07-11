@@ -88,7 +88,8 @@ exports[`test/weave.js TAP knots & weave nested knot > snap 1`] = `
             sub ooo
       * * * one point one point two
             sub oot
-      - - - (alpha) gather alpha
+      - - - (alpha) 
+            gather alpha
 
     * * one point two
     - - gather beta
@@ -162,7 +163,8 @@ exports[`test/weave.js TAP knots & weave threads > snap 1`] = `
 === murder_scene ===
     The bedroom. This is where it happened. Now to look for clues.
 
-  - (top) {true: <- seen_light}
+  - (top) 
+    {true: <- seen_light}
     <- compare_prints(-> top)
 
   - -> DONE
