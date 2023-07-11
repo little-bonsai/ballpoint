@@ -144,5 +144,18 @@ VAR conditionB = false
 		`
 	);
 
+	test(
+		"011",
+		`    
+	*   ME:     Line
+        - - (reply)
+          { shuffle:
+          -   THEY: Option 1.
+          -   THEY: Option 2.
+              THEY: Followup.
+		  }
+		  `
+	);
+
 	t.end();
 });

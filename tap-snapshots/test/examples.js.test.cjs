@@ -120,3 +120,14 @@ exports[`test/examples.js TAP examples 010 > snap 1`] = `
     -> tunnel -> 
     THEY:     Reply.
 `
+
+exports[`test/examples.js TAP examples 011 > snap 1`] = `
+  * ME:     Line
+
+    - - (reply) 
+        {shuffle:
+            - THEY: Option 1.
+            - THEY: Option 2.
+              THEY: Followup.
+        }
+`

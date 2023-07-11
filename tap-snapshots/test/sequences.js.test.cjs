@@ -64,6 +64,6 @@ At the table, I drew a card. <>
     - Ace of Hearts.
     - King of Spades.
     - 2 of Diamonds.
-    'You lose this time!' crowed the croupier.
+      'You lose this time!' crowed the croupier.
 }
 `
