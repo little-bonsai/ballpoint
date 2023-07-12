@@ -82,8 +82,11 @@ exports[`test/weave.js TAP knots & weave nested knot > snap 1`] = `
 === Knot ===
     hello world
   * out
+
   * one
+
     * * one point one
+        one point one sub
       * * * one point one point one
             sub ooo
       * * * one point one point two
@@ -102,6 +105,7 @@ exports[`test/weave.js TAP knots & weave nested knot > snap 1`] = `
 
 = stitch
     this is your choice:
+
   * choice one [ if you ] dare
     but will you?
     TODO: flesh out this choice
@@ -134,8 +138,10 @@ exports[`test/weave.js TAP knots & weave nested knot > snap 1`] = `
 
 exports[`test/weave.js TAP knots & weave simple knot > snap 1`] = `
 === indentTest1 ===
+
   * one
     one child
+
     * * two
         two child
       * * * three
@@ -162,7 +168,6 @@ exports[`test/weave.js TAP knots & weave stitch function > snap 1`] = `
 exports[`test/weave.js TAP knots & weave threads > snap 1`] = `
 === murder_scene ===
     The bedroom. This is where it happened. Now to look for clues.
-
   - (top) 
     {true: <- seen_light}
     <- compare_prints(-> top)

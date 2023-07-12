@@ -35,7 +35,6 @@ exports[`test/examples.js TAP examples 003 > snap 1`] = `
 exports[`test/examples.js TAP examples 004 > snap 1`] = `
 === knot ===
     x
-
   - ->->
 LIST walkarounddeck = WANNA_WALK_AROUND_DECK, DID_WALK_AROUND_DECK
 `
