@@ -45,6 +45,13 @@ exports[`test/conditionals.js TAP conditionals inline conditional > snap 1`] = `
 before {true:yes please|no thank you} after
 `
 
+exports[`test/conditionals.js TAP conditionals inline conditional Tunnel > snap 1`] = `
+=== Tunnel ===
+    tunnel
+    ->->
+    {true: -> Tunnel -> }
+`
+
 exports[`test/conditionals.js TAP conditionals multiline binary > snap 1`] = `
 {true:
     you are tester

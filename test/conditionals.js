@@ -100,5 +100,15 @@ VAR conditionB = true
 	`
 	);
 
+	test(
+		"inline conditional Tunnel",
+		`
+		=== Tunnel
+		tunnel 
+		->->
+
+{true : -> Tunnel -> }
+`
+	);
 	t.end();
 });
