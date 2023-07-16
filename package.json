@@ -1,6 +1,6 @@
 {
 	"name": "@little-bonsai/ballpoint",
-	"version": "0.7.2",
+	"version": "0.7.3",
 	"description": "cli for formatting ink files",
 	"license": "MIT",
 	"main": "index.js",
