@@ -18,6 +18,7 @@ exports[`test/basic.js TAP basic includes > snap 1`] = `
 INCLUDE ./foo.ink
 INCLUDE ./bar/baz.ink
 INCLUDE ./qux.ink
+
 VAR isFormatted = false
 `
 
