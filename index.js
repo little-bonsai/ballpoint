@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require("fs/promises");
+const fsSync = require("fs");
 const arg = require("arg");
 
 require("inkjs/compiler/Parser/InkParser");
@@ -71,6 +72,17 @@ async function doForFile(args, inputFilename) {
 	}
 }
 
+async function doForStdIn() {
+	const src = fsSync.readFileSync(process.stdin.fd, "utf8");
+	const { data, error: formatError } = format(src, "./stdin.ink", {});
+
+	if (formatError) {
+		return src;
+	} else {
+		process.stdout.write(data);
+	}
+}
+
 async function main(args) {
 	if (args["--help"]) {
 		return printHelp();
@@ -79,6 +91,11 @@ async function main(args) {
 		console.log({ args });
 		console.log("");
 	}
+
+	if (args["--stdin"]) {
+		await doForStdIn();
+	}
+
 	for (const inputFilename of args._) {
 		process.stdout.write(inputFilename);
 		const { error, info } = await doForFile(args, inputFilename);
@@ -107,6 +124,7 @@ const argSpec = {
 	"--version": Boolean,
 	"--verbose": arg.COUNT, // Counts the number of times --verbose is passed
 
+	"--stdin": Boolean,
 	"--write": Boolean,
 	"--validate": Boolean,
 
@@ -130,6 +148,7 @@ Arguments:
         --version
         --verbose
 
+        --stdin          : Read input from stdin, output to stdout
         --validate       : Compile the formatted output & check against the compiled input for diferences
         --write          : Overwrite the files
 
