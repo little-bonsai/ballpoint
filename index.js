@@ -77,7 +77,8 @@ async function doForStdIn() {
 	const { data, error: formatError } = format(src, "./stdin.ink", {});
 
 	if (formatError) {
-		return src;
+		process.stderr.write(formatError);
+		process.stdout.write(src);
 	} else {
 		process.stdout.write(data);
 	}
