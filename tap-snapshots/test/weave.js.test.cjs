@@ -29,6 +29,7 @@ VAR reallyReallyLongConditionThatGoesOnAndOnAndShouldReallyCauseALineBreak = tru
 
 
 === knot ===
+  * {true} Always available
   * {isCool} I ride motorbikes
   * {not isCool} I hate motorbikes
   * { isCool } 

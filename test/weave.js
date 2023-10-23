@@ -16,7 +16,7 @@ two child
 *** three
 three child
 - -> DONE
-`
+`,
 	);
 
 	test(
@@ -69,7 +69,7 @@ I will ask another question
 === fightScene
 = rumble
 let's fight
-`
+`,
 	);
 
 	test(
@@ -80,6 +80,7 @@ let's fight
 		VAR reallyReallyLongConditionThatGoesOnAndOnAndShouldReallyCauseALineBreak = true
 
 	=== knot ===
+	* { true } Always available
 	* { isCool } I ride motorbikes
 	* { not isCool } I hate motorbikes
 	* { isCool } { ownsMotorbike } get on babe
@@ -90,7 +91,7 @@ let's fight
 = motorbikeImposibility
 but that's ... not possible
 
-	`
+	`,
 	);
 
 	test(
@@ -108,7 +109,7 @@ but that's ... not possible
 = motorbikeImposibility
 but that's ... not possible
 
-	`
+	`,
 	);
 
 	test(
@@ -117,7 +118,7 @@ but that's ... not possible
 	something ->->
 	- gather
 
-	`
+	`,
 	);
 
 	test(
@@ -126,7 +127,7 @@ but that's ... not possible
 	this line <>
 	and this line
 
-	`
+	`,
 	);
 
 	test(
@@ -134,7 +135,7 @@ but that's ... not possible
 		`
 	*   (dobed) [The bed...]
 	* *     {TURNS_SINCE(-> dobed) > 1} [Something else?]
-	`
+	`,
 	);
 
 	test(
@@ -150,7 +151,7 @@ The bedroom. This is where it happened. Now to look for clues.
 seen light  ->DONE
 === compare_prints( -> div)
 compare_prints  ->DONE
-		`
+		`,
 	);
 
 	test(
@@ -163,7 +164,7 @@ Through the steamed glass I couldn't see the brook. -> see_prints_on_glass -> wi
 see prints on glass
 ->->
 
-`
+`,
 	);
 	test(
 		"unspecified tunnels",
@@ -175,7 +176,7 @@ Through the steamed glass I couldn't see the brook. -> see_prints_on_glass ->
 see prints on glass
 ->->
 
-`
+`,
 	);
 
 	test(
@@ -190,7 +191,7 @@ see prints on glass
 	other
 	=== continue
 	continue
-		`
+		`,
 	);
 
 	test(
@@ -200,7 +201,7 @@ see prints on glass
     - - (bedhub)
     * *     [Lift the bedcover]
             I lifted back the bedcover. The duvet underneath was crumpled.
-	`
+	`,
 	);
 
 	test(
@@ -208,7 +209,7 @@ see prints on glass
 		`
 	= compare_prints (-> backto)
 	foo
-	`
+	`,
 	);
 
 	t.end();
