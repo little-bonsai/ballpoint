@@ -79,10 +79,10 @@ X,
 Y,
 Z
 
-LIST breakByLineLength = AListItem,
+LIST breakByLineLength = AListItem = 0,
 BListItem,
 CListItem,
-DListItem,
+DListItem ,
 EListItem,
 FListItem,
 GListItem,

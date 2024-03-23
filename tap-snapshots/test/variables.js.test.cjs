@@ -15,7 +15,7 @@ LIST breakByExplicitValue = A, B, C, D,
 E = 9, F, G, H, I, J, K, L, M, N, 
 (O) = 100, P, Q, R, S, T, U, (V), W, X, Y, Z
 
-LIST breakByLineLength = AListItem, BListItem, CListItem, DListItem, EListItem, FListItem, GListItem, HListItem, 
+LIST breakByLineLength = AListItem = 0, BListItem, CListItem, DListItem, EListItem, FListItem, GListItem, HListItem, 
 IListItem, JListItem, KListItem, LListItem, MListItem, NListItem, (OListItem), PListItem, QListItem, 
 RListItem, SListItem, TListItem, UListItem, (VListItem), WListItem, XListItem, YListItem, ZListItem
 `

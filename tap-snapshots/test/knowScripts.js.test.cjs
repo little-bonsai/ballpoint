@@ -73,13 +73,8 @@ VAR knifeState = (under_bed)
     //
     // Knowledge chains
     //
-
-LIST BedKnowledge = neatly_made, crumpled_duvet, hastily_remade, body_on_bed, murdered_in_bed, 
-murdered_while_asleep
-
-LIST KnifeKnowledge = prints_on_knife, joe_seen_prints_on_knife, joe_wants_better_prints, 
-joe_got_better_prints
-
+LIST BedKnowledge = neatly_made, crumpled_duvet, hastily_remade, body_on_bed, murdered_in_bed, murdered_while_asleep
+LIST KnifeKnowledge = prints_on_knife, joe_seen_prints_on_knife, joe_wants_better_prints, joe_got_better_prints
 LIST WindowKnowledge = steam_on_glass, fingerprints_on_glass, fingerprints_on_glass_match_knife
 
 //
