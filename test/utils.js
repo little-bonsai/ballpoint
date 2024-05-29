@@ -1,5 +1,5 @@
-require("inkjs/compiler/Parser/InkParser");
-require("inkjs/compiler/Parser/StatementLevel");
+require("../vendor/compiler/Parser/InkParser");
+require("../vendor/compiler/Parser/StatementLevel");
 const { Compiler } = require("inkjs");
 
 const format = require("../lib/format");
@@ -13,7 +13,7 @@ exports.runTest = function runTest(
 		filepath: sourceFilename = "test.ink",
 		log = false,
 		withCompile = true,
-	} = {}
+	} = {},
 ) {
 	t.test(name, async (t) => {
 		const { data: first } = format(src, sourceFilename);
@@ -42,13 +42,13 @@ exports.runTest = function runTest(
 				};
 				try {
 					const firstJson = JSON.parse(
-						new Compiler(src, compileOptions).Compile().ToJson()
+						new Compiler(src, compileOptions).Compile().ToJson(),
 					);
 					try {
 						const secondJson = JSON.parse(
 							new Compiler(first, compileOptions)
 								.Compile()
-								.ToJson()
+								.ToJson(),
 						);
 						t.same(firstJson, secondJson);
 						return firstJson;

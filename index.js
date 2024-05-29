@@ -4,8 +4,8 @@ const fs = require("fs/promises");
 const fsSync = require("fs");
 const arg = require("arg");
 
-require("inkjs/compiler/Parser/InkParser");
-require("inkjs/compiler/Parser/StatementLevel");
+require("./vendor/compiler/Parser/InkParser");
+require("./vendor/compiler/Parser/StatementLevel");
 
 const format = require("./lib/format");
 const validate = require("./lib/validate");
@@ -27,7 +27,7 @@ function doValidation(args, src, out, inputFilename) {
 				.flatMap((line, i, { length }) => {
 					const lineMarker = String(i + 1).padEnd(
 						1 + Math.ceil(Math.log10(length)),
-						" "
+						" ",
 					);
 
 					return i === lineNumber - 1
@@ -38,7 +38,7 @@ function doValidation(args, src, out, inputFilename) {
 									.fill(" ")
 									.join("") +
 									new Array(line.length).fill("^").join(""),
-						  ]
+							]
 						: lineMarker + line;
 				})
 				.slice(Math.max(0, lineNumber - 3), lineNumber + 4)
@@ -158,7 +158,7 @@ Arguments:
         -w = --write
         -v = --verbose
 `.trim(),
-		"\n"
+		"\n",
 	);
 }
 
