@@ -43,6 +43,7 @@ sub oot
 * five
 - gather sigma
 =stitch
+// this is a stich about choices
 this is your choice:
 * choice one [ if you ] dare
 but will you?

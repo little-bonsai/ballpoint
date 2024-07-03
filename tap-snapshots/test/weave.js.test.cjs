@@ -105,6 +105,7 @@ exports[`test/weave.js TAP knots & weave nested knot > snap 1`] = `
   - gather sigma
 
 = stitch
+    // this is a stich about choices
     this is your choice:
 
   * choice one [ if you ] dare

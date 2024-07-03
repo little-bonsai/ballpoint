@@ -10,7 +10,7 @@
 	"scripts": {
 		"build": "rm -rf vendor && cp -r node_modules/inkjs vendor",
 		"test": "tap --test-ignore=util",
-		"test-watch": "TAP_SNAPSHOT=1 tap -w --test-ignore=util",
+		"test-watch": "TAP_SNAPSHOT=1 tap -w --test-ignore=util --no-coverage-report",
 		"test-init": "curl https://raw.githubusercontent.com/inkle/the-intercept/master/Assets/Ink/TheIntercept.ink > intercept.ink"
 	},
 	"dependencies": {
@@ -19,20 +19,12 @@
 		"jest-diff": "^29.5.0",
 		"line-column": "^1.0.2"
 	},
-	"files": [
-		"index.js",
-		"lib/*",
-		"vendor"
-	],
+	"files": ["index.js", "lib/*", "vendor"],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/little-bonsai/ballpoint.git"
 	},
-	"keywords": [
-		"ink",
-		"cli",
-		"formatter"
-	],
+	"keywords": ["ink", "cli", "formatter"],
 	"author": {
 		"name": "Freddie Gilbraith",
 		"email": "freddie.gilbraith@littlebonsai.co.uk",

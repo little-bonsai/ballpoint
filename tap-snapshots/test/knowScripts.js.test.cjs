@@ -7,8 +7,8 @@
 'use strict'
 exports[`test/knowScripts.js TAP Example example.ink > snap 1`] = `
 -> murder_scene
-// Helper function: popping elements from lists
 
+// Helper function: popping elements from lists
 === function pop(ref list)
     ~ temp x = LIST_MIN(list)
     ~ list -= x
@@ -77,11 +77,10 @@ LIST BedKnowledge = neatly_made, crumpled_duvet, hastily_remade, body_on_bed, mu
 LIST KnifeKnowledge = prints_on_knife, joe_seen_prints_on_knife, joe_wants_better_prints, joe_got_better_prints
 LIST WindowKnowledge = steam_on_glass, fingerprints_on_glass, fingerprints_on_glass_match_knife
 
+
 //
 // Content
 //
-
-
 === murder_scene ===
     The bedroom. This is where it happened. Now to look for clues.
   - (top) 
@@ -373,25 +372,26 @@ VAR DEBUG = false
   * [Beginning...]	-> start
   * [Framing Hooper...] -> claim_hooper_took_component
   * [In with Hooper...] -> inside_hoopers_hut
-- else: // First diversion: where do we begin?
+- else: 
+    // First diversion: where do we begin?
     -> start
 }
+
 /*--------------------------------------------------------------------------------
 	Wrap up character movement using functions, in case we want to develop this logic in future
 --------------------------------------------------------------------------------*/
-
 === function lower(ref x)
     ~ x = x - 1
 
 === function raise(ref x)
     ~ x = x + 1
+
+
 /*--------------------------------------------------------------------------------
 
 	Start the story!
 
 --------------------------------------------------------------------------------*/
-
-
 === start ===
     //  Intro
   - They are keeping me waiting.
@@ -496,7 +496,8 @@ VAR DEBUG = false
     // Why you're here
   - "We need that component," he says.
 
-  - //"There's no alternative, of course," he continues.
+  - 
+    //"There's no alternative, of course," he continues.
     {not missing_reel:
         -> missing_reel -> harris_demands_component
     }
@@ -612,8 +613,8 @@ VAR DEBUG = false
     "This is time of war," Harris answers.  "And by God, if I have to shoot you to recover the component, I will. Understand?" He points at the mug, -> drinkit
   - (silence) 
     There's an icy silence. {forceful > 2:I've cracked him a little.|{evasive > 2:He's tiring of my evasiveness.}}
-    // Drink tea and talk
 
+    // Drink tea and talk
   - (drinkit) 
     "Now drink your tea and talk."
   * {teacup} [Drink] 			-> drinkfromcup
@@ -912,11 +913,11 @@ VAR DEBUG = false
   * [Lie]
     "I'm sure I saw him this evening, talking to someone by the fence on the woodland side of the compound. He's probably passed it on already. You'll have to ask him."
     -> claim_hooper_took_component.harrumphs
+
+
 /*--------------------------------------------------------------------------------
 	Trying to frame Hooper
 --------------------------------------------------------------------------------*/
-
-
 === claim_hooper_took_component ===
     //  Blame Hooper
     "I saw Hooper take it."
@@ -1060,11 +1061,11 @@ VAR DEBUG = false
     "Too bad."
   * [Lie] -> yes
   - -> inside_hoopers_hut
+
+
 /*--------------------------------------------------------------------------------
 	Quick visit to see Hooper
 --------------------------------------------------------------------------------*/
-
-
 === harris_takes_you_to_hooper ===
     // Past Hooper
     Harris gets to his feet. "All right," he says. "I should no better than to trust a clever man, but we'll give it a go."
@@ -1192,11 +1193,11 @@ VAR DEBUG = false
     Harris hustles me over to the barracks. "I hope that's the end of it," he mutters.
     "Just be sure to let him out," I reply. "And then see where he goes."
     -> slam_door_shut_and_gone
+
+
 /*--------------------------------------------------------------------------------
 	Left alone overnight
 --------------------------------------------------------------------------------*/
-
-
 === slam_door_shut_and_gone ===
     Then they slam the door shut, and it locks.
     {hooperClueType == NONE:
@@ -1294,7 +1295,8 @@ VAR DEBUG = false
   * [Evade] 	
     <i>But what is a country, after all? A country is not a concept, not an ideal. Every country falls, its borders shift and move, its language disappears to be replaced by another. Neither the Reich nor the British Empire will survive forever, so what use is my loyalty to either? </i>
     <i>I may as well, therefore, look after myself. Something I have attempted, but failed miserably, to do.</i>
-  - //  Tell us where
+  - 
+    //  Tell us where
     "I'm afraid we have only one option, Manning," Harris says. "Please, man. Tell us where the component is."
     ~ notraitor = true
     ~ losttemper = false
@@ -1368,11 +1370,11 @@ VAR DEBUG = false
         It's no good. That's only half a solution. I couldn't be happy with that.
       * * * [Back to the barracks] 			-> return_to_room_after_excursion
       * * * {gotcomponent && (not go_to_hoopers_dorm)} [To Hooper's dorm] -> go_to_hoopers_dorm
+
+
 /*--------------------------------------------------------------------------------
 	Visit Hooper's dorm overnight
 --------------------------------------------------------------------------------*/
-
-
 === go_to_hoopers_dorm ===
     // Hooper's Dorm
     I creep around the outside of the huts towards Hooper's dorm. Time to wrap up this little game once and for all. A few guards patrol the area at night but not many — after all, very few know this place even exists.
@@ -1430,32 +1432,32 @@ VAR DEBUG = false
     ~ gotcomponent = false
     ~ throwncomponentaway = true
     -> return_to_room_after_excursion
+
+
 /*--------------------------------------------------------------------------------
 	Ending: Run away from the camp
 --------------------------------------------------------------------------------*/
-
-
 === live_on_the_run ===
     Better to live on the run than die on the spit. Creeping around the edge of the compound{gotcomponent:, the Bombe component heavy in my pocket}, I make my way to the front gate. As always, it's manned by two guards, but I slip past their box by crawling on my belly.
     And then I'm on the road. Walking, not running. Silent. Free.
     //  End - Run Away
     For the moment, at least.
     -> END
+
+
 /*--------------------------------------------------------------------------------
 	Return to room after slipping out
 --------------------------------------------------------------------------------*/
-
-
 === return_to_room_after_excursion ===
     {gotcomponent:The weight of the Bombe component safely in my jacket|Satisfied}, I return the short way up the paths between the huts to the barrack block and the broken window.
     It's a little harder getting back through — the window is higher off the ground than the floor inside — but after a decent bit of jumping and hauling I manage to get my elbows up, and then one leg, and finally I collapse inside, quite winded and out breath.
 
   * [Wait]  	-> night_passes
+
+
 /*--------------------------------------------------------------------------------
 	Night passes
 --------------------------------------------------------------------------------*/
-
-
 === night_passes ===
     // In room smashed glass
     The rest of the night passes slowly. I sleep a little, dozing mostly. Then I'm woken by the rooster in the yard. The door opens, and Harris comes in. He takes one look at the broken window and frowns with puzzlement.
@@ -1678,11 +1680,11 @@ VAR DEBUG = false
     ~ revealedhooperasculprit = false
     ~ losttemper = false
     -> harris_threatens_lynching
+
+
 /*---------------------------------------------------------------
 	Ending: they don't think it was you
 ---------------------------------------------------------------*/
-
-
 === head_for_my_dorm_free ===
     I head for my dorm, intent on a bath, breakfast, a glance at the crossword before the other men get to it, and then on with work. They should have replaced the component in the Bombe by now. We will only be a day behind.
     {not framedhooper:
@@ -1782,11 +1784,11 @@ VAR DEBUG = false
     //   End - Caught in AM
     He leads me across the yard. Back towards Hut 5 to be decoded, and taken to pieces, once again.
     -> END
+
+
 /*---------------------------------------------------------------
 	Ending: they think it was you
 ---------------------------------------------------------------*/
-
-
 === harris_threatens_lynching ===
     {harris_certain_is_you:He passes a hand across his eyes with a long look of despair.|He gets to his feet, and gathers his gloves from the table top.}
     "I'm going to go outside and organise a rope. That'll take about twelve minutes. That's how long you have to decide."

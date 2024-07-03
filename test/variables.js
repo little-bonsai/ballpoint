@@ -10,11 +10,15 @@ t.test("variables", (t) => {
 		`
 	  VAR forceful = 0
 CONST awesome = true
+
+//These are some colors
 LIST colors = red, (green), blue
+
+// These are some items
 LIST ItemsWithValue =  banana = 100,  apples, carrot = 10, oranges
 VAR emptyList = ()
 VAR tf2Colors = (red, blue)
-`
+`,
 	);
 
 	test(
@@ -30,7 +34,7 @@ VAR tf2Colors = (red, blue)
 
 ~ str = "hello"
 ~ str = "world"
-`
+`,
 	);
 
 	test(
@@ -38,7 +42,7 @@ VAR tf2Colors = (red, blue)
 		`
 	VAR z = 0
 	~z = (1 + 2) / (3 * 4 * 5)
-	`
+	`,
 	);
 
 	test(
@@ -46,7 +50,7 @@ VAR tf2Colors = (red, blue)
 		`
 ===knot
 ~ temp noPrefix = "{|Nah, |Sorry, }"
-`
+`,
 	);
 
 	test(
@@ -105,7 +109,7 @@ WListItem,
 XListItem,
 YListItem,
 ZListItem
-`
+`,
 	);
 
 	t.end();
