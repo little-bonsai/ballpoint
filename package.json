@@ -1,6 +1,6 @@
 {
 	"name": "@little-bonsai/ballpoint",
-	"version": "0.12.0",
+	"version": "0.12.1-0",
 	"description": "cli for formatting ink files",
 	"license": "MIT",
 	"main": "index.js",
@@ -19,12 +19,20 @@
 		"jest-diff": "^29.5.0",
 		"line-column": "^1.0.2"
 	},
-	"files": ["index.js", "lib/*", "vendor"],
+	"files": [
+		"index.js",
+		"lib/*",
+		"vendor"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/little-bonsai/ballpoint.git"
 	},
-	"keywords": ["ink", "cli", "formatter"],
+	"keywords": [
+		"ink",
+		"cli",
+		"formatter"
+	],
 	"author": {
 		"name": "Freddie Gilbraith",
 		"email": "freddie.gilbraith@littlebonsai.co.uk",
