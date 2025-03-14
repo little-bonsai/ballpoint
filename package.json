@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"main": "index.js",
 	"bin": {
-		"ballpoint": "./index.js"
+		"ballpoint": "main.js"
 	},
 	"scripts": {
 		"build": "rm -rf vendor && cp -r node_modules/inkjs vendor",
@@ -19,20 +19,12 @@
 		"jest-diff": "^29.5.0",
 		"line-column": "^1.0.2"
 	},
-	"files": [
-		"index.js",
-		"lib/*",
-		"vendor"
-	],
+	"files": ["index.js", "lib/*", "vendor"],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/little-bonsai/ballpoint.git"
 	},
-	"keywords": [
-		"ink",
-		"cli",
-		"formatter"
-	],
+	"keywords": ["ink", "cli", "formatter"],
 	"author": {
 		"name": "Freddie Gilbraith",
 		"email": "freddie.gilbraith@littlebonsai.co.uk",
