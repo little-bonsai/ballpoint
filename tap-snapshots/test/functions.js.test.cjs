@@ -7,7 +7,6 @@
 'use strict'
 exports[`test/functions.js TAP functions 0-arity function > snap 1`] = `
 EXTERNAL cutSceneAdvance()
-
 ~ cutSceneAdvance()
 before{cutSceneAdvance()} after
 `
@@ -24,6 +23,12 @@ exports[`test/functions.js TAP functions externals > snap 1`] = `
 EXTERNAL functionName(a, b, c)
 `
 
+exports[`test/functions.js TAP functions externals with fallback > snap 1`] = `
+EXTERNAL functionName(a, b, c)
+=== function functionName(a, b, c)
+    ~ return (a + b) + c
+`
+
 exports[`test/functions.js TAP functions function > snap 1`] = `
 === function alter(ref x, k)
     ~ temp altered = x + k
@@ -33,6 +38,17 @@ exports[`test/functions.js TAP functions function > snap 1`] = `
 
 exports[`test/functions.js TAP functions inline call > snap 1`] = `
 the time is now {RANDOM(1, RANDOM(1, 6))} o'clock
+`
+
+exports[`test/functions.js TAP functions many externals and functions > snap 1`] = `
+EXTERNAL foo()
+EXTERNAL bar(a, b, c)
+=== function bar(a, b, c)
+    ~ return (a + b) + c
+
+=== function baz(a, b, c)
+    ~ return (a + b) + c
+EXTERNAL qux(a, b, c)
 `
 
 exports[`test/functions.js TAP functions outline call > snap 1`] = `
