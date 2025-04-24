@@ -10,46 +10,60 @@ t.test("functions", (t) => {
 	test(
 		"outline call",
 		`hello
-	~ RANDOM(1,RANDOM(1,6))
-	world`,
+		~ RANDOM(1,RANDOM(1,6))
+		world`,
 	);
 
 	test(
 		"function",
 		`
-	=== function alter(ref x, k) ===
-	~ temp altered = x + k
-	~ x = altered
-	~ return x
-	`,
+		=== function alter(ref x, k) ===
+		~ temp altered = x + k
+		~ x = altered
+		~ return x
+		`,
 	);
 
 	test(
 		"externals",
 		`
-	EXTERNAL functionName(a,b,c)
-	`,
+		EXTERNAL functionName(a,b,c)
+		`,
 	);
 
 	test(
 		"externals with fallback",
 		`
-EXTERNAL functionName(a,b,c)
-=== function functionName(a,b,c)
-~return a + b+ c
-`,
+	EXTERNAL functionName(a,b,c)
+	=== function functionName(a,b,c)
+	~return a + b+ c
+	`,
 	);
 
 	test(
 		"many externals and functions",
 		`
 EXTERNAL foo()
-EXTERNAL bar(a,b,c)
-=== function bar(a,b,c)
-~return a + b+ c
-=== function baz(a,b,c)
-~return a + b+ c
-EXTERNAL qux(a,b,c)
+EXTERNAL makeCampaignId()
+=== function makeCampaignId
+    ~ return false
+EXTERNAL mercerListValueToString(a)
+
+=== function mercerListValueToString(a)
+    ~ return false
+EXTERNAL mercerDispatchAction0(a)
+
+=== function mercerDispatchAction0(a)
+    ~ return false
+EXTERNAL mercerDispatchAction1(a, b)
+
+=== function mercerDispatchAction1(a, b)
+    ~ return false
+EXTERNAL mercerDispatchAction2(a, b, c)
+
+=== function mercerDispatchAction2(a, b, c)
+    ~ return false
+
 `,
 	);
 

@@ -42,13 +42,26 @@ the time is now {RANDOM(1, RANDOM(1, 6))} o'clock
 
 exports[`test/functions.js TAP functions many externals and functions > snap 1`] = `
 EXTERNAL foo()
-EXTERNAL bar(a, b, c)
-=== function bar(a, b, c)
-    ~ return (a + b) + c
 
-=== function baz(a, b, c)
-    ~ return (a + b) + c
-EXTERNAL qux(a, b, c)
+EXTERNAL makeCampaignId()
+=== function makeCampaignId
+    ~ return false
+
+EXTERNAL mercerListValueToString(a)
+=== function mercerListValueToString(a)
+    ~ return false
+
+EXTERNAL mercerDispatchAction0(a)
+=== function mercerDispatchAction0(a)
+    ~ return false
+
+EXTERNAL mercerDispatchAction1(a, b)
+=== function mercerDispatchAction1(a, b)
+    ~ return false
+
+EXTERNAL mercerDispatchAction2(a, b, c)
+=== function mercerDispatchAction2(a, b, c)
+    ~ return false
 `
 
 exports[`test/functions.js TAP functions outline call > snap 1`] = `
