@@ -3,6 +3,8 @@
 const fs = require("fs/promises");
 const fsSync = require("fs");
 const arg = require("arg");
+const { globIterate } = require("glob");
+const untildify = require("untildify").default;
 
 require("./vendor/compiler/Parser/InkParser");
 require("./vendor/compiler/Parser/StatementLevel");
@@ -97,25 +99,27 @@ async function main(args) {
 		await doForStdIn();
 	}
 
-	for (const inputFilename of args._) {
-		process.stdout.write(inputFilename);
-		const { error, info } = await doForFile(args, inputFilename);
+	for (const arg of args._) {
+		for await (const inputFilename of globIterate(untildify(arg))) {
+			process.stdout.write(inputFilename);
+			const { error, info } = await doForFile(args, inputFilename);
 
-		if (error) {
-			process.stdout.write(" [ Error ]\n");
-			if (args["--verbose"]) {
+			if (error) {
+				process.stdout.write(" [ Error ]\n");
+				if (args["--verbose"]) {
+					console.log(info);
+				}
+				console.log(error);
+				break;
+			}
+
+			process.stdout.write(" [ Ok ]\n");
+			if (info) {
 				console.log(info);
 			}
-			console.log(error);
-			break;
-		}
 
-		process.stdout.write(" [ Ok ]\n");
-		if (info) {
-			console.log(info);
+			continue;
 		}
-
-		continue;
 	}
 }
 
